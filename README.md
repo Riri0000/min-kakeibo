@@ -50,6 +50,11 @@ Twitterの投資・資産運用アカウントの人達
 画面が縦長なのでスクロールしながら見てください。<br>
 https://xd.adobe.com/view/13fd40f4-2b6f-4f9c-b0c2-23a6d07947d6-46ae/
 
+### ER図
+https://drive.google.com/file/d/1Fg-wB9FQ_xtKBTbIlVFpT6QYwKHo8YLw/view?usp=sharing<br>
+![Sharing_Kakeibo](https://user-images.githubusercontent.com/67212652/100559467-19bb9700-32f6-11eb-8bf3-17b21001db63.png)
+
+
 ## 使用技術
 - Ruby 2.7.2
 - Rails 6.1.0
@@ -58,8 +63,6 @@ https://xd.adobe.com/view/13fd40f4-2b6f-4f9c-b0c2-23a6d07947d6-46ae/
 ### バックエンド
 
 ### 主要なGem
-
-### ER図
 
 ### フロントエンド
 
