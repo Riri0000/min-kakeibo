@@ -57,7 +57,7 @@ https://drive.google.com/file/d/1Fg-wB9FQ_xtKBTbIlVFpT6QYwKHo8YLw/view?usp=shari
 
 ## 使用技術
 - Ruby 2.7.2
-- Rails 6.1.0
+- Rails 6.0.3
 - Vue.js 2.6.11
 <!--
 ### バックエンド
