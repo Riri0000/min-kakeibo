@@ -39,6 +39,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'rails_best_practices'
+  gem 'rubocop-rspec'
 
   # Debugger
   gem 'pry-byebug'
