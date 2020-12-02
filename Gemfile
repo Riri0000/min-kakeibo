@@ -47,6 +47,9 @@ group :development, :test do
   # Provides a better error page for Rails
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'binding_of_caller', '~> 0.8.0'
+
+  # 環境変数設定用
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 end
 
 group :development do
