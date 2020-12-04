@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:index, :new, :create]
+  skip_before_action :require_login, only: %i[index new create]
 
   def new
     @user = User.new
@@ -17,8 +17,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   private
 

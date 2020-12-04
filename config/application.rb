@@ -32,19 +32,19 @@ module SharingKakeibo
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-  # generatorで余計なファイルを生成しない
-  # テストフレームワークをRSpecへ
-  config.generators do |g|
-    g.skip_routes true
-    g.assets false
-    g.helper false
-    g.test_framework :rspec,
-                     fixtures: false,
-                     view_specs: false,
-                     helper_specs: false,
-                     routing_specs: false
-    g.fixture_replacement :factory_bot, dir: 'spec/factories'
-  end
+    # generatorで余計なファイルを生成しない
+    # テストフレームワークをRSpecへ
+    config.generators do |g|
+      g.skip_routes true
+      g.assets false
+      g.helper false
+      g.test_framework :rspec,
+                       fixtures: false,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
+    end
 
     # 国際化対応/デフォルト言語の設定/読み込む対象のファイルを増やしている
     config.i18n.default_locale = :ja
