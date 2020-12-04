@@ -2,9 +2,9 @@
 .container
   = form_with url: login_path, method: :post, local: true do |f|
     .form-group
-      = f.label :email
+      = f.label :email, User.human_attribute_name(:email)
       = f.email_field :email, class: 'form-control'
     .form-group
-      = f.label :password
+      = f.label :password, User.human_attribute_name(:password)
       = f.password_field :password, class: 'form-control'
-    = f.submit 'ログイン', class: 'btn btn-primary mt-3'
+    = f.submit (t 'defaults.login'), class: 'btn btn-primary mt-3'

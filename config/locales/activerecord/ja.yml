@@ -1,0 +1,13 @@
+# User.model_name.human / User.human_attribute_name({attr_name})で使用
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+    attributes:
+      user:
+        nickname: 'ユーザー名'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        profile_image: 'プロフィール画像'
+        
