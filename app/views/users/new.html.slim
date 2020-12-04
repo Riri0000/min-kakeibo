@@ -1,0 +1,17 @@
+/ （仮)とりあえず仮実装。もっときれいに整えること。CSSフレームワーク変えるかも。
+h1 ユーザー登録
+.container
+  = form_with model: @user, local: true do |f|
+    .form-group
+      = f.label :nickname
+      = f.text_field :nickname, class: 'form-control'
+    .form-group
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
+    .form-group
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+    .form-group
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, class: 'form-control'
+    = f.submit 'ユーザー登録', class: 'btn btn-primary mt-3'
