@@ -2,6 +2,7 @@
 h1 ユーザー登録
 .container
   = form_with model: @user, local: true do |f|
+    = render 'shared/error_message', object: f.object
     .form-group
       = f.label :nickname
       = f.text_field :nickname, class: 'form-control'
