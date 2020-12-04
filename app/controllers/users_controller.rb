@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:index, :new, :create]
-  
+
   def new
     @user = User.new
   end
@@ -10,10 +10,9 @@ class UsersController < ApplicationController
 
     if @user.save
       # 一覧画面へリダイレクト（まだ作ってないので、とりあえずrootへ)＆サクセスメッセージ
-      flash[:success] = 'ユーザー登録しました'
-      redirect_to root_path
+      redirect_to root_path, success: t('.success')
     else
-      flash[:danger] = 'ユーザー登録に失敗しました'
+      flash[:danger] = t('.fail')
       render :new
     end
   end
