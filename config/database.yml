@@ -16,6 +16,7 @@ default: &default
   username: root
   password: <%= ENV['DATABASE_DEV_PASSWORD'] %>
   host: localhost
+  collation: utf8mb4_bin
 
 development:
   <<: *default
