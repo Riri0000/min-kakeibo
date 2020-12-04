@@ -29,7 +29,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # 開発環境とテスト環境のみ対象
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
   # RSpec
   gem 'factory_bot_rails'
@@ -69,8 +69,18 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # slim
 gem 'slim-rails'
 gem 'html2slim'
+
+# ログイン認証
+gem 'sorcery', '~> 0.15.0'
+
+# CSSフレームワーク
+gem 'bootstrap', '~> 5.0.0.alpha3'
+gem 'jquery-rails'
+
+# アイコン
+gem 'font-awesome-sass', '~> 5.15', '>= 5.15.1'
