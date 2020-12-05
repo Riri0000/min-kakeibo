@@ -48,6 +48,6 @@ module SharingKakeibo
 
     # 国際化対応/デフォルト言語の設定/読み込む対象のファイルを増やしている
     config.i18n.default_locale = :ja
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
   end
 end
