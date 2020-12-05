@@ -23,7 +23,7 @@ jobs:
       # dockerコンテナの立ち上げを待つ
       - run:
           name: wait for database
-          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 5m
 
       # キャッシュがあれば、リストアする。keysでリストアするキャッシュを複数指定
       - restore_cache:
