@@ -9,70 +9,63 @@ jobs:
         environment:
           - BUNDLER_VERSION: 2.1.4
           - RAILS_ENV: 'test'
-    executor: ruby/default
+          - DB_HOST: 127.0.0.1
+      - image: circleci/mysql:5.7
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_USER: root
+          - MYSQL_DB: ci_test
+    working_directory: ~/repo
     steps:
-      - run: echo 'HEllO World!'
+      # CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
+      - checkout
 
+      # dockerコンテナの立ち上げを待つ
+      - run:
+          name: wait for database
+          command: dockerize -wait tcp://127.0.0.1:3306 -timeout 1m
 
+      # キャッシュがあれば、リストアする。keysでリストアするキャッシュを複数指定
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
 
+      # Bundle install dependencies
+      - run:
+          name: Install dependencies
+          command: |
+            gem install bundler -v 2.1.4
+            bundle install --path=vendor/bundle --jobs 4 --retry 3
 
-# # https://circleci.com/docs/2.0/language-ruby/#sample-configuration
-# version: 2.1
-# orbs:
-#   ruby: circleci/ruby@0.1.2
-# jobs:
-#   build:
-#     docker:
-#       - image: cimg/ruby:2.7.2-node-browsers-legacy
-#         environment:
-#           - BUNDER_VERSION: 2.1.4
-#           - RAILS_ENV: 'test'
-#       - image: circleci/mysql: 5.7
-#         environment:
-#           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-#           - MYSQL_ROOT_HOST: '%'
-#           - MYSQL_USER: root
-#           - MYSQL_DB: ci_test
-#     working_directory: ~/repo
-#     steps:
-#       - checkout # CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
+      # キャッシュする
+      - save_cache:
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
 
-#       # Restore bundle cache
-#       - restore_cache:
-#           keys:
-#             - rails-demo-{{ checksum "Gemfile.lock" }}
-#             - rails-demo-
+      # DBのセットアップ
+      - run:
+          name: Database Setup
+          command: |
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
 
-#       # Bundle install dependencies
-#       - run:
-#           name: Install dependencies
-#           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs 4 --retry 3
+      # rubocopを実行
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
 
-#       - run: sudo apt install -y postgresql-client || true
+      # RSpecを実行
+      - run:
+          name: Run rspec
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
-#       # Store bundle cache
-#       - save_cache:
-#           key: rails-demo-{{ checksum "Gemfile.lock" }}
-#           paths:
-#             - vendor/bundle
-
-#       - run:
-#           name: Database Setup
-#           command: |
-#             bundle exec rake db:create
-#             bundle exec rake db:structure:load
-
-#       - run:
-#           name: Parallel RSpec
-#           command: bin/rails test
-
-#       # Save artifacts
-#       - store_test_results:
-#           path: /tmp/test-results
-
-#       - run:
-#           name: Rubocop
-#           command: bundle exec rubocop
-#       - run:
-#           name: RSpec
-#           command: bundle exec rspec
+      # Save artifacts
+      - store_test_results:
+          path: /tmp/test-results
