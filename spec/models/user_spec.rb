@@ -14,13 +14,13 @@ RSpec.describe User, type: :model do
   it 'nicknameがなかったら、ユーザー登録に失敗すること' do
     user = User.new(nickname: nil)
     user.valid?
-    expect(user.errors[:nickname]).to include("can't be blank")
+    expect(user.errors[:nickname]).to include("は1文字以上で入力してください")
   end
 
   it 'emailがなかったら、ユーザー登録に失敗すること' do
     user = User.new(email: nil)
     user.valid?
-    expect(user.errors[:email]).to include("can't be blank")
+    expect(user.errors[:email]).to include("を入力してください")
   end
 
   it '重複するemailの場合、ユーザー登録に失敗すること' do
@@ -28,20 +28,20 @@ RSpec.describe User, type: :model do
     user2 = build(:user)
     user2.email = user1.email
     user2.valid?
-    expect(user2.errors[:email]).to include("has already been taken")
+    expect(user2.errors[:email]).to include("はすでに存在します")
   end
 
   it 'パスワードが８文字以下の場合、ユーザー登録に失敗すること' do
     user = build(:user)
     user.password = 'p' * 7
     user.valid?
-    expect(user.errors[:password]).to include("is too short (minimum is 8 characters)")
+    expect(user.errors[:password]).to include("は8文字以上で入力してください")
   end
 
   it 'パスワードが１６文字以上の場合、ユーザー登録に失敗すること' do
     user = build(:user)
     user.password = 'p' * 17
     user.valid?
-    expect(user.errors[:password]).to include("is too long (maximum is 16 characters)")
+    expect(user.errors[:password]).to include("は16文字以内で入力してください")
   end
 end
