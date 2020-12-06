@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   authenticates_with_sorcery!
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
 
   validates :nickname, presence: true, length: { in: 1..16 }
   validates :email, presence: true, uniqueness: true
