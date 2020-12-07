@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_095914) do
+ActiveRecord::Schema.define(version: 2020_12_07_054115) do
 
   create_table "authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -20,6 +20,20 @@ ActiveRecord::Schema.define(version: 2020_12_06_095914) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
     t.index ["user_id"], name: "index_authentications_on_user_id"
+  end
+
+  create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "age", default: 0, null: false
+    t.string "job", limit: 20, default: "", null: false
+    t.integer "total_assets", default: 0, null: false
+    t.integer "annual_income", default: 0, null: false
+    t.integer "monthly_income", default: 0, null: false
+    t.integer "household_member", default: 0, null: false
+    t.text "message", size: :tiny
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
@@ -34,4 +48,5 @@ ActiveRecord::Schema.define(version: 2020_12_06_095914) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "user_profiles", "users"
 end
