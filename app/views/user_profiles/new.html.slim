@@ -1,0 +1,27 @@
+/ （仮)とりあえず仮実装。もっときれいに整えること。CSSフレームワーク変えるかも。
+h1 ユーザープロフィール登録
+.container
+  = form_with model: @user_profile, local: true do |f|
+    = render 'shared/error_message', object: f.object
+    .form-group
+      = f.label :age
+      = f.number_field :age, class: 'form-control'
+    .form-group
+      = f.label :job
+      = f.text_field :job, class: 'form-control'
+    .form-group
+      = f.label :total_assets
+      = f.number_field :total_assets, class: 'form-control'
+    .form-group
+      = f.label :annual_income
+      = f.number_field :annual_income, class: 'form-control'
+    .form-group
+      = f.label :monthly_income
+      = f.number_field :monthly_income, class: 'form-control'
+    .form-group
+      = f.label :household_member
+      = f.number_field :household_member, class: 'form-control'
+    .form-group
+      = f.label :message
+      = f.text_area :message, class: 'form-control'
+    = f.submit t('defaults.register_profile'), class: 'btn btn-primary mt-3'

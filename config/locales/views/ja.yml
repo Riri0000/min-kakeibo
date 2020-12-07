@@ -2,7 +2,8 @@ ja:
   defaults:
     login: 'ログイン'
     logout: 'ログアウト'
-    register: 'ユーザー登録する'
+    register: 'ユーザー登録'
+    register_profile: 'プロフィール登録'
   static_pages:
     new:
   users:
@@ -19,3 +20,7 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       logout: 'ログアウトしました'
+  user_profiles:
+    create:
+      success: 'プロフィールを登録しました'
+      fail: 'プロフィール登録に失敗しました'
