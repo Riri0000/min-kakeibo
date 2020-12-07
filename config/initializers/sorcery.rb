@@ -87,10 +87,12 @@ Rails.application.config.sorcery.configure do |config|
   #
   config.twitter.key = Rails.application.credentials.twitter[:key]
   config.twitter.secret = Rails.application.credentials.twitter[:secret_key]
-  config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
+  # いづれ、本番用と分けるので環境変数をセットする
+  config.twitter.callback_url = "http://127.0.0.1:3000/oauth/callback?provider=twitter"
+  # emailを登録していないがいるとエラーになるので、idいれちゃった
   config.twitter.user_info_mapping = {
     nickname: 'name',
-    email: 'email',
+    email: "id",
     profile_image: 'profile_image_url_https'
   }
 
@@ -496,7 +498,7 @@ Rails.application.config.sorcery.configure do |config|
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
-    # user.authentications_class =
+    user.authentications_class = Authentication
 
     # User's identifier in the `authentications` class.
     # Default: `:user_id`
