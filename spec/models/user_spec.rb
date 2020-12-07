@@ -12,13 +12,13 @@ RSpec.describe User, type: :model do
   end
 
   it 'nicknameがなかったら、ユーザー登録に失敗すること' do
-    user = User.new(nickname: nil)
+    user = build(:user, nickname: nil)
     user.valid?
     expect(user.errors[:nickname]).to include("は1文字以上で入力してください")
   end
 
   it 'emailがなかったら、ユーザー登録に失敗すること' do
-    user = User.new(email: nil)
+    user = build(:user, email: nil)
     user.valid?
     expect(user.errors[:email]).to include("を入力してください")
   end
