@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = []
+Rails.application.config.sorcery.submodules = [:external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -80,45 +80,22 @@ Rails.application.config.sorcery.configure do |config|
   # i.e. [:twitter, :facebook, :github, :linkedin, :xing, :google, :liveid, :salesforce, :slack, :line].
   # Default: `[]`
   #
-  # config.external_providers =
+  config.external_providers = [:twitter]
 
-  # You can change it by your local ca_file. i.e. '/etc/pki/tls/certs/ca-bundle.crt'
-  # Path to ca_file. By default use a internal ca-bundle.crt.
-  # Default: `'path/to/ca_file'`
-  #
-  # config.ca_file =
-
-  # Linkedin requires r_emailaddress scope to fetch user's email address.
-  # You can skip including the email field if you use an intermediary signup form. (using build_from method).
-  # The r_emailaddress scope is only necessary if you are using the create_from method directly.
-  #
-  # config.linkedin.key = ""
-  # config.linkedin.secret = ""
-  # config.linkedin.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=linkedin"
-  # config.linkedin.user_info_mapping = {
-  #   first_name: 'localizedFirstName',
-  #   last_name:  'localizedLastName',
-  #   email:      'emailAddress'
-  # }
-  # config.linkedin.scope = "r_liteprofile r_emailaddress"
-  #
-  #
-  # For information about XING API:
-  # - user info fields go to https://dev.xing.com/docs/get/users/me
-  #
-  # config.xing.key = ""
-  # config.xing.secret = ""
-  # config.xing.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=xing"
-  # config.xing.user_info_mapping = {first_name: "first_name", last_name: "last_name"}
-  #
-  #
   # Twitter will not accept any requests nor redirect uri containing localhost,
   # Make sure you use 0.0.0.0:3000 to access your app in development
-  #
-  # config.twitter.key = ""
-  # config.twitter.secret = ""
-  # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
-  # config.twitter.user_info_mapping = {:email => "screen_name"}
+  
+  config.twitter.key = Rails.application.credentials.twitter[:key]
+  config.twitter.secret = Rails.application.credentials.twitter[:secret_key]
+  # いづれ、本番用と分けるので環境変数をセットする
+  config.twitter.callback_url = "http://127.0.0.1:3000/oauth/callback?provider=twitter"
+  # emailを登録していないがいるとエラーになるので、idいれちゃった
+  config.twitter.user_info_mapping = {
+    nickname: 'name',
+    email: "id",
+    profile_image: 'profile_image_url_https'
+  }
+
   #
   # config.facebook.key = ""
   # config.facebook.secret = ""
@@ -521,7 +498,7 @@ Rails.application.config.sorcery.configure do |config|
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
-    # user.authentications_class =
+    user.authentications_class = Authentication
 
     # User's identifier in the `authentications` class.
     # Default: `:user_id`
