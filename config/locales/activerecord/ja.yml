@@ -10,4 +10,11 @@ ja:
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
         profile_image: 'プロフィール画像'
-        
+      user_profile:
+        age: '年齢'
+        job: '職業'
+        total_assets: '総資産'
+        annual_income: '年収'
+        monthly_income: '月収'
+        household_member: '世帯構成'
+        message: 'ひとこと'
