@@ -84,7 +84,7 @@ Rails.application.config.sorcery.configure do |config|
 
   # Twitter will not accept any requests nor redirect uri containing localhost,
   # Make sure you use 0.0.0.0:3000 to access your app in development
-  #
+  
   config.twitter.key = Rails.application.credentials.twitter[:key]
   config.twitter.secret = Rails.application.credentials.twitter[:secret_key]
   # いづれ、本番用と分けるので環境変数をセットする

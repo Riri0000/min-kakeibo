@@ -12,7 +12,7 @@ class OauthsController < ApplicationController
       redirect_to root_path, notice: 'ログインをキャンセルしました'
       return
     end
-    if @user = login_from(provider)
+    if (@user = login_from(provider))
       redirect_to root_path, success: "#{provider.titleize}でログインしました"
     else
       begin
@@ -20,7 +20,7 @@ class OauthsController < ApplicationController
         reset_session
         auto_login(@user)
         redirect_to root_path, success: "#{provider.titleize}でログインしました"
-      rescue
+      rescue StandardError
         # binding.pry
         redirect_to root_path, danger: "#{provider.titleize}のログインに失敗しました"
       end
