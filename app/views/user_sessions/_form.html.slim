@@ -1,11 +1,23 @@
 / （仮)とりあえず仮実装。もっときれいに整えること。CSSフレームワーク変えるかも。
-.container
+
+.w-full.max-w-xs.m-auto.bg-indigo-100.rounded.p-5
   = form_with url: login_path, method: :post, local: true do |f|
-    = render 'shared/error_message', object: f.object
-    .form-group
-      = f.label :email, User.human_attribute_name(:email)
-      = f.email_field :email, class: 'form-control'
-    .form-group
-      = f.label :password, User.human_attribute_name(:password)
-      = f.password_field :password, class: 'form-control'
-    = f.submit (t 'defaults.login'), class: 'btn btn-primary mt-3'
+    div
+      = f.label :email, User.human_attribute_name(:email), class: 'block mb-2.text-indigo-500'
+      = f.email_field :email, class: 'w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300'
+    div
+       = f.label :password, User.human_attribute_name(:password), class: 'block mb-2 text-indigo-500'
+       = f.password_field :password, class: 'w-full p-2 mb-6 text-indigo-700 border-b-2 border-indigo-500 outline-none focus:bg-gray-300'
+    div
+       = f.submit (t 'defaults.login'), class: 'flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in'
+
+/ .container
+/   = form_with url: login_path, method: :post, local: true do |f|
+/     = render 'shared/error_message', object: f.object
+/     .form-group
+/       = f.label :email, User.human_attribute_name(:email)
+/       = f.email_field :email, class: 'form-control'
+/     .form-group
+/       = f.label :password, User.human_attribute_name(:password)
+/       = f.password_field :password, class: 'form-control'
+/     = f.submit (t 'defaults.login'), class: 'btn btn-primary mt-3'
