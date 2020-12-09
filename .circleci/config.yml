@@ -5,7 +5,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.7.1-node-browsers-legacy
+      - image: circleci/ruby:2.7.2-node-browsers-legacy
         environment:
           - BUNDLER_VERSION: 2.1.4
           - RAILS_ENV: 'test'
@@ -21,6 +21,12 @@ jobs:
     steps:
       # CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
       - checkout
+      
+      # 日本語フォントインストール(capybara用)
+      - run:
+          name: Install Japanese font
+          command: |
+            sudo apt-get install fonts-migmix
 
       # dockerコンテナの立ち上げを待つ
       - run:
