@@ -21,7 +21,13 @@ jobs:
     steps:
       # CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
       - checkout
-      
+
+      # yarnインストール
+      - run:
+          name: yarn Install
+          command: yarn install
+      - run: bundle exec bin/webpack
+
       # 日本語フォントインストール(capybara用)
       - run:
           name: Install Japanese font
@@ -74,7 +80,7 @@ jobs:
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
-      # Save artifacts
+      # テスト結果の保存(CircleCI上で見れる)
       - store_test_results:
           path: /tmp/test-results
           destination: test-results
