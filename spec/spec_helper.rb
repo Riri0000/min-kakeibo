@@ -97,7 +97,11 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
+# ドライバ（ブラウザ相当機能)の設定
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
   end
+
+# CirclCIでcapybaraが落ちるので待機時間を増やす
+  Capybara.default_max_wait_time = 30
 end

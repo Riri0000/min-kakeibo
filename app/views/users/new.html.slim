@@ -1,18 +1,25 @@
-/ （仮)とりあえず仮実装。もっときれいに整えること。CSSフレームワーク変えるかも。
-h1 ユーザー登録
-.container
-  = form_with model: @user, local: true do |f|
-    = render 'shared/error_message', object: f.object
-    .form-group
-      = f.label :nickname
-      = f.text_field :nickname, class: 'form-control'
-    .form-group
-      = f.label :email
-      = f.email_field :email, class: 'form-control'
-    .form-group
-      = f.label :password
-      = f.password_field :password, class: 'form-control'
-    .form-group
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, class: 'form-control'
-    = f.submit t('defaults.register'), class: 'btn btn-primary mt-3'
+/ ユーザー登録 もっと色味を全体的に薄くしたい grey × carrotは色がくすむ
+section.text-gray-600.body-font
+  .container.px-5.py-24.mx-auto.flex.flex-wrap.items-center
+    .md:pr-16.lg:pr-0.pr-0 class=("lg:w-3/5 md:w-1/2")
+      h1.title-font.font-medium.text-3xl.text-gray-900 みんなの家計簿は家計簿公開サービスです！
+      p.leading-relaxed.mt-4 サービス説明文~
+    .bg-gray-200.rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-2/6 md:w-1/2")
+      = form_with model: @user, local: true do |f|
+        = render 'shared/error_message', object: f.object
+        h2.text-gray-900.text-lg.font-medium.title-font.mb-5 ユーザー登録
+        / 入力欄
+        .relative.mb-4
+          = f.label :nickname, class: 'leading-7 text-sm text-gray-600'
+          = f.text_field :nickname, class: 'w-full bg-white rounded border border-gray-300 focus:border-carrot-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+        .relative.mb-4
+          = f.label :email, class: 'leading-7 text-sm text-gray-600'
+          = f.email_field :email, class: 'w-full bg-white rounded border border-gray-300 focus:border-carrot-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+        .relative.mb-4
+          = f.label :password, class: 'leading-7 text-sm text-gray-600'
+          = f.password_field :password, class: 'w-full bg-white rounded border border-gray-300 focus:border-carrot-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+        .relative.mb-4
+          = f.label :password_confirmation, class: 'leading-7 text-sm text-gray-600'
+          = f.password_field :password_confirmation, class: 'w-full bg-white rounded border border-gray-300 focus:border-carrot-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out'
+        = f.submit t('defaults.register'), class: 'flex items-center justify-center w-full text-white bg-carrot-400 border-0 py-2 px-8 focus:outline-none hover:bg-carrot-600 rounded text-lg'
+        p.text-xs.text-gray-500.mt-3 プライバシーポリシー

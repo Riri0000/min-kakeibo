@@ -38,3 +38,7 @@ yarn-debug.log*
 
 # 環境変数
 /.env
+
+# システムスペックでアップロードされるファイル
+/public/system
+/spec/test_uploads

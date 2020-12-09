@@ -31,14 +31,14 @@ RSpec.describe User, type: :model do
     expect(user2.errors[:email]).to include("はすでに存在します")
   end
 
-  it 'パスワードが８文字以下の場合、ユーザー登録に失敗すること' do
+  it 'パスワードが8文字未満の場合、ユーザー登録に失敗すること' do
     user = build(:user)
     user.password = 'p' * 7
     user.valid?
     expect(user.errors[:password]).to include("は8文字以上で入力してください")
   end
 
-  it 'パスワードが１６文字以上の場合、ユーザー登録に失敗すること' do
+  it 'パスワードが17文字以上の場合、ユーザー登録に失敗すること' do
     user = build(:user)
     user.password = 'p' * 17
     user.valid?
