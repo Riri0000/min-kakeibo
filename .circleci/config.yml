@@ -10,6 +10,8 @@ jobs:
           - BUNDLER_VERSION: 2.1.4
           - RAILS_ENV: 'test'
           - DB_HOST: 127.0.0.1
+          - LANG: 'ja_JP.UTF-8'
+          - TZ: "Japan"
       - image: circleci/mysql:5.7
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
