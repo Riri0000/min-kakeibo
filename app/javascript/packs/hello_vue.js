@@ -5,25 +5,27 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-import App from '../app.vue'
+// import Vue from 'vue'
+// import Vuetify from 'vuetify'
+// import 'vuetify/dist/vuetify.min.css'
+// import App from '../app.vue'
+// import router from '../router'
 
-Vue.use(Vuetify);
-const vuetify = new Vuetify();
+// Vue.use(Vuetify);
+// const vuetify = new Vuetify();
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    vuetify,
-    render: h => h(App)
-  }).$mount()
-  document.body.appendChild(app.$el)
+// document.addEventListener('DOMContentLoaded', () => {
+//   const app = new Vue({
+//     vuetify,
+//     router,
+//     render: h => h(App)
+//   }).$mount()
+//   document.body.appendChild(app.$el)
 
-  console.log(app)
-})
+//   console.log(app)
+// })
 
-
+// 現存するhtml  templatesを使うときは以下のデフォルトの処理のコメントを外す
 // The above code uses Vue without the compiler, which means you cannot
 // use Vue to target elements in your existing html templates. You would
 // need to always use single file components.
@@ -38,18 +40,26 @@ document.addEventListener('DOMContentLoaded', () => {
 // </div>
 
 
-// import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
-//
-// document.addEventListener('DOMContentLoaded', () => {
-//   const app = new Vue({
-//     el: '#hello',
-//     data: {
-//       message: "Can you say hello?"
-//     },
-//     components: { App }
-//   })
-// })
+import Vue from 'vue/dist/vue.esm'
+import App from '../app.vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
+import router from '../router'
+
+Vue.use(Vuetify);
+const vuetify = new Vuetify();
+
+document.addEventListener('DOMContentLoaded', () => {
+  const app = new Vue({
+    el: '#hello',
+    vuetify,
+    router,
+    data: {
+      message: "Can you say hello?"
+    },
+    components: { App }
+  })
+})
 //
 //
 //
