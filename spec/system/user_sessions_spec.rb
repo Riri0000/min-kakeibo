@@ -9,7 +9,7 @@ RSpec.describe "UserSessions", type: :system do
         visit login_path
         fill_in 'メールアドレス', with: user.email
         fill_in 'パスワード', with: 'password'
-        click_button 'ログイン'
+        find('#login-button').click
         expect(page).to have_selector '.alert-success', text: 'ログインしました'
         expect(current_path).to eq root_path
       end
@@ -20,7 +20,7 @@ RSpec.describe "UserSessions", type: :system do
         visit login_path
         fill_in 'メールアドレス', with: user.email
         fill_in 'パスワード', with: 'wrongpassword'
-        click_button 'ログイン'
+        find('#login-button').click
         expect(page).to have_selector '.alert-danger', text: 'ログインに失敗しました'
         expect(current_path).to eq login_path
       end
