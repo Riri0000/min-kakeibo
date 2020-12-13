@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_054115) do
+ActiveRecord::Schema.define(version: 2020_12_13_092715) do
+
+  create_table "account_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.date "date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_account_books_on_user_id"
+  end
 
   create_table "authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -48,5 +56,6 @@ ActiveRecord::Schema.define(version: 2020_12_07_054115) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "account_books", "users"
   add_foreign_key "user_profiles", "users"
 end
