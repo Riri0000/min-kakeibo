@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :account_book do
     date { "2020-12-13" }
-    user { nil }
+    association :user
   end
 end
