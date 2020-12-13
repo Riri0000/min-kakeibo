@@ -1,5 +1,6 @@
 ja:
   defaults:
+    top: 'サービス名'
     login: 'ログイン'
     logout: 'ログアウト'
     register: 'ユーザー登録'
