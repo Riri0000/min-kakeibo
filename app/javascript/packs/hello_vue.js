@@ -42,18 +42,11 @@
 
 import Vue from 'vue/dist/vue.esm'
 import App from '../app.vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-import router from '../router'
 
-Vue.use(Vuetify);
-const vuetify = new Vuetify();
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     el: '#hello',
-    vuetify,
-    router,
     data: {
       message: "Can you say hello?"
     },
