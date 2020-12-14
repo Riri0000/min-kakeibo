@@ -1,8 +1,21 @@
-.bg-carrot-200
-  header.text-gray-700.body-font.flex-grow
-    .container.mx-auto.flex.flex-wrap.p-5.flex-col.md:flex-row.items-center
-      a.flex.title-font.font-medium.items-center.text-gray-900.mb-4.md:mb-0
-        = link_to t('defaults.top'), root_path, class: '.ml-3.text-xl'
-      nav.md:ml-auto.flex.flex-wrap.items-center.text-base.justify-center
-        = link_to t('defaults.logout'), logout_path, method: :delete, class: 'mr-5.hover:text-gray-900'
+/ 何故か全体背景色が欠ける。暫定的にwhiteにしている
+#app
+  nav.header.container.mx-auto.w-full.bg-white.border-b.border-carrot-50.mt-2.pb-2
+    .flex.justify-between.items-center
+      / タイトル
+      .h1.ml-3.text-carrot-400.text-4xl.md:text-xl
+        = link_to t('defaults.top'), root_path
+      / ハンバーガーメニュー
+      .block.md:hidden
+        button v-on:click="toggle" class="flex items-center text-carrot-500"
+          svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"
+            path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"
+      / ボタンのリストmothod動かない…
+      div v-show="isOpen"
+        ul.flex.justify-end.items-center
+          li
+            = link_to logout_path, method: :delete do
+              button.bg-carrot-50.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-100.hover:text-gray-700 ログアウト
+
+/ = javascript_pack_tag 'top/application'
 
