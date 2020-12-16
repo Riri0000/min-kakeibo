@@ -9,7 +9,7 @@ class UserProfilesController < ApplicationController
       # 続けて家計簿の登録を行う動線にする
       redirect_to user_profile_path(@user_profile), success: t('.success')
     else
-      flash.now[:danger] = t('.fail')
+      flash.now[:error] = t('.fail')
       render :new
     end
   end

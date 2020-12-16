@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy', as: :logout
 
-  resources :users
+  resources :users, only: %i[new create edit]
   resources :user_profiles, only: %i[new create show]
   resources :account_books do
     collection do

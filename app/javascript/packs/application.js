@@ -23,3 +23,6 @@ require("@nathanvda/cocoon")
 //= require bootstrap-sprockets
 
 import '../css/tailwind.css';
+import '../css/toastr.scss'
+import toastr from 'toastr'
+window.toastr = toastr

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       # 一覧画面へリダイレクト（まだ作ってないので、とりあえずrootへ)＆サクセスメッセージ
       redirect_to root_path, success: t('.success')
     else
-      flash[:danger] = t('.fail')
+      flash[:error] = t('.fail')
       render :new
     end
   end
