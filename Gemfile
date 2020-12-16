@@ -82,14 +82,6 @@ gem 'html2slim'
 # ログイン認証
 gem 'sorcery', '~> 0.15.0'
 
-# CSSフレームワーク
-gem 'bootstrap', '~> 5.0.0.alpha3'
-gem 'bootstrap-sass'
-gem 'jquery-rails'
-
-# アイコン
-gem 'font-awesome-sass', '~> 5.15', '>= 5.15.1'
-
 # フラッシュメッセージ
 gem 'toastr-rails'
 

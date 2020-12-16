@@ -17,11 +17,6 @@ require("@nathanvda/cocoon")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-//= require rails-ujs
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
-
 import '../css/tailwind.css';
 import '../css/toastr.scss'
 import toastr from 'toastr'
