@@ -1,2 +1,7 @@
 - flash.each do |key, value|
-  = content_tag 'div', value, class: "alert alert-#{key} mb-0"
+  javascript:
+    toastr['#{key}']('#{value}');
+
+
+/ - flash.each do |key, value|
+/     = content_tag 'div', value, class: "alert alert-#{key} mb-0"
