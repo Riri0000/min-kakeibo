@@ -5,6 +5,7 @@ ja:
     logout: 'ログアウト'
     register: 'ユーザー登録'
     register_profile: 'プロフィール登録'
+    register_account_book: '家計簿を登録する'
   static_pages:
     new:
   users:
@@ -25,7 +26,17 @@ ja:
     create:
       success: 'プロフィールを登録しました'
       fail: 'プロフィール登録に失敗しました'
-  book_accounts:
+  account_books:
     create:
       success: '家計簿を登録しました'
       fail: '家計簿登録に失敗しました'
+    update:
+      success: '家計簿を更新しました'
+      fail: '家計簿更新に失敗しました'
+  cocoon:
+    defauls:
+      add: '支出を追加'
+      remove: '支出を削除'
+    expenses:
+      expenditure: '支出額'
+      expense_item: '支出項目'

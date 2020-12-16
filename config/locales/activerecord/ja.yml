@@ -22,7 +22,10 @@ ja:
         monthly_income: '月収'
         household_member: '世帯構成'
         message: 'ひとこと'
+      account_book:
+        date: '登録する家計簿'
       expense_item:
         name: '支出項目'
-      expenses:
+      expense:
         expenditure: '支出額'
+        note: '備考'

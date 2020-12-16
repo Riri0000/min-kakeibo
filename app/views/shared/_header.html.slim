@@ -17,5 +17,14 @@
             = link_to logout_path, method: :delete do
               button.bg-carrot-50.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-100.hover:text-gray-700 ログアウト
 
+          - if current_user.account_book.present?
+              li
+                = link_to mypage_account_books_path(current_user)
+                  button.bg-carrot-50.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-100.hover:text-gray-700 My家計簿へ
+          - else
+              li
+                = link_to new_account_book_path
+                  button.bg-carrot-50.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-100.hover:text-gray-700 家計簿登録へ
+
 / = javascript_pack_tag 'top/application'
 

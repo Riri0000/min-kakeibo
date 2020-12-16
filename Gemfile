@@ -84,6 +84,7 @@ gem 'sorcery', '~> 0.15.0'
 
 # CSSフレームワーク
 gem 'bootstrap', '~> 5.0.0.alpha3'
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 
 # アイコン
@@ -94,3 +95,6 @@ gem 'rails-i18n', '~> 6.0.0'
 
 # Seed管理
 gem 'seed-fu', '~> 2.3'
+
+# ネストしたフォーム＆複数レコードを一度に登録できる
+gem 'cocoon'
