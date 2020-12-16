@@ -11,4 +11,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :user_profiles, only: %i[new create show]
+  resources :account_books do
+    collection do
+      get :mypage, to: 'account_books#mypage'
+    end
+  end
 end

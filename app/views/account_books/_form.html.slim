@@ -1,0 +1,14 @@
+.container
+  = form_with model: @account_book, loacal: true do |f|
+      = f.label :date
+      = f.date_select :date,
+                    { discard_day: true,
+                      start_year: 2015,
+                      end_year: Date.today.year },
+                      class: 'form-control inline w-1/5'
+
+      = f.fields_for :expenses do |expense|
+        = render 'expense_fields', f: expense
+      .links
+        = link_to_add_association '＋支出を追加', f, :expenses, class: 'btn btn-primary'
+      = f.submit t('defaults.register_account_book'), class: 'btn btn-success mt-3'

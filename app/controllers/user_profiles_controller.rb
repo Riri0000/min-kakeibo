@@ -6,6 +6,7 @@ class UserProfilesController < ApplicationController
   def create
     @user_profile = current_user.build_user_profile(user_profile_params)
     if @user_profile.save
+      # 続けて家計簿の登録を行う動線にする
       redirect_to user_profile_path(@user_profile), success: t('.success')
     else
       flash.now[:danger] = t('.fail')

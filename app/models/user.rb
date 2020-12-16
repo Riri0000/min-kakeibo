@@ -2,6 +2,7 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :authentications, dependent: :destroy
   has_one :user_profile, dependent: :destroy
+  has_one :account_book, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
   validates :nickname, presence: true, length: { in: 1..16 }
@@ -12,4 +13,8 @@ class User < ApplicationRecord
   validates :role, presence: true
 
   enum role: { general: 0, admin: 1 }
+
+  def own?(object)
+    id == object.user_id
+  end
 end

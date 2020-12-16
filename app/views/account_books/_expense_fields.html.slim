@@ -1,0 +1,15 @@
+.nested-fields
+  .form.grid.grid-cols-9.mb-3.pt-2.items-center
+    div.mr-2.col-span-4
+      = f.label :expense_item_id, '支出項目'
+      = f.collection_select :expense_item_id,
+                            ExpenseItem.all,
+                            :id,
+                            :name,
+                            {prompt: "項目を選択してください"},
+                            class: 'form-control'
+    div.col-span-4
+      = f.label :expenditure
+      = f.number_field :expenditure, class: 'form-control no-spin'
+    div.col-span-1
+      = link_to_remove_association '☓', f, class: 'btn btn-sm btn-warning ml-3'

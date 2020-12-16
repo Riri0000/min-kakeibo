@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_07_054115) do
+ActiveRecord::Schema.define(version: 2020_12_15_232825) do
+
+  create_table "account_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.date "date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_account_books_on_user_id"
+  end
 
   create_table "authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -20,6 +28,23 @@ ActiveRecord::Schema.define(version: 2020_12_07_054115) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
     t.index ["user_id"], name: "index_authentications_on_user_id"
+  end
+
+  create_table "expense_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "expenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.integer "expenditure", null: false
+    t.bigint "account_book_id", null: false
+    t.bigint "expense_item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "note", limit: 10
+    t.index ["account_book_id"], name: "index_expenses_on_account_book_id"
+    t.index ["expense_item_id"], name: "index_expenses_on_expense_item_id"
   end
 
   create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
@@ -48,5 +73,8 @@ ActiveRecord::Schema.define(version: 2020_12_07_054115) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "account_books", "users"
+  add_foreign_key "expenses", "account_books"
+  add_foreign_key "expenses", "expense_items"
   add_foreign_key "user_profiles", "users"
 end

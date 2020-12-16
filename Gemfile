@@ -84,6 +84,7 @@ gem 'sorcery', '~> 0.15.0'
 
 # CSSフレームワーク
 gem 'bootstrap', '~> 5.0.0.alpha3'
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 
 # アイコン
@@ -91,3 +92,9 @@ gem 'font-awesome-sass', '~> 5.15', '>= 5.15.1'
 
 # 国際化対応/バリデーションエラーなど主要なメッセージを自動翻訳してくれる
 gem 'rails-i18n', '~> 6.0.0'
+
+# Seed管理
+gem 'seed-fu', '~> 2.3'
+
+# ネストしたフォーム＆複数レコードを一度に登録できる
+gem 'cocoon'
