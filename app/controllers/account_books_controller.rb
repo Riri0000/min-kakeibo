@@ -39,9 +39,7 @@ class AccountBooksController < ApplicationController
     end
   end
 
-  def destroy
-
-  end
+  def destroy; end
 
   private
 
@@ -52,11 +50,12 @@ class AccountBooksController < ApplicationController
 
   def account_book_params
     params.require(:account_book).permit(:date,
-                                  expenses_attributes: [
-                                                      :id,
-                                                      :expenditure,
-                                                      :account_book_id,
-                                                      :expense_item_id,
-                                                      :_destroy])
+                                         expenses_attributes: %i[
+                                           id
+                                           expenditure
+                                           account_book_id
+                                           expense_item_id
+                                           _destroy
+                                         ])
   end
 end
