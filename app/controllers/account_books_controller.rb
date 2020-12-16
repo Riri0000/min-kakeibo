@@ -11,7 +11,7 @@ class AccountBooksController < ApplicationController
     if @account_book.save
       redirect_to account_book_path(@account_book), success: t('.success')
     else
-      flash.now[:error] = t('.fail')
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
@@ -34,7 +34,7 @@ class AccountBooksController < ApplicationController
     if @account_book.save
       redirect_to account_book_path(@account_book), success: t('.success')
     else
-      flash.now[:error] = t('.fail')
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end

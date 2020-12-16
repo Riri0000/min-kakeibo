@@ -14,7 +14,24 @@
  *= require_self
  */
 
-@import 'main';
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+// 各ページのヘッダーとフッター固定
+body {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+
+// input type='number'のスピンボタンを消す
+.no-spin::-webkit-inner-spin-button,
+.no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance:textfield;
+}

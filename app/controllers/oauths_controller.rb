@@ -9,7 +9,7 @@ class OauthsController < ApplicationController
     provider = params[:provider]
     # 認証をキャンセルしたときの処理
     if params[:dinied].present?
-      redirect_to root_path, info: 'ログインをキャンセルしました'
+      redirect_to root_path, notice: 'ログインをキャンセルしました'
       return
     end
     if (@user = login_from(provider))
@@ -22,7 +22,7 @@ class OauthsController < ApplicationController
         redirect_to root_path, success: "#{provider.titleize}でログインしました"
       rescue StandardError
         # binding.pry
-        redirect_to root_path, error: "#{provider.titleize}のログインに失敗しました"
+        redirect_to root_path, danger: "#{provider.titleize}のログインに失敗しました"
       end
     end
   end
