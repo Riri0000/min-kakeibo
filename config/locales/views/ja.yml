@@ -30,7 +30,7 @@ ja:
     create:
       success: '家計簿を登録しました'
       fail: '家計簿登録に失敗しました'
-    update:
+    update  :
       success: '家計簿を更新しました'
       fail: '家計簿更新に失敗しました'
   cocoon:

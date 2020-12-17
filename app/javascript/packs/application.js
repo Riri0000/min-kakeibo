@@ -9,6 +9,8 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("@nathanvda/cocoon")
+require("bootstrap");
+require("@fortawesome/fontawesome-free");
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -16,11 +18,6 @@ require("@nathanvda/cocoon")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-//= require rails-ujs
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
 
 import '../css/tailwind.css';
 import '../css/toastr.scss'
