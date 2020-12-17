@@ -6,5 +6,5 @@ class Expense < ApplicationRecord
   validates :note, length: { maximum: 10 }
 
   # 支出額合計をグループ化し、降順に
-  scope :order_by_expense_item_group, -> { includes(:expense_item).group(:name).order('sum_expenditure DESC').sum(:expenditure)}
+  scope :order_by_expense_item_group, -> { includes(:expense_item).group(:name).order('sum_expenditure DESC').sum(:expenditure) }
 end
