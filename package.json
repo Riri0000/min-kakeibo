@@ -2,6 +2,7 @@
   "name": "Sharing_Kakeibo",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0",
@@ -9,7 +10,9 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "autoprefixer": "^9.8.6",
+    "bootstrap": "^4.5.3",
     "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
     "toastr": "^2.1.4",
