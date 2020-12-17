@@ -18,12 +18,12 @@ class AccountBooksController < ApplicationController
 
   def show
     @account_book = AccountBook.find(params[:id])
-    @expenses = @account_book.expenses.includes(:expense_item)
+    @expenses = @account_book.expenses.order_by_expense_item_group
   end
 
   def mypage
     @account_book = AccountBook.find_by(user_id: current_user.id)
-    @expenses = @account_book.expenses.includes(:expense_item)
+    @expenses = @account_book.expenses.order_by_expense_item_group
     render :show
   end
 
@@ -45,7 +45,7 @@ class AccountBooksController < ApplicationController
 
   def set_account_book
     @account_book = current_user.account_book
-    @expenses = @account_book.expenses
+    @expenses = @account_book.expenses.includes(:expense_item)
   end
 
   def account_book_params
