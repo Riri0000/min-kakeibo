@@ -2,7 +2,7 @@
   .row
     .col-6.m-3
       h1 = "#{@account_book.user.nickname}さんの家計簿"
-      = pie_chart @chart
+      = pie_chart @expenses
 
       table.table.mt-4
         thead.thead-light
@@ -10,10 +10,10 @@
             th scope="col"  支出項目
             th scope="col"  支出額
         tbody
-          - @expenses.each do |expense|
+          - @expenses.each do |expense_item, expenditure|
             tr
-              td= expense.expense_item.name
-              td= number_to_currency(expense.expenditure)
+              td= expense_item
+              td= number_to_currency(expenditure)
 
   - if current_user.own?(@account_book)
       = link_to edit_account_book_path(@account_book)
