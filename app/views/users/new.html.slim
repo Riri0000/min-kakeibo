@@ -4,7 +4,7 @@ section.text-gray-600.body-font
     .md:pr-16.lg:pr-0.pr-0 class=("lg:w-3/5 md:w-1/2")
       h1.title-font.font-medium.text-3xl.text-gray-900 みんなの家計簿は家計簿公開サービスです！
       p.leading-relaxed.mt-4 サービス説明文~
-    .bg-gray-200.rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-2/6 md:w-1/2")
+    .bg-gray-100.rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-2/6 md:w-1/2")
       = form_with model: @user, local: true do |f|
         = render 'shared/error_message', object: f.object
         h2.text-gray-900.text-lg.font-medium.title-font.mb-5 ユーザー登録

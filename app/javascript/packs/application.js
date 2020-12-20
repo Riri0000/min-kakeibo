@@ -25,3 +25,8 @@ import '../css/tailwind.css';
 import '../css/toastr.scss'
 import toastr from 'toastr'
 window.toastr = toastr
+
+toastr.options = {
+  "closeButton": true,
+  "timeOut": 200
+}

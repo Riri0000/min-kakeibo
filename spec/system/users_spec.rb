@@ -4,7 +4,7 @@ RSpec.describe "Users", type: :system do
   describe 'ユーザー登録機能' do
     context '全ての入力が正常なとき' do
       it 'ユーザー登録に成功する' do
-        visit new_user_path
+        visit new_users_path
         fill_in 'ユーザー名', with: 'Test-user'
         fill_in 'メールアドレス', with: 'test@example.com'
         fill_in 'パスワード', with: 'password'
@@ -17,7 +17,7 @@ RSpec.describe "Users", type: :system do
 
     context '各項目が未入力の場合' do
       it 'ユーザー登録に失敗する' do
-        visit new_user_path
+        visit new_users_path
         fill_in 'ユーザー名', with: ''
         fill_in 'メールアドレス', with: ''
         fill_in 'パスワード', with: ''
@@ -36,7 +36,7 @@ RSpec.describe "Users", type: :system do
     context 'emailが重複している場合' do
       it 'ユーザー登録に失敗する' do
         existed_user = create(:user)
-        visit new_user_path
+        visit new_users_path
         fill_in 'ユーザー名', with: 'Test-user'
         fill_in 'メールアドレス', with: existed_user.email
         fill_in 'パスワード', with: 'password'
@@ -50,7 +50,7 @@ RSpec.describe "Users", type: :system do
 
     context 'password-confirmationが一致しない場合' do
       it 'ユーザー登録に失敗する' do
-        visit new_user_path
+        visit new_users_path
         fill_in 'ユーザー名', with: 'Test-user'
         fill_in 'メールアドレス', with: 'test@example.com'
         fill_in 'パスワード', with: 'password'
@@ -64,7 +64,7 @@ RSpec.describe "Users", type: :system do
 
     context 'passwordが8文字未満の場合' do
       it 'ユーザー登録に失敗する' do
-        visit new_user_path
+        visit new_users_path
         fill_in 'ユーザー名', with: 'Test-user'
         fill_in 'メールアドレス', with: 'test@example.com'
         fill_in 'パスワード', with: 'p' * 7
@@ -78,7 +78,7 @@ RSpec.describe "Users", type: :system do
 
     context 'passwordが17文字以上の場合' do
       it 'ユーザー登録に失敗する' do
-        visit new_user_path
+        visit new_users_path
         fill_in 'ユーザー名', with: 'Test-user'
         fill_in 'メールアドレス', with: 'test@example.com'
         fill_in 'パスワード', with: 'p' * 17

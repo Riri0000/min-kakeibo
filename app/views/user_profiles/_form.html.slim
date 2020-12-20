@@ -1,0 +1,41 @@
+/ （仮)とりあえず仮実装。もっときれいに整えること。CSSフレームワーク変えるかも。
+.container
+  h1 ユーザープロフィール登録
+  p 公開するプロフィールを登録してください。各項目は秘密にもできます。公開したくない場合はチェックしてください。
+  .row
+    .col-6
+      = form_with model: @user_profile, local: true do |f|
+        .form-group
+          = f.label :age
+          = f.select :age,
+                      options_for_select(13..100, selected: @user_profile.age ||=''),
+                      { include_blank: '選択してください' },
+                      class: 'form-control'
+        .form-group
+          = f.label :job
+          = f.text_field :job, class: 'form-control no-spin'
+        .form-group
+          = f.label :residence
+          = f.select :residence,
+                      UserProfile::PREFECTURE_NAMES,
+                      { include_blank: '選択してください' },
+                      class: 'form-control'
+        .form-group
+          = f.label :total_assets
+          = f.number_field :total_assets, class: 'form-control no-spin'
+        .form-group
+          = f.label :annual_income
+          = f.number_field :annual_income, class: 'form-control no-spin'
+        .form-group
+          = f.label :monthly_income
+          = f.number_field :monthly_income, class: 'form-control no-spin'
+        .form-group
+          = f.label :household_member
+          = f.select :household_member,
+                      UserProfile.household_members_i18n.invert,
+                      { include_blank: '選択してください' },
+                      class: 'form-control'
+        .form-group
+          = f.label :message
+          = f.text_area :message, class: 'form-control'
+        = f.submit t('defaults.register_profile'), class: 'btn btn-primary mt-3 mb-3'

@@ -16,5 +16,6 @@ ExpenseItem.seed(:id,
 { id: 15, name: '衣服費' },
 { id: 16, name: '娯楽費' },
 { id: 17, name: '特別費' },
-{ id: 18, name: '雑費' }
+{ id: 18, name: '雑費' },
+{ id: 19, name: 'その他' },
 )

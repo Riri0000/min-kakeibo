@@ -26,6 +26,9 @@ ja:
     create:
       success: 'プロフィールを登録しました'
       fail: 'プロフィール登録に失敗しました'
+    update  :
+      success: 'プロフィールを更新しました'
+      fail: 'プロフィール更新に失敗しました'
   account_books:
     create:
       success: '家計簿を登録しました'

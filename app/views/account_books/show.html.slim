@@ -1,21 +1,50 @@
-.container
-  .row
-    .col-6.m-3
-      h1 = "#{@account_book.user.nickname}さんの家計簿"
+section.text-gray-600.body-font
+  .container.px-5.py-24.mx-auto.flex.flex-wrap.items-center
+    .rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-0.md:mt-0.lg:pr-10 class=("lg:w-1/2 md:w-1/2")
+      h1 = "#{@account_book.user.nickname}さん"
+      h1 = "#{@account_book.date}の家計簿"
       = pie_chart @expenses
 
       table.table.mt-4
+        thead
+          tr
+            th = UserProfile.human_attribute_name(:total_assets)
+            td= number_to_currency(@user_profile.total_assets)
+          tr
+            th = UserProfile.human_attribute_name(:monthly_income)
+            td= number_to_currency(@user_profile.monthly_income)
+          tr
+            th = Expense.model_name.human
+            td= number_to_currency(@sum_of_expenditure)
         thead.thead-light
           tr
-            th scope="col"  支出項目
-            th scope="col"  支出額
+            th = ExpenseItem.human_attribute_name(:name)
+            th = Expense.human_attribute_name(:expenditure)
         tbody
           - @expenses.each do |expense_item, expenditure|
             tr
               td= expense_item
               td= number_to_currency(expenditure)
-
-  - if current_user.own?(@account_book)
       = link_to edit_account_book_path(@account_book)
-        button.m-3.bg-carrot-300.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-400.hover:text-gray-700 編集する
+        button.m-3.bg-carrot-300.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-400.hover:text-gray-700 家計簿を編集する
 
+    .bg-gray-50.rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-1/2 md:w-1/2")
+      table.table.mt-4
+        tbody
+          tr
+            th = UserProfile.human_attribute_name(:age)
+            td= "#{@user_profile.age}歳"
+          tr
+            th = UserProfile.human_attribute_name(:job)
+            td= @user_profile.job
+          tr
+            th = UserProfile.human_attribute_name(:residence)
+            td= @user_profile.residence
+          tr
+            th = UserProfile.human_attribute_name(:household_member)
+            td= @user_profile.household_member_i18n
+          tr
+            th = UserProfile.human_attribute_name(:message)
+            td= @user_profile.message
+      = link_to edit_user_profile_path(@user_profile)
+        button.m-3.bg-carrot-300.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-400.hover:text-gray-700 プロフィールを編集する

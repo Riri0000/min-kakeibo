@@ -93,6 +93,8 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     erubis (2.7.0)
     factory_bot (6.1.0)
@@ -333,6 +335,7 @@ DEPENDENCIES
   chartkick
   cocoon
   dotenv-rails (~> 2.7, >= 2.7.6)
+  enum_help
   factory_bot_rails
   foreman
   html2slim

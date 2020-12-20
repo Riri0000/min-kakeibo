@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'static_pages#top'
+  resources :dashboards, only: %i[show]
 
   # ログイン・ログアウト
   post 'oauth/callback', to: 'oauths#callback'
@@ -9,11 +10,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy', as: :logout
 
-  resources :users, only: %i[new create edit]
-  resources :user_profiles, only: %i[new create show]
-  resources :account_books do
-    collection do
-      get :mypage, to: 'account_books#mypage'
-    end
-  end
+  resource :users, only: %i[new create edit]
+  resource :user_profile, only: %i[new create edit update destroy]
+  resources :account_books
 end
