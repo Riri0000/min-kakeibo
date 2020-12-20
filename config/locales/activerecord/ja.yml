@@ -17,6 +17,7 @@ ja:
       user_profile:
         age: '年齢'
         job: '職業'
+        residence: '居住地'
         total_assets: '総資産'
         annual_income: '年収'
         monthly_income: '月収'
@@ -29,3 +30,20 @@ ja:
       expense:
         expenditure: '支出額'
         note: '備考'
+  enums:
+    user:
+      role:
+        general: '一般ユーザー'
+        admin: '管理者'
+    user_profile:
+      household_member:
+        single: '一人暮らし'
+        dinks: '夫婦二人'
+        with1kid: '子ども1人'
+        with2kids: '子ども2人'
+        with3kids: '子ども3人'
+        with4kids: '子ども4人'
+        withparent: '親と同居'
+        other: 'その他'
+
+

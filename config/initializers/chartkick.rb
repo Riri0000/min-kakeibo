@@ -8,4 +8,4 @@ Chartkick.options = {
             "#ffead3",
             "#f3d2b3",
             "#ffffe5",]
-}
+          }

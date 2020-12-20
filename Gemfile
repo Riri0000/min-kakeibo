@@ -88,8 +88,9 @@ gem 'sorcery', '~> 0.15.0'
 # フラッシュメッセージ
 gem 'toastr-rails'
 
-# 国際化対応/バリデーションエラーなど主要なメッセージを自動翻訳してくれる
+# 国際化対応
 gem 'rails-i18n', '~> 6.0.0'
+gem 'enum_help'
 
 # Seed管理
 gem 'seed-fu', '~> 2.3'

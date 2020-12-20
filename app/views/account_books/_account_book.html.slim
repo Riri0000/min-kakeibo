@@ -1,0 +1,20 @@
+.bg-white
+  .px-10.py-6.mb-10.text-center
+    .rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-0.md:mt-0.lg:pr-10 class=("lg:w-1/2 md:w-1/2")
+    h1 = "#{account_book.user.nickname}さん"
+    h1 = "#{account_book.date}の家計簿"
+    = pie_chart account_book.expenses.order_by_expense_item_group
+
+    table.table.mt-4
+      thead
+        / tr
+        /   th = UserProfile.human_attribute_name(:total_assets)
+        /   td= number_to_currency(account_book.user.user_profile.total_assets)
+        / tr
+        /   th = UserProfile.human_attribute_name(:monthly_income)
+        /   td= number_to_currency(account_book.user.user_profile.monthly_income)
+        tr
+          th = Expense.model_name.human
+          td= number_to_currency(account_book.expenses.sum(:expenditure))
+  = link_to dashboard_path(account_book)
+    button class="w-full text-lg h-16 text-white font-extrabold bg-carrot-300 mb-5" 詳しく見る

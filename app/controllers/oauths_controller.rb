@@ -21,7 +21,6 @@ class OauthsController < ApplicationController
         auto_login(@user)
         redirect_to root_path, success: "#{provider.titleize}でログインしました"
       rescue StandardError
-        # binding.pry
         redirect_to root_path, error: "#{provider.titleize}のログインに失敗しました"
       end
     end
