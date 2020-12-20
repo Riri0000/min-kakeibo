@@ -12,9 +12,10 @@ class UserProfile < ApplicationRecord
     with3kids: 5,
     with4kids: 6,
     withparent: 7,
-    other: 8 }
+    other: 8
+  }
 
-  PREFECTURE_NAMES = %w(
+  PREFECTURE_NAMES = %w[
     北海道
     青森県 岩手県 宮城県 秋田県 山形県 福島県
     茨城県 栃木県 群馬県 埼玉県 千葉県 東京都 神奈川県
@@ -25,5 +26,5 @@ class UserProfile < ApplicationRecord
     福岡県 佐賀県 長崎県 熊本県 大分県 宮崎県 鹿児島県
     沖縄県
     海外
-  )
+  ].freeze
 end
