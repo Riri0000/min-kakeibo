@@ -1,8 +1,8 @@
 .bg-white
-  .px-10.py-6.mb-10.text-center
+  .flex.flex-col.items-center.justify-center.bg-white.p-4.shadow.rounded-lg
     .rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-0.md:mt-0.lg:pr-10 class=("lg:w-1/2 md:w-1/2")
     h1 = "#{account_book.user.nickname}さん"
-    h1 = "#{account_book.date}の家計簿"
+    h1 = "#{l account_book.date, format: :short}の家計簿"
     = pie_chart account_book.expenses.order_by_expense_item_group
 
     table.table.mt-4

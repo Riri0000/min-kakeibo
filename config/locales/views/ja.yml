@@ -1,4 +1,7 @@
 ja:
+  date:
+    formats:
+      short: '%Y年%m月'
   defaults:
     top: 'サービス名'
     login: 'ログイン'
