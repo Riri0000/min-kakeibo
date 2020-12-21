@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy', as: :logout
 
-  resource :users, only: %i[new create edit]
+  resource :users, only: %i[new create edit destroy]
   resource :user_profile, only: %i[new create edit update destroy]
   resources :account_books
 end

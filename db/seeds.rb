@@ -5,3 +5,41 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+30.times do
+  User.create!(
+    nickname: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: 'password',
+    password_confirmation: 'password'
+  )
+end
+
+30.times do |i|
+  UserProfile.create!(
+    user_id: User.find(i+1).id,
+    age: rand(13..80),
+    job: Faker::Job.field,
+    residence: UserProfile::PREFECTURE_NAMES.sample(1),
+    total_assets: rand(10_000..100_000_000),
+    annual_income: rand(10_000..30_000_000),
+    monthly_income: rand(10_000..2_000_000),
+    household_member: rand(1..8),
+    message: Faker::Quote.famous_last_words
+  )
+end
+
+30.times do |i|
+  AccountBook.create!(
+    user_id: User.find(i+1).id,
+    date: Date.today
+  )
+end
+
+300.times do |i|
+  Expense.create!(
+    account_book_id: rand(1..30),
+    expense_item_id: rand(1..19),
+    expenditure: rand(1..99_999)
+  )
+end

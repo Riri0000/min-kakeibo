@@ -1,16 +1,15 @@
-/ （仮)とりあえず仮実装。もっときれいに整えること。CSSフレームワーク変えるかも。
 .container
-  h1 ユーザープロフィール登録
-  p 公開するプロフィールを登録してください。各項目は秘密にもできます。公開したくない場合はチェックしてください。
+  h1 プロフィール入力
+  p 入力しなかった項目は、「秘密」と表示されます。
   .row
     .col-6
       = form_with model: @user_profile, local: true do |f|
         .form-group
           = f.label :age
           = f.select :age,
-                      options_for_select(13..100, selected: @user_profile.age ||=''),
-                      { include_blank: '選択してください' },
-                      class: 'form-control'
+                      options_for_select(13..100),
+                      { include_blank: '選択してください', selected: @user_profile.age ||= ''},
+                      { class: 'form-control' }
         .form-group
           = f.label :job
           = f.text_field :job, class: 'form-control no-spin'

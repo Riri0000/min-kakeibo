@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_045043) do
     t.bigint "user_id", null: false
     t.integer "age", default: 0
     t.string "job", limit: 20, default: ""
-    t.string "residence", default: "0"
+    t.string "residence", default: ""
     t.integer "total_assets", default: 0
     t.integer "annual_income", default: 0
     t.integer "monthly_income", default: 0
