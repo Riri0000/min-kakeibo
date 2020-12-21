@@ -51,6 +51,8 @@ group :development, :test do
 
   # 環境変数設定用
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+
+  gem 'faker'
 end
 
 group :development do
