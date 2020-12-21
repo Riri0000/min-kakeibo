@@ -2,7 +2,7 @@ section.text-gray-600.body-font
   .container.px-5.py-24.mx-auto.flex.flex-wrap.items-center
     .rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-0.md:mt-0.lg:pr-10 class=("lg:w-1/2 md:w-1/2")
       h1 = "#{@account_book.user.nickname}さん"
-      h1 = "#{@account_book.date}の家計簿"
+      h1 = "#{l @account_book.date, format: :short}の家計簿"
       = pie_chart @expenses
 
       table.table.mt-4
@@ -33,18 +33,18 @@ section.text-gray-600.body-font
         tbody
           tr
             th = UserProfile.human_attribute_name(:age)
-            td= "#{@user_profile.age}歳"
+            td= "#{show_value(@user_profile.age)} 歳"
           tr
             th = UserProfile.human_attribute_name(:job)
-            td= @user_profile.job
+            td= show_value(@user_profile.job)
           tr
             th = UserProfile.human_attribute_name(:residence)
-            td= @user_profile.residence
+            td= show_value(@user_profile.residence)
           tr
             th = UserProfile.human_attribute_name(:household_member)
-            td= @user_profile.household_member_i18n
+            td= show_value(@user_profile.household_member_i18n)
           tr
             th = UserProfile.human_attribute_name(:message)
-            td= @user_profile.message
+            td= show_value(@user_profile.message)
       = link_to edit_user_profile_path(@user_profile)
         button.m-3.bg-carrot-300.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-400.hover:text-gray-700 プロフィールを編集する
