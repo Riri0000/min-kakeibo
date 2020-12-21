@@ -4,15 +4,11 @@ module ApplicationHelper
     if price.present?
       "#{price.to_s(:delimited, delimiter: ',')}円"
     else
-      "ー"
+      'ー'
     end
   end
 
   def show_value(object)
-    if object.present?
-      object
-    else
-      "ー"
-    end
+    object.presence || 'ー'
   end
 end
