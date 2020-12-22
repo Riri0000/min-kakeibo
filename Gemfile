@@ -80,6 +80,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # グラフ生成用
 gem 'chartkick'
 
+# ページネーション
+gem 'pagy'
+
 # slim
 gem 'slim-rails'
 gem 'html2slim'
