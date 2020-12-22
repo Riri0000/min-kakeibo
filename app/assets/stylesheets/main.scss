@@ -44,3 +44,34 @@ header {
     margin: 0;
     -moz-appearance:textfield;
 }
+
+// ページネーション
+.pagination .page-link:focus{
+  box-shadow: none;
+}
+.pagination>.page-item>.page-link, .pagination>.page-item>span {
+  border: 0;
+  border-radius: 30px!important;
+  transition: all .3s;
+  padding: 0 11px !important;
+  margin: 0 3px !important;
+  min-width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #999;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: 0 0;
+  text-align: center;
+}
+.pagination>.page-item.active>a,
+.pagination>.page-item.active>a:focus,
+.pagination>.page-item.active>a:hover,
+.pagination>.page-item.active>span,
+.pagination>.page-item.active>span:focus,
+.pagination>.page-item.active>span:hover {
+  background-color: #ff9800;
+  border-color: #ff9800;
+  box-shadow: 0 4px 5px 0 rgba(255,152,0,.14), 0 1px 10px 0 rgba(255,152,0,.12), 0 2px 4px -1px rgba(255,152,0,.2);
+}
