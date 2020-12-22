@@ -3,9 +3,38 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+  font-weight: 500;
 }
 main {
   flex: 1;
+  background-color: #F9F8F4;
+  // または#F8F3E6
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  padding: 17px;
+}
+
+header {
+  background-color: #F9F8F4;
+}
+
+// TOPページの吹き出し部分
+.btn-copy {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: .2em;
+  text-align: center;
+}
+
+.btn-copy:before {
+  margin-right: 1rem;
+  content: '＼';
+}
+
+.btn-copy:after {
+  margin-left: 1rem;
+  content: '／';
 }
 
 // 入力フォームinput type='number'のスピンボタンを消す
