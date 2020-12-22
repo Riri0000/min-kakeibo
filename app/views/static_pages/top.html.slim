@@ -1,8 +1,4 @@
 .container.flex-grow
-  h1 みんなの家計簿
-  p みんなの家計簿は家計簿公開サービスです！
-  p 〜サービス説明文〜
-
-  = link_to 'はじめる（ユーザー登録)', new_users_path
-  = link_to 'ログイン', login_path
-  = link_to 'お試しログイン', '#'
+  .btn-copy みんなの家計簿公開
+  .p-4.flex.flex-row.items-center.justify-between
+    = image_pack_tag 'kakeibo_cat.png', size: '500x500'
