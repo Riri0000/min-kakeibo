@@ -9,6 +9,7 @@ ja:
     register: 'ユーザー登録'
     register_profile: 'プロフィール登録'
     register_account_book: '家計簿を登録する'
+    dashboard: 'もっと見る'
     account_books: 'みんなの家計簿へ'
     my_account_books: 'My家計簿'
   static_pages:

@@ -20,7 +20,7 @@ ja:
         residence: '居住地'
         total_assets: '総資産'
         annual_income: '年収'
-        monthly_income: '月収'
+        monthly_income: '収入'
         household_member: '世帯構成'
         message: 'ひとこと'
       account_book:
