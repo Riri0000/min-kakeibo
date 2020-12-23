@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   has_one :user_profile, dependent: :destroy
   has_one :account_book, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_account_books, through: :likes, source: :account_book
   accepts_nested_attributes_for :authentications
 
   validates :nickname, presence: true, length: { in: 1..16 }
