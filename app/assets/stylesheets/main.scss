@@ -3,9 +3,38 @@ body {
   display: flex;
   flex-flow: column;
   min-height: 100vh;
+  font-family: "游ゴシック", "Yu Gothic", "游ゴシック体", YuGothic, sans-serif;
+  font-weight: 500;
 }
 main {
   flex: 1;
+  background-color: #F9F8F4;
+  // または#F8F3E6
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  padding: 17px;
+}
+
+header {
+  background-color: #F9F8F4;
+}
+
+// TOPページの吹き出し部分
+.btn-copy {
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: .2em;
+  text-align: center;
+}
+
+.btn-copy:before {
+  margin-right: 1rem;
+  content: '＼';
+}
+
+.btn-copy:after {
+  margin-left: 1rem;
+  content: '／';
 }
 
 // 入力フォームinput type='number'のスピンボタンを消す
@@ -15,3 +44,42 @@ main {
     margin: 0;
     -moz-appearance:textfield;
 }
+
+// ページネーション
+.pagination .page-link:focus{
+  box-shadow: none;
+}
+.pagination>.page-item>.page-link, .pagination>.page-item>span {
+  border: 0;
+  border-radius: 30px!important;
+  transition: all .3s;
+  padding: 0 11px !important;
+  margin: 0 3px !important;
+  min-width: 30px;
+  height: 30px;
+  line-height: 30px;
+  color: #999;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: 0 0;
+  text-align: center;
+}
+.pagination>.page-item.active>a,
+.pagination>.page-item.active>a:focus,
+.pagination>.page-item.active>a:hover,
+.pagination>.page-item.active>span,
+.pagination>.page-item.active>span:focus,
+.pagination>.page-item.active>span:hover {
+  background-color: #ff9800;
+  border-color: #ff9800;
+  box-shadow: 0 4px 5px 0 rgba(255,152,0,.14), 0 1px 10px 0 rgba(255,152,0,.12), 0 2px 4px -1px rgba(255,152,0,.2);
+}
+
+// グラフのレスポンシブ対応
+
+.chart-container {
+
+}
+
+

@@ -1,0 +1,49 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// ボタン
+.primary-button {
+  @apply bg-carrot-400;
+  @apply border-b-4;
+  @apply border-carrot-500;
+  @apply inline-block;
+  @apply py-2;
+  @apply px-6;
+  @apply m-2;
+  @apply rounded-full;
+  @apply text-carrot-50;
+  @apply font-bold;
+  @apply text-xs;
+
+  &:active {
+    @apply border-b-0;
+    @apply mt-1;
+  }
+
+  &:hover {
+    @apply text-carrot-50;
+  }
+}
+.primary-light-button {
+  @apply bg-carrot-200;
+  @apply border-b-4;
+  @apply border-carrot-400;
+  @apply inline-block;
+  @apply py-2;
+  @apply px-6;
+  @apply m-2;
+  @apply rounded-full;
+  @apply text-carrot-800;
+  @apply font-bold;
+  @apply text-xs;
+
+  &:active {
+    @apply border-b-0;
+    @apply mt-1;
+  }
+
+  &:hover {
+    @apply text-carrot-800;
+  }
+}
