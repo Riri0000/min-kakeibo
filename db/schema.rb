@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_045043) do
+ActiveRecord::Schema.define(version: 2020_12_23_044816) do
 
   create_table "account_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.date "date"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2020_12_21_045043) do
     t.index ["expense_item_id"], name: "index_expenses_on_expense_item_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "account_book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_book_id"], name: "index_likes_on_account_book_id"
+    t.index ["user_id", "account_book_id"], name: "index_likes_on_user_id_and_account_book_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "age", default: 0
@@ -77,5 +87,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_045043) do
   add_foreign_key "account_books", "users"
   add_foreign_key "expenses", "account_books"
   add_foreign_key "expenses", "expense_items"
+  add_foreign_key "likes", "account_books"
+  add_foreign_key "likes", "users"
   add_foreign_key "user_profiles", "users"
 end

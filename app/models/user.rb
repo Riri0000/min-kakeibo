@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   has_one :user_profile, dependent: :destroy
   has_one :account_book, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_account_books, through: :likes, source: :account_book
   accepts_nested_attributes_for :authentications
 
   validates :nickname, presence: true, length: { in: 1..16 }
@@ -16,5 +18,17 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+  def like(account_book)
+    like_account_books << account_book
+  end
+
+  def dislike(account_book)
+    like_account_books.destroy(account_book)
+  end
+
+  def like?(account_book)
+    like_account_books.include?(account_book)
   end
 end

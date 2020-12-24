@@ -1,0 +1,7 @@
+/ 色付き
+= link_to like_path(current_user.likes.find_by(account_book_id: account_book.id)),
+          id: "js-like-btn-for-#{account_book.id}",
+          method: :delete,
+          remote: true do
+	i.fas.fa-thumbs-up.dislike-btn
+	= account_book.likes.count
