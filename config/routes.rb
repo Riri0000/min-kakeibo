@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resource :users, only: %i[new create edit destroy]
   resource :user_profiles, only: %i[new create edit update destroy]
   resources :account_books
+  resources :likes, only: %i[create destroy]
 end

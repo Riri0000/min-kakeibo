@@ -19,4 +19,16 @@ class User < ApplicationRecord
   def own?(object)
     id == object.user_id
   end
+
+  def like(account_book)
+    like_account_books << account_book
+  end
+
+  def dislike(account_book)
+    like_account_books.destroy(account_book)
+  end
+
+  def like?(account_book)
+    like_account_books.include?(account_book)
+  end
 end

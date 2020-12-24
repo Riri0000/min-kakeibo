@@ -2,6 +2,7 @@
   .flex.flex-col.items-center.justify-center.bg-white.p-4.rounded-lg
     h1 = "#{account_book.user.nickname}さん"
     h1 = "#{l account_book.date, format: :short}の家計簿"
+    = render 'like_button', account_book: account_book
     .flex.chart-container.relative
       = pie_chart account_book.expenses.order_by_expense_item_group
 
