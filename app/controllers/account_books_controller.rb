@@ -44,6 +44,10 @@ class AccountBooksController < ApplicationController
 
   def destroy; end
 
+  def likes
+    @pagy, @account_books = pagy(current_user.like_account_books.includes(%i[user expenses]))
+  end
+
   private
 
   def set_account_book

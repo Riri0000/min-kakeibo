@@ -12,6 +12,7 @@ ja:
     dashboard: 'もっと見る'
     account_books: 'みんなの家計簿へ'
     my_account_books: 'My家計簿'
+    likes: 'お気に入り家計簿'
   static_pages:
     new:
   users:
