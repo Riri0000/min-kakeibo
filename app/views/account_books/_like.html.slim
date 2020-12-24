@@ -1,4 +1,7 @@
 / 白
-= link_to likes_path(account_book_id: account_book.id), method: :post do
+= link_to likes_path(account_book_id: account_book.id),
+          id: "js-like-btn-for-#{account_book.id}",
+          method: :post,
+          remote: true do
   i.far.fa-thumbs-up.like-btn
-= account_book.likes.count
+  = account_book.likes.count

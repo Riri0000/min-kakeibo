@@ -3,7 +3,7 @@ class AccountBooksController < ApplicationController
   before_action :set_account_book, only: %i[edit update destroy]
 
   def index
-    @pagy, @account_books = pagy(AccountBook.all.includes(%i[user expenses]))
+    @pagy, @account_books = pagy(AccountBook.all.includes(%i[user expenses likes]))
   end
 
   def new
