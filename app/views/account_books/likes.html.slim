@@ -1,6 +1,7 @@
+= content_for(:title, t('.title'))
 .px-3
   .text-4xl.sm:text-3xl.text-center.my-10 お気に入り家計簿
-  .grid.grid-cols-1.m-5.sm:grid-cols-2.md:grid-cols-3.xl:grid-cols-4.gap-4
+  .grid.grid-cols-1.m-5.sm:grid-cols-1.md:grid-cols-2.xl:grid-cols-3.gap-4
     = render @account_books
   .flex.justify-center
-    == pagy_bootstrap_nav(@pagy)
+    = paginate(@account_books)

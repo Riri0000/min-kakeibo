@@ -13,6 +13,12 @@ ja:
     account_books: 'みんなの家計簿へ'
     my_account_books: 'My家計簿'
     likes: 'お気に入り家計簿'
+  views:
+    pagination:
+      previous: '<'
+      next: '>'
+      first: '<<'
+      last: '>>'
   static_pages:
     new:
   users:
@@ -30,19 +36,36 @@ ja:
     destroy:
       logout: 'ログアウトしました'
   user_profiles:
+    new:
+      title: 'プロフィール登録'
+    edit:
+      title: 'プロフィール編集'
     create:
       success: 'プロフィールを登録しました'
       fail: 'プロフィール登録に失敗しました'
-    update  :
+    update:
       success: 'プロフィールを更新しました'
       fail: 'プロフィール更新に失敗しました'
   account_books:
+    index:
+      title: '家計簿一覧'
+    new:
+      title: '家計簿作成'
+    edit:
+      title: '家計簿編集'
     create:
       success: '家計簿を登録しました'
       fail: '家計簿登録に失敗しました'
-    update  :
+    show:
+      title: 'My家計簿'
+    update:
       success: '家計簿を更新しました'
       fail: '家計簿更新に失敗しました'
+    likes:
+      title: 'お気に入り一覧'
+  dashboards:
+    show:
+      title: '家計簿詳細'
   cocoon:
     defauls:
       add: '支出を追加'
