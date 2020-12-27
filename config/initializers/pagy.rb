@@ -1,10 +1,13 @@
 # Frontend Extras
 require 'pagy/extras/bootstrap'
+require 'pagy/extras/overflow'
 
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
 Pagy::VARS[:items] = 12
 
+# default :empty_page (other options :last_page and :exception )
+Pagy::VARS[:overflow] = :last_page
 
 # Other Variables
 # See https://ddnexus.github.io/pagy/api/pagy#other-variables

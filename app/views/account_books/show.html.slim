@@ -46,5 +46,5 @@ section.text-gray-600.body-font
           tr
             th = UserProfile.human_attribute_name(:message)
             td= show_value(@user_profile.message)
-      = link_to edit_user_profiles_path(@user_profile)
+      = link_to edit_user_profile_path(@user_profile)
         button.m-3.bg-carrot-300.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-400.hover:text-gray-700 プロフィールを編集する
