@@ -20,7 +20,8 @@ ja:
       first: '<<'
       last: '>>'
   static_pages:
-    new:
+    top:
+      title: 'Home'
   users:
     new:
       title: 'ユーザー登録'

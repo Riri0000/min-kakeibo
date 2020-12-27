@@ -16,6 +16,8 @@ html
         = render 'shared/before_login_header'
       = render 'shared/flash_message'
     main
+      .breadcrumbs
+        = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list text-carrot-800"
       = yield
     footer
       = render 'shared/footer'
