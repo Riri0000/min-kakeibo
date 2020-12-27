@@ -81,7 +81,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'chartkick'
 
 # パンくずリスト
-gem "gretel"
+gem 'gretel'
 
 # ページネーション
 gem 'kaminari'

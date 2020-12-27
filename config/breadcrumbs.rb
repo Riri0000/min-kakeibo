@@ -1,44 +1,44 @@
 crumb :root do
-  link "トップページ", root_path
+  link 'トップページ', root_path
 end
 
 crumb :account_books do
-  link "家計簿一覧", account_books_path
+  link '家計簿一覧', account_books_path
   parent :root
 end
 
 crumb :likes_account_books do
-  link "お気に入り家計簿一覧", likes_account_books_path
+  link 'お気に入り家計簿一覧', likes_account_books_path
   parent :root
 end
 
 crumb :dashboard do
-  link "家計簿詳細", dashboard_path
+  link '家計簿詳細', dashboard_path
   parent :account_books
 end
 
 crumb :new_account_book do
-  link "My家計簿作成", new_account_book_path
+  link 'My家計簿作成', new_account_book_path
   parent :root
 end
 
 crumb :new_user_profile do
-  link "プロフィール作成", new_user_profile_path
+  link 'プロフィール作成', new_user_profile_path
   parent :root
 end
 
 crumb :account_book do
-  link "My家計簿", account_book_path
+  link 'My家計簿', account_book_path
   parent :root
 end
 
 crumb :edit_account_book do |account_book|
-  link "My家計簿編集", edit_account_book_path
+  link 'My家計簿編集', edit_account_book_path
   parent :account_book, account_book
 end
 
 crumb :edit_user_profile do |user_profile|
-  link "プロフィール編集", edit_user_profile_path
+  link 'プロフィール編集', edit_user_profile_path
   parent :account_book, user_profile
 end
 
