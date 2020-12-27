@@ -1,11 +1,11 @@
 class AccountBooksController < ApplicationController
-  include Pagy::Backend
   before_action :set_account_book, only: %i[edit update destroy]
 
   def index
     @q = AccountBook.ransack(params[:q])
     @account_books = @q.result.includes([{ user: :user_profile }, :expenses, :likes])
-                       .joins([{ user: :user_profile }, :expenses])
+                              .joins([{ user: :user_profile }, :expenses])
+                              .page(params[:page])
   end
 
   def new
@@ -48,8 +48,9 @@ class AccountBooksController < ApplicationController
 
   def likes
     @q = current_user.like_account_books.ransack(params[:q])
-    @pagy, @account_books = pagy(@q.result.includes(:expenses, :likes, user: [:user_profile])
-                                       .joins(:expenses, :likes, user: [:user_profile]))
+    @account_books = @q.result.includes([{ user: :user_profile }, :expenses, :likes])
+                              .joins([{ user: :user_profile }, :expenses])
+                              .page(params[:page])
   end
 
   private

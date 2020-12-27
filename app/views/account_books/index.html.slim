@@ -4,4 +4,4 @@
   .grid.grid-cols-1.m-5.sm:grid-cols-1.md:grid-cols-2.xl:grid-cols-3.gap-4
     = render @account_books
   .flex.justify-center
-    / == pagy_bootstrap_nav(@pagy)
+    = paginate(@account_books)
