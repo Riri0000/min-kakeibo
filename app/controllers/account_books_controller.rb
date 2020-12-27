@@ -4,8 +4,8 @@ class AccountBooksController < ApplicationController
   def index
     @q = AccountBook.ransack(params[:q])
     @account_books = @q.result.includes([{ user: :user_profile }, :expenses, :likes])
-                              .joins([{ user: :user_profile }, :expenses])
-                              .page(params[:page])
+                       .joins([{ user: :user_profile }, :expenses])
+                       .page(params[:page])
   end
 
   def new
@@ -49,8 +49,8 @@ class AccountBooksController < ApplicationController
   def likes
     @q = current_user.like_account_books.ransack(params[:q])
     @account_books = @q.result.includes([{ user: :user_profile }, :expenses, :likes])
-                              .joins([{ user: :user_profile }, :expenses])
-                              .page(params[:page])
+                       .joins([{ user: :user_profile }, :expenses])
+                       .page(params[:page])
   end
 
   private

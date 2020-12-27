@@ -1,8 +1,7 @@
 module ApplicationHelper
-
   def page_title(page_title = '')
     base_title = 'みんなの家計簿'
-    page_title.empty? ? base_title: page_title + ' | ' + base_title
+    page_title.empty? ? base_title : "#{page_title} | #{base_title}".to_s
   end
 
   # 表示する数字は3桁で(',')区切り、円をつける。
