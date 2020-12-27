@@ -3,7 +3,9 @@ class AccountBooksController < ApplicationController
   before_action :set_account_book, only: %i[edit update destroy]
 
   def index
-    @pagy, @account_books = pagy(AccountBook.all.includes(%i[user expenses likes]))
+    @q = AccountBook.ransack(params[:q])
+    @account_books = @q.result.includes([{ user: :user_profile }, :expenses, :likes])
+                              .joins([{ user: :user_profile }, :expenses])
   end
 
   def new
@@ -45,7 +47,9 @@ class AccountBooksController < ApplicationController
   def destroy; end
 
   def likes
-    @pagy, @account_books = pagy(current_user.like_account_books.includes(%i[user expenses]))
+    @q = current_user.like_account_books.ransack(params[:q])
+    @pagy, @account_books = pagy(@q.result.includes(:expenses, :likes, user: [:user_profile])
+                                       .joins(:expenses, :likes, user: [:user_profile]))
   end
 
   private
