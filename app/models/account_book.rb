@@ -7,9 +7,9 @@ class AccountBook < ApplicationRecord
   validates :date, presence: true
 
   # 検索用
-  scope :sort_by_likes, -> { find(Like.group(:account_book_id).order('count(account_book_id) DESC').pluck(:account_book_id))}
+  scope :sort_by_likes, -> { find(Like.group(:account_book_id).order('count(account_book_id) DESC').pluck(:account_book_id)) }
 
-  def self.ransackable_scopes(auth_object = nil)
+  def self.ransackable_scopes(_auth_object = nil)
     %i[sort_by_likes]
   end
 end
