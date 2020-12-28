@@ -16,6 +16,8 @@ ja:
     dashboard: 'もっと見る'
     account_books: 'みんなの家計簿へ'
     my_account_books: 'My家計簿'
+    new_account_book: 'My家計簿登録へ'
+    new_user_profile: 'Myプロフィール登録へ'
     likes: 'お気に入り家計簿'
     user: 'ユーザー情報編集'
   views:
