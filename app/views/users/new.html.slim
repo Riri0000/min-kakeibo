@@ -25,7 +25,7 @@ section.text-gray-600.body-font
         p.text-m.text-gray-500.mt-2.mb-2.text-center OR
         / Twitterログインリンク
         = link_to auth_at_provider_path(provider: :twitter) do
-          button.relative.mt-6.w-full.blue-light-button
+          button.relative.mt-6.w-full.blue-square-button
             span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500.text-md
               i.fab.fa-twitter
             span #{t('defaults.twitter-register')}

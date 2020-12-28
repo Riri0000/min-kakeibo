@@ -103,16 +103,40 @@
   }
 }
 
-.blue-light-button {
-  @apply bg-blue-100;
+.blue-square-button {
+  @apply bg-blue-300;
   @apply border-b-4;
-  @apply border-blue-200;
+  @apply border-blue-400;
   @apply inline-block;
   @apply py-2;
   @apply px-6;
   @apply m-2;
-  @apply rounded-full;
-  @apply text-blue-800;
+  @apply rounded-lg;
+  @apply text-white;
+  @apply font-bold;
+  @apply text-base;
+
+  &:active {
+    @apply border-b-0;
+    @apply mt-1;
+  }
+
+  &:hover {
+    @apply text-white;
+    @apply bg-blue-400;
+  }
+}
+
+.blue-small-button {
+  @apply bg-blue-300;
+  @apply border-b-4;
+  @apply border-blue-400;
+  @apply inline-block;
+  @apply py-2;
+  @apply px-6;
+  @apply m-2;
+  @apply rounded-lg;
+  @apply text-white;
   @apply font-bold;
   @apply text-sm;
 
@@ -122,8 +146,8 @@
   }
 
   &:hover {
-    @apply text-blue-800;
-    @apply bg-blue-200;
+    @apply text-white;
+    @apply bg-blue-400;
   }
 }
 
@@ -137,6 +161,27 @@
   @apply text-base;
   @apply outline-none;
   @apply text-gray-700;
+  @apply py-1;
+  @apply px-3;
+  @apply leading-8;
+  @apply transition-colors;
+  @apply duration-200;
+  @apply ease-in-out;
+
+  &:focus {
+    @apply border-carrot-500;
+    @apply ring-2;
+    @apply ring-carrot-200;
+  }
+}
+.select-form {
+  @apply bg-white;
+  @apply rounded;
+  @apply border;
+  @apply border-gray-300;
+  @apply text-base;
+  @apply outline-none;
+  @apply inline;
   @apply py-1;
   @apply px-3;
   @apply leading-8;

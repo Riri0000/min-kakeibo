@@ -27,8 +27,8 @@ section.text-gray-600.body-font
             tr
               td= expense_item
               td= number_to_currency(expenditure)
-      = link_to edit_account_book_path(@account_book)
-        button.m-3.bg-carrot-300.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-400.hover:text-gray-700 家計簿を編集する
+      .flex.justify-center
+        = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button'
 
     .bg-gray-50.rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-1/2 md:w-1/2")
       table.table.mt-4
@@ -48,5 +48,5 @@ section.text-gray-600.body-font
           tr
             th = UserProfile.human_attribute_name(:message)
             td= show_value(@user_profile.message)
-      = link_to edit_user_profile_path(@user_profile)
-        button.m-3.bg-carrot-300.text-gray-800.p-2.rounded.border.border-gray-300.mr-4.hover:bg-carrot-400.hover:text-gray-700 プロフィールを編集する
+      .flex.justify-center
+        = link_to t('defaults.edit_user_profile'), edit_user_profile_path(@user_profile), class: 'light-square-button'
