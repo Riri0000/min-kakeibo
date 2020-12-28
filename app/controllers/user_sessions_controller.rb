@@ -7,8 +7,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      # 仮実装でroot_pathへ遷移。最終形はポスト一覧画面。
-      redirect_back_or_to root_path, success: t('.success')
+      redirect_back_or_to account_books_path, success: t('.success')
     else
       flash.now[:error] = t('.fail')
       render :new
