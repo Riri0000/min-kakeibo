@@ -47,3 +47,50 @@
     @apply text-carrot-800;
   }
 }
+
+.blue-light-button {
+  @apply bg-blue-100;
+  @apply border-b-4;
+  @apply border-blue-200;
+  @apply inline-block;
+  @apply py-2;
+  @apply px-6;
+  @apply m-2;
+  @apply rounded-full;
+  @apply text-blue-800;
+  @apply font-bold;
+  @apply text-xs;
+
+  &:active {
+    @apply border-b-0;
+    @apply mt-1;
+  }
+
+  &:hover {
+    @apply text-blue-800;
+  }
+}
+
+// 入力フォーム
+.input-form {
+  @apply w-full;
+  @apply bg-white;
+  @apply rounded;
+  @apply border;
+  @apply border-gray-300;
+  @apply text-base;
+  @apply outline-none;
+  @apply text-gray-700;
+  @apply py-1;
+  @apply px-3;
+  @apply leading-8;
+  @apply transition-colors;
+  @apply duration-200;
+  @apply ease-in-out;
+
+  &:focus {
+    @apply border-carrot-500;
+    @apply ring-2;
+    @apply ring-carrot-200;
+  }
+}
