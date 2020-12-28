@@ -1,5 +1,4 @@
-= content_for(:title, t('.title'))
-.min-h-screen.flex.flex-col.items-center.justify-center.bg-gray-300
+.min-h-screen.flex.flex-col.items-center.justify-center
   .flex.flex-col.bg-white.shadow-md.px-4.sm:px-6.md:px-8.lg:px-10.py-8.rounded-md.w-full.max-w-md
     .font-medium.self-center.text-xl.sm:text-2xl.uppercase.text-gray-800 ログイン
     / Twitterログインリンク
@@ -17,33 +16,25 @@
         / Email入力フォーム
         .flex.flex-col.mb-6
           = f.label :email, User.human_attribute_name(:email), class: 'mb-1 text-xs sm:text-sm tracking-wide text-gray-600'
-          .relative
-            .inline-flex.items-center.justify-center.absolute.left-0.top-0.h-full.w-10.text-gray-400
-              svg.h-6.w-6 fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox=("0 0 24 24")
-                path d=("M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207") /
-            = f.email_field :email, class: 'text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400', placeholder: 'example@example.com'
+          = f.email_field :email, class: 'input-form placeholder-gray-500 pl-10 pr-4', placeholder: 'example@example.com'
         / パスワード入力フォーム
         .flex.flex-col.mb-6
           = f.label :password, User.human_attribute_name(:password), class: 'mb-1 text-xs sm:text-sm tracking-wide text-gray-600'
-          .relative
-            .inline-flex.items-center.justify-center.absolute.left-0.top-0.h-full.w-10.text-gray-400
-              span
-                svg.h-6.w-6 fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox=("0 0 24 24")
-                  path d=("M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z") /
-            = f.password_field :password, class: 'text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400', placeholder: 'パスワード'
+          = f.password_field :password, class: 'input-form placeholder-gray-500 pl-10 pr-4', placeholder: 'パスワード'
         .flex.items-center.mb-6.-mt-4
           .flex.ml-auto
-            a.inline-flex.text-xs.sm:text-sm.text-blue-500.hover:text-blue-700 href="#"  パスワードをお忘れの方はこちら
+            a.inline-flex.text-xs.sm:text-sm.text-carrot-500.hover:text-carrot-700 href="#"  パスワードをお忘れの方はこちら
         / ログインボタン
         .flex.w-full
-          = f.submit (t 'defaults.login'), id: 'login-button' ,class: 'flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-300 hover:bg-blue-500 rounded-full py-2 w-full transition duration-150 ease-in'
+          = f.submit (t 'defaults.login'), id: 'login-button' ,class: 'flex items-center justify-center w-full primary-button'
             span.mr-2.uppercase Login
             span
               svg.h-6.w-6 fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox=("0 0 24 24")
                 path d=("M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z") /
     .flex.justify-center.items-center.mt-6
-      a.inline-flex.items-center.font-bold.text-blue-500.hover:text-blue-700.text-xs.text-center href="#" target="_blank"
-        span
-          svg.h-6.w-6 fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox=("0 0 24 24")
-            path d=("M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z") /
-        span.ml-2 You don't have an account?
+      = link_to new_user_path do
+        .inline-flex.items-center.font-bold.text-carrot-500.hover:text-carrot-700.text-xs.text-center
+          span
+            svg.h-6.w-6 fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox=("0 0 24 24")
+              path d=("M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z") /
+          span.ml-2 メールアドレスによる新規登録はこちら

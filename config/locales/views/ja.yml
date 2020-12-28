@@ -5,14 +5,19 @@ ja:
   defaults:
     top: 'サービス名'
     login: 'ログイン'
+    twitter-login: 'Twitterでログイン'
+    twitter-register: 'Twitterで登録'
     logout: 'ログアウト'
     register: 'ユーザー登録'
+    update: 'ユーザー情報更新'
+    destroy: '退会する'
     register_profile: 'プロフィール登録'
     register_account_book: '家計簿を登録する'
     dashboard: 'もっと見る'
     account_books: 'みんなの家計簿へ'
     my_account_books: 'My家計簿'
     likes: 'お気に入り家計簿'
+    user: 'ユーザー情報編集'
   views:
     pagination:
       previous: '<'
@@ -28,6 +33,13 @@ ja:
     create:
       success: 'ユーザー登録しました'
       fail: 'ユーザー登録に失敗しました'
+    edit:
+      title: 'ユーザー情報編集'
+    update:
+      success: 'ユーザー情報を更新しました'
+      fail: 'ユーザー情報更新に失敗しました'
+    destroy:
+      success: '退会しました。ご利用ありがとうございました！'
   user_sessions:
     new:
       title: 'ログイン'

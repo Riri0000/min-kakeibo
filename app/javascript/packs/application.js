@@ -29,5 +29,5 @@ window.toastr = toastr
 
 toastr.options = {
   "closeButton": true,
-  "timeOut": 200
+  "timeOut": 600
 }

@@ -2,6 +2,16 @@ crumb :root do
   link 'トップページ', root_path
 end
 
+crumb :new_user do
+  link 'ユーザー作成', new_user_path
+  parent :root
+end
+
+crumb :edit_user do |user|
+  link 'ユーザー情報編集', edit_user_path
+  parent :root
+end
+
 crumb :account_books do
   link '家計簿一覧', account_books_path
   parent :root
