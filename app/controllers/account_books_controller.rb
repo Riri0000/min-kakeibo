@@ -8,21 +8,6 @@ class AccountBooksController < ApplicationController
                        .page(params[:page])
   end
 
-  def new
-    @account_book = AccountBook.new
-    @expense = @account_book.expenses.build
-  end
-
-  def create
-    @account_book = current_user.build_account_book(account_book_params)
-    if @account_book.save
-      redirect_to account_book_path(@account_book), success: t('.success')
-    else
-      flash.now[:error] = t('.fail')
-      render :new
-    end
-  end
-
   # my家計簿の表示
   def show
     @account_book = AccountBook.find_by(user_id: current_user.id)
@@ -32,7 +17,22 @@ class AccountBooksController < ApplicationController
     render :show
   end
 
+  def new
+    @account_book = AccountBook.new
+    @expense = @account_book.expenses.build
+  end
+
   def edit; end
+  
+  def create
+    @account_book = current_user.build_account_book(account_book_params)
+    if @account_book.save
+      redirect_to account_book_path(@account_book), success: t('.success')
+    else
+      flash.now[:error] = t('.fail')
+      render :new
+    end
+  end
 
   def update
     @account_book.update(account_book_params)
