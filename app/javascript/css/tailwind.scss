@@ -97,3 +97,11 @@
     @apply ring-carrot-200;
   }
 }
+
+// 入力フォームラベル
+.form-label {
+  @apply leading-7;
+  @apply text-sm;
+  @apply text-gray-600;
+}
+

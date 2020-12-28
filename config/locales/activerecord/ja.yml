@@ -19,8 +19,8 @@ ja:
         job: '職業'
         residence: '居住地'
         total_assets: '総資産'
-        annual_income: '年収'
-        monthly_income: '収入'
+        annual_income: '年収（額面)'
+        monthly_income: '収入（手取)'
         household_member: '世帯構成'
         message: 'ひとこと'
       account_book:
