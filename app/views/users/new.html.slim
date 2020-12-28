@@ -21,7 +21,7 @@ section.text-gray-600.body-font
         .relative.mb-4
           = f.label :password_confirmation, class: 'leading-7 text-sm text-gray-600'
           = f.password_field :password_confirmation, class: 'input-form'
-        = f.submit t('defaults.register'), class: 'flex items-center justify-center w-full primary-button'
+        = f.submit t('defaults.register'), id: 'register-button', class: 'flex items-center justify-center w-full primary-button'
         p.text-m.text-gray-500.mt-2.mb-2.text-center OR
         / Twitterログインリンク
         = link_to auth_at_provider_path(provider: :twitter) do

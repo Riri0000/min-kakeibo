@@ -7,7 +7,7 @@ crumb :new_user do
   parent :root
 end
 
-crumb :edit_user do |user|
+crumb :edit_user do |_user|
   link 'ユーザー情報編集', edit_user_path
   parent :root
 end
