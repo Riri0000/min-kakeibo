@@ -23,6 +23,7 @@
 
   &:hover {
     @apply text-carrot-50;
+    @apply bg-carrot-500;
   }
 }
 .primary-light-button {
@@ -45,6 +46,7 @@
 
   &:hover {
     @apply text-carrot-800;
+    @apply bg-carrot-300;
   }
 }
 
@@ -68,6 +70,7 @@
 
   &:hover {
     @apply text-blue-800;
+    @apply bg-blue-200;
   }
 }
 
