@@ -3,7 +3,7 @@
 / ユーザー登録 もっと色味を全体的に薄くしたい grey × carrotは色がくすむ
 section.text-gray-600.body-font.relative
   .container.px-5.py-10.mx-auto.flex.flex-wrap.items-center.justify-center
-    .bg-gray-100.rounded-lg.p-8.flex.flex-col.lg:w-2/3.md:w-2/3
+    .bg-beaver-50.rounded-lg.p-8.flex.flex-col.lg:w-2/3.md:w-2/3
       = form_with model: @user, local: true do |f|
         = render 'shared/error_message', object: f.object
         h2.text-gray-600.text-lg.font-medium.title-font.mb-3 #{t('.title')}
@@ -20,7 +20,7 @@ section.text-gray-600.body-font.relative
         .relative.mb-4
           = f.label :password_confirmation, class: 'form-label'
           = f.password_field :password_confirmation, class: 'input-form'
-        = f.submit t('defaults.update'), id: 'register-button', class: 'flex items-center justify-center w-full primary-button'
+        = f.submit t('defaults.update'), id: 'register-button', class: 'primary-big-button'
         = link_to user_path(@user), method: :delete, data: { confirm: '本当に退会しますか？' } do
           p.text-xs.text-gray-500.mt-3 退会する
 

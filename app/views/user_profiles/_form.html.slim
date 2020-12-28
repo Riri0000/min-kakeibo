@@ -1,6 +1,6 @@
 section.text-gray-600.body-font.relative
   .container.px-2.py-4.mx-auto.flex.flex-wrap.items-center.justify-center
-    .bg-gray-100.rounded-lg.p-4.flex.flex-col.lg:w-3/4.md:w-full
+    .bg-beaver-50.rounded-lg.p-4.flex.flex-col.lg:w-3/4.md:w-full
       = form_with model: @user_profile, local: true do |f|
         h2.text-gray-600.text-lg.font-medium.title-font.mb-3 #{t('user_profiles.new.title')}
         .relative.mb-4
@@ -36,4 +36,4 @@ section.text-gray-600.body-font.relative
         .relative.mb-4
           = f.label :message, class: 'form-label'
           = f.text_area :message, class: 'input-form placeholder-gray-500', placeholder: '144文字以内で入力してください。'
-        = f.submit t('defaults.register_profile'), class: 'flex items-center justify-center w-full primary-button'
+        = f.submit t('defaults.register_profile'), class: 'primary-big-button'
