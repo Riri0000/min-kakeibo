@@ -6,7 +6,7 @@ class UserProfilesController < ApplicationController
   end
 
   def edit; end
-  
+
   def create
     @user_profile = current_user.build_user_profile(user_profile_params)
     if @user_profile.save

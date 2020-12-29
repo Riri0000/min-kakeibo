@@ -23,7 +23,7 @@ class AccountBooksController < ApplicationController
   end
 
   def edit; end
-  
+
   def create
     @account_book = current_user.build_account_book(account_book_params)
     if @account_book.save
