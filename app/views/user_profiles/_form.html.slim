@@ -1,40 +1,39 @@
-.container.mt-3
-  h1 プロフィール入力
-  p 入力しなかった項目は、「秘密」と表示されます。
-  .row
-    .col-6
+section.text-gray-600.body-font.relative
+  .container.px-2.py-4.mx-auto.flex.flex-wrap.items-center.justify-center
+    .bg-beaver-50.rounded-lg.p-4.flex.flex-col.lg:w-3/4.md:w-full
       = form_with model: @user_profile, local: true do |f|
-        .form-group
-          = f.label :age
+        h2.text-gray-600.text-lg.font-medium.title-font.mb-3 #{t('user_profiles.new.title')}
+        .relative.mb-4
+          = f.label :age, class: 'form-label'
           = f.select :age,
                       options_for_select(13..100),
                       { include_blank: '選択してください', selected: @user_profile.age ||= ''},
-                      { class: 'form-control' }
-        .form-group
-          = f.label :job
-          = f.text_field :job, class: 'form-control no-spin'
-        .form-group
-          = f.label :residence
+                      { class: 'input-form' }
+        .relative.mb-4
+          = f.label :job, class: 'form-label'
+          = f.text_field :job, class: 'input-form no-spin', placeholder: ''
+        .relative.mb-4
+          = f.label :residence, class: 'form-label'
           = f.select :residence,
                       UserProfile::PREFECTURE_NAMES,
                       { include_blank: '選択してください' },
-                      class: 'form-control'
-        .form-group
-          = f.label :total_assets
-          = f.number_field :total_assets, class: 'form-control no-spin'
-        .form-group
-          = f.label :annual_income
-          = f.number_field :annual_income, class: 'form-control no-spin'
-        .form-group
-          = f.label :monthly_income
-          = f.number_field :monthly_income, class: 'form-control no-spin'
-        .form-group
-          = f.label :household_member
+                      class: 'input-form'
+        .relative.mb-4
+          = f.label :total_assets, class: 'form-label'
+          = f.number_field :total_assets, class: 'input-form no-spin', placeholder: '例) 4000000'
+        .relative.mb-4
+          = f.label :annual_income, class: 'form-label'
+          = f.number_field :annual_income, class: 'input-form no-spin', placeholder: '例) 3000000'
+        .relative.mb-4
+          = f.label :monthly_income, class: 'form-label'
+          = f.number_field :monthly_income, class: 'input-form no-spin', placeholder: '例) 200000'
+        .relative.mb-4
+          = f.label :household_member, class: 'form-label'
           = f.select :household_member,
                       UserProfile.household_members_i18n.invert,
                       { include_blank: '選択してください' },
-                      class: 'form-control'
-        .form-group
-          = f.label :message
-          = f.text_area :message, class: 'form-control'
-        = f.submit t('defaults.register_profile'), class: 'btn btn-primary mt-3 mb-3'
+                      class: 'input-form'
+        .relative.mb-4
+          = f.label :message, class: 'form-label'
+          = f.text_area :message, class: 'input-form', placeholder: '144文字以内で入力してください。'
+        = f.submit t('defaults.register_profile'), class: 'primary-big-button'

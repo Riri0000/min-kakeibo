@@ -6,19 +6,19 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit; end
+
   def create
     @user = User.new(user_params)
 
     if @user.save
-      # 一覧画面へリダイレクト（まだ作ってないので、とりあえずrootへ)＆サクセスメッセージ
-      redirect_to root_path, success: t('.success')
+      auto_login(@user)
+      redirect_to account_books_path, success: t('.success')
     else
       flash[:error] = t('.fail')
       render :new
     end
   end
-
-  def edit; end
 
   def update
     @user.update(user_params)

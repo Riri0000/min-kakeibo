@@ -18,4 +18,4 @@
           th = Expense.model_name.human
           td= number_to_currency(account_book.expenses.sum(:expenditure))
   .flex.justify-center.mb-3
-    = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-button'
+    = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-big-button'

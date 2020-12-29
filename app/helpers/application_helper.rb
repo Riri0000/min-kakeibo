@@ -7,7 +7,7 @@ module ApplicationHelper
   # 表示する数字は3桁で(',')区切り、円をつける。
   def number_to_currency(price)
     if price.present?
-      "#{price.to_s(:delimited, delimiter: ',')}円"
+      "#{number_with_delimiter(price, delimiter: ',')}円"
     else
       'ー'
     end

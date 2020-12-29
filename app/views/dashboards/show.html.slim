@@ -1,46 +1,58 @@
-- breadcrumb :dashboard
+- breadcrumb :account_book
 = content_for(:title, t('.title'))
-.container.px-5.py-24.mx-auto.flex.flex-wrap.items-center
-  .rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-0.md:mt-0.lg:pr-10 class=("lg:w-1/2 md:w-1/2")
-    h1 = "#{@account_book.user.nickname}さん"
-    h1 = "#{l @account_book.date, format: :short}の家計簿"
-    = pie_chart @expenses
+section.text-gray-600.body-font.overflow-hidden
+  .container.px-10.py-20.mx-auto
+    .flex.flex-wrap.-m-10.bg-beaver-50.rounded-3xl
+      / 家計簿部分
+      .p-12.md:w-1/2.flex.flex-col.items-start
+        .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center
+          span class="inline-block py-1 px-2 mb-5 rounded text-carrot-600 text-xl font-medium tracking-widest" #{@account_book.user.nickname}さん #{l @account_book.date, format: :short}の家計簿
+          = pie_chart @expenses
+          / 家計簿部分
+          table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
+           thead
+              tr
+                th.table-border = UserProfile.human_attribute_name(:total_assets)
+                td.table-border.text-right = number_to_currency(@user_profile.total_assets)
+              tr
+                th.table-border = UserProfile.human_attribute_name(:monthly_income)
+                td.table-border.text-right = number_to_currency(@user_profile.monthly_income)
+              tr
+                th.table-border = Expense.model_name.human
+                td.table-border.text-right = number_to_currency(@sum_of_expenditure)
+           thead.bg-gray-100
+              tr
+                th.table-border = ExpenseItem.human_attribute_name(:name)
+                th.table-border.text-center = Expense.human_attribute_name(:expenditure)
+           tbody
+              - @expenses.each do |expense_item, expenditure|
+                tr
+                  td.table-border = expense_item
+                  td.table-border.text-right = number_to_currency(expenditure)
+      / プロフィール部分
+      .p-12.md:w-1/2.flex.flex-col.items-start
+        .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center
+          a class="inline-flex items-center"
+          <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+          span class="flex-grow flex flex-col pl-4"
+            span class="title-font font-medium text-gray-900" "#{@account_book.user.nickname}"
+            span class="text-gray-400 text-xs tracking-widest mt-0.5" twitter-url
+          / プロフィールテーブル
+          table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
+           tbody
+              tr
+                th.table-border.w-25 = UserProfile.human_attribute_name(:age)
+                td.table-border.text-center = "#{show_value(@user_profile.age)} 歳"
+              tr
+                th.table-border.w-25 = UserProfile.human_attribute_name(:job)
+                td.table-border.text-center = show_value(@user_profile.job)
+              tr
+                th.table-border.w-25 = UserProfile.human_attribute_name(:residence)
+                td.table-border.text-center = show_value(@user_profile.residence)
+              tr
+                th.table-border.w-25 = UserProfile.human_attribute_name(:household_member)
+                td.table-border.text-center = show_value(@user_profile.household_member_i18n)
+              tr
+                th.table-border.w-25 = UserProfile.human_attribute_name(:message)
+                td.table-border.text-center = show_value(@user_profile.message)
 
-    table.table.mt-4
-      thead
-        tr
-          th = UserProfile.human_attribute_name(:total_assets)
-          td= number_to_currency(@user_profile.total_assets)
-        tr
-          th = UserProfile.human_attribute_name(:monthly_income)
-          td= number_to_currency(@user_profile.monthly_income)
-        tr
-          th = Expense.model_name.human
-          td= number_to_currency(@sum_of_expenditure)
-      thead.thead-light
-        tr
-          th = ExpenseItem.human_attribute_name(:name)
-          th = Expense.human_attribute_name(:expenditure)
-      tbody
-        - @expenses.each do |expense_item, expenditure|
-          tr
-            td= expense_item
-            td= number_to_currency(expenditure)
-  .bg-gray-50.rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-1/2 md:w-1/2")
-    table.table.mt-4
-      tbody
-        tr
-          th = UserProfile.human_attribute_name(:age)
-          td= "#{@user_profile.age}歳"
-        tr
-          th = UserProfile.human_attribute_name(:job)
-          td= @user_profile.job
-        tr
-          th = UserProfile.human_attribute_name(:residence)
-          td= @user_profile.residence
-        tr
-          th = UserProfile.human_attribute_name(:household_member)
-          td= @user_profile.household_member_i18n
-        tr
-          th = UserProfile.human_attribute_name(:message)
-          td= @user_profile.message

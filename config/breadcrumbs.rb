@@ -28,12 +28,12 @@ crumb :dashboard do
 end
 
 crumb :new_account_book do
-  link 'My家計簿作成', new_account_book_path
+  link 'My家計簿登録', new_account_book_path
   parent :root
 end
 
 crumb :new_user_profile do
-  link 'プロフィール作成', new_user_profile_path
+  link 'Myプロフィール登録', new_user_profile_path
   parent :root
 end
 

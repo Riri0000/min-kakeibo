@@ -5,27 +5,27 @@ section.text-gray-600.body-font
     .md:pr-16.lg:pr-0.pr-0 class=("lg:w-2/5 md:w-1/2")
       h1.title-font.font-medium.text-3xl.text-gray-900 みんなの家計簿は家計簿公開サービスです！
       p.leading-relaxed.mt-4 サービス説明文~
-    .bg-gray-100.rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-1/2 md:w-1/2")
+    .bg-beaver-50.rounded-lg.p-8.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-1/2 md:w-1/2")
       = form_with model: @user, local: true do |f|
         = render 'shared/error_message', object: f.object
         h2.text-gray-600.text-lg.font-medium.title-font.mb-3 #{t('.title')}
         .relative.mb-4
-          = f.label :nickname, class: 'leading-7 text-sm text-gray-600'
+          = f.label :nickname, class: 'form-label'
           = f.text_field :nickname, class: 'input-form'
         .relative.mb-4
-          = f.label :email, class: 'leading-7 text-sm text-gray-600'
+          = f.label :email, class: 'form-label'
           = f.email_field :email, class: 'input-form'
         .relative.mb-4
-          = f.label :password, class: 'leading-7 text-sm text-gray-600'
+          = f.label :password, class: 'form-label'
           = f.password_field :password, class: 'input-form'
         .relative.mb-4
-          = f.label :password_confirmation, class: 'leading-7 text-sm text-gray-600'
+          = f.label :password_confirmation, class: 'form-label'
           = f.password_field :password_confirmation, class: 'input-form'
-        = f.submit t('defaults.register'), id: 'register-button', class: 'flex items-center justify-center w-full primary-button'
+        = f.submit t('defaults.register'), id: 'register-button', class: 'primary-big-button'
         p.text-m.text-gray-500.mt-2.mb-2.text-center OR
         / Twitterログインリンク
         = link_to auth_at_provider_path(provider: :twitter) do
-          button.relative.mt-6.w-full.blue-light-button
+          button.relative.mt-6.w-full.blue-square-button
             span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500.text-md
               i.fab.fa-twitter
             span #{t('defaults.twitter-register')}
