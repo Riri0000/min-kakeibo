@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_044816) do
+ActiveRecord::Schema.define(version: 2020_12_29_015310) do
 
   create_table "account_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.date "date"
@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(version: 2020_12_23_044816) do
 
   create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "age", default: 0
-    t.string "job", limit: 20, default: ""
-    t.string "residence", default: ""
-    t.integer "total_assets", default: 0
-    t.integer "annual_income", default: 0
-    t.integer "monthly_income", default: 0
-    t.integer "household_member", default: 0
+    t.integer "age"
+    t.string "job", limit: 20
+    t.string "residence"
+    t.integer "total_assets"
+    t.integer "annual_income"
+    t.integer "monthly_income"
+    t.integer "household_member"
     t.text "message", size: :tiny
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

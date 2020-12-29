@@ -11,7 +11,7 @@ section.text-gray-600.body-font.relative
                       { class: 'input-form' }
         .relative.mb-4
           = f.label :job, class: 'form-label'
-          = f.text_field :job, class: 'input-form no-spin'
+          = f.text_field :job, class: 'input-form no-spin', placeholder: ''
         .relative.mb-4
           = f.label :residence, class: 'form-label'
           = f.select :residence,
@@ -20,13 +20,13 @@ section.text-gray-600.body-font.relative
                       class: 'input-form'
         .relative.mb-4
           = f.label :total_assets, class: 'form-label'
-          = f.number_field :total_assets, class: 'input-form no-spin'
+          = f.number_field :total_assets, class: 'input-form no-spin', placeholder: '例) 4000000'
         .relative.mb-4
           = f.label :annual_income, class: 'form-label'
-          = f.number_field :annual_income, class: 'input-form no-spin'
+          = f.number_field :annual_income, class: 'input-form no-spin', placeholder: '例) 3000000'
         .relative.mb-4
           = f.label :monthly_income, class: 'form-label'
-          = f.number_field :monthly_income, class: 'input-form no-spin'
+          = f.number_field :monthly_income, class: 'input-form no-spin', placeholder: '例) 200000'
         .relative.mb-4
           = f.label :household_member, class: 'form-label'
           = f.select :household_member,
