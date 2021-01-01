@@ -27,7 +27,9 @@ section.text-gray-600.body-font.overflow-hidden
            tbody
               - @expenses.each do |expense_item, expenditure|
                 tr
-                  td.table-border = expense_item
+                  td.table-border
+                    span class="fas fa-#{show_icon(expense_item)} mr-3 items-center justify-center w-10 text-carrot-300 text-2xl"
+                    span.justify-right = expense_item
                   td.table-border.text-right = number_to_currency(expenditure)
           .flex.justify-center
             = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
