@@ -1,21 +1,19 @@
-.bg-white
-  .flex.flex-col.items-center.justify-center.bg-white.p-4.rounded-lg
-    h1 = "#{account_book.user.nickname}さん"
-    h1 = "#{l account_book.date, format: :short}の家計簿"
-    = render 'like_button', account_book: account_book
-    .flex.chart-container.relative
-      = pie_chart account_book.expenses.order_by_expense_item_group
-
-    table.table.mt-4
+.container.overflow-hidden.bg-beaver-50.rounded-3xl.text-gray-600.body-font
+  .flex.flex-wrap.items-center.justify-center.p-4.w-full
+    span class="inline-block py-1 px-2 mb-5 rounded text-carrot-600 text-xl font-medium tracking-widest"
+      p #{account_book.user.nickname}さん
+      p #{l account_book.date, format: :short}の家計簿
+    = pie_chart account_book.expenses.order_by_expense_item_group,library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
+    table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
       thead
         tr
-          th = UserProfile.human_attribute_name(:total_assets)
-          td= number_to_currency(account_book.user.user_profile.total_assets)
+          th.table-border = UserProfile.human_attribute_name(:total_assets)
+          td.table-border.text-right = number_to_currency(account_book.user.user_profile.total_assets)
         tr
-          th = UserProfile.human_attribute_name(:monthly_income)
-          td= number_to_currency(account_book.user.user_profile.monthly_income)
-        tr
-          th = Expense.model_name.human
-          td= number_to_currency(account_book.expenses.sum(:expenditure))
-  .flex.justify-center.mb-3
-    = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-big-button'
+          th.table-border = UserProfile.human_attribute_name(:monthly_income)
+          td.table-border.text-right = number_to_currency(account_book.user.user_profile.monthly_income)
+        / tr
+        /   th.table-border = Expense.model_name.human
+        /   td.table-border.text-right = number_to_currency(account_book.expenses.sum(:expenditure))
+    .mb-0.mt-3
+      = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-big-button'
