@@ -76,16 +76,16 @@ RSpec.describe "Users", type: :system do
       end
     end
 
-    context 'passwordが17文字以上の場合' do
+    context 'passwordが30文字以上の場合' do
       it 'ユーザー登録に失敗する' do
         visit new_user_path
         fill_in 'ユーザー名', with: 'Test-user'
         fill_in 'メールアドレス', with: 'test@example.com'
-        fill_in 'パスワード', with: 'p' * 17
-        fill_in 'パスワード確認', with: 'p' * 17
+        fill_in 'パスワード', with: 'p' * 31
+        fill_in 'パスワード確認', with: 'p' * 31
         find('#register-button').click
         expect(page).to have_content 'ユーザー登録に失敗しました'
-        expect(page).to have_content 'パスワードは16文字以内で入力してください'
+        expect(page).to have_content 'パスワードは30文字以内で入力してください'
         expect(current_path).to eq users_path
       end
     end

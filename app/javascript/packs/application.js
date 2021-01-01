@@ -11,9 +11,7 @@ require("jquery")
 require("@nathanvda/cocoon")
 require("bootstrap");
 require("@fortawesome/fontawesome-free");
-require("chartkick")
-require("chart.js")
-
+require("chartkick").use(require("highcharts"))
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -25,6 +23,7 @@ const imagePath = (name) => images(name, true)
 import '../css/tailwind.scss';
 import '../css/toastr.scss'
 import toastr from 'toastr'
+
 window.toastr = toastr
 
 toastr.options = {
