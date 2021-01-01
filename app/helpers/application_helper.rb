@@ -18,7 +18,7 @@ module ApplicationHelper
     object.presence || 'ー'
   end
 
-# 支出項目甩アイコン
+  # 支出項目甩アイコン
   def show_icon(expense_item)
     case expense_item
     when '投資'

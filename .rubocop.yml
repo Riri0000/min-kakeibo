@@ -86,3 +86,9 @@ Bundler/OrderedGems:
 
 Rails/HasManyOrHasOneDependent:
   Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/HashLikeCase:
+  Enabled: false
