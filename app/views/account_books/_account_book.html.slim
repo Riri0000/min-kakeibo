@@ -4,6 +4,8 @@
       p #{account_book.user.nickname}さん
       p #{l account_book.date, format: :short}の家計簿
     = pie_chart account_book.expenses.order_by_expense_item_group,library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
+    .items-right.w-full.text-right
+      = render 'like_button', account_book: account_book
     table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
       thead
         tr

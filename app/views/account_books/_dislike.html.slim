@@ -4,4 +4,4 @@
           method: :delete,
           remote: true do
 	i.fas.fa-thumbs-up.dislike-btn
-	= account_book.likes.count
+	= account_book.likes.count unless account_book.likes.count == 0

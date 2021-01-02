@@ -1,5 +1,5 @@
 div data-turbolinks="false"
 - if current_user.like?(account_book)
-  = render 'dislike', account_book: account_book
+  = render 'account_books/dislike', account_book: account_book
 - else
-  = render 'like', account_book: account_book
+  = render 'account_books/like', account_book: account_book
