@@ -9,6 +9,7 @@
                             class: 'input-form'
     .col-span-6
       = f.number_field :expenditure, class: 'input-form no-spin placeholder-gray-500', placeholder: '支出金額を入力'
+      = render 'shared/error_message', { object: f.object, attribute: :date }
     .col-span-1
       = link_to_remove_association f, class: 'ml-2 text-2xl text-carrot-400' do
         i.far.fa-times-circle

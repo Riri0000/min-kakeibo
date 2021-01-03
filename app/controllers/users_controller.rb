@@ -21,11 +21,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    if @user.save
+    if @user.update(user_params)
       redirect_to account_books_path, success: t('.success')
     else
-      flash[:error] = t('.fail')
+      flash.now[:error] = t('.fail')
       render :edit
     end
   end

@@ -2,18 +2,19 @@ section.text-gray-600.body-font.relative
   .container.px-2.py-4.mx-auto.flex.flex-wrap.items-center.justify-center
     .bg-beaver-50.rounded-lg.p-8.flex.flex-col.lg:w-2/3.md:w-full
       = form_with model: @account_book, loacal: true do |f|
-          .relative.mb-4.pb-4.border-b-4
-            = f.label :date, class: 'form-label flex'
-            = f.date_select :date,
-                          { discard_day: true,
-                            start_year: 2015,
-                            end_year: Date.today.year },
-                            class: 'select-form w-2/5'
-          .relative.mb-4
-            = f.fields_for :expenses do |expense|
-              = render 'expense_fields', f: expense
-          .links
-            = link_to_add_association '＋ 支出を追加', f, :expenses, class: 'blue-small-button'
-          .flex.justify-center.pb-0
-            = f.submit t('defaults.register_account_book'), class: 'primary-big-button'
+        .relative.mb-4.pb-4.border-b-4
+          = f.label :date, class: 'form-label flex'
+          = f.date_select :date,
+                        { discard_day: true,
+                          start_year: 2015,
+                          end_year: Date.today.year },
+                          class: 'select-form w-2/5'
+          = render 'shared/error_message', { object: f.object, attribute: :date }
+        .relative.mb-4
+          = f.fields_for :expenses do |expense|
+            = render 'expense_fields', f: expense
+        .links
+          = link_to_add_association '＋ 支出を追加', f, :expenses, class: 'blue-small-button'
+        .flex.justify-center.pb-0
+          = f.submit t('defaults.register_account_book'), class: 'primary-big-button'
 
