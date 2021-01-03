@@ -23,7 +23,7 @@ section.text-gray-600.body-font
         .relative.mb-4
           = f.label :password_confirmation, class: 'form-label'
           = f.password_field :password_confirmation, class: 'input-form'
-          = render 'shared/error_message', { object: f.object, attribute: :password }
+          = render 'shared/error_message', { object: f.object, attribute: :password_confirmation }
         = f.submit t('defaults.register'), id: 'register-button', class: 'primary-big-button'
         p.text-m.text-gray-500.mt-2.mb-2.text-center OR
         / Twitterログインリンク
