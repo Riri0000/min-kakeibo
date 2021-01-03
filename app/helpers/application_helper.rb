@@ -1,10 +1,11 @@
 module ApplicationHelper
+  # 動的タイトル
   def page_title(page_title = '')
     base_title = 'みんなの家計簿'
     page_title.empty? ? base_title : "#{page_title} | #{base_title}".to_s
   end
 
-  # 表示する数字は3桁で(',')区切り、円をつける。
+  # 表示する数字は3桁で(',')区切り、末尾に円をつける。
   def number_to_currency(price)
     if price.present?
       "#{number_with_delimiter(price, delimiter: ',')}円"
@@ -18,7 +19,7 @@ module ApplicationHelper
     object.presence || 'ー'
   end
 
-  # 支出項目甩アイコン
+  # 支出項目用アイコン
   def show_icon(expense_item)
     case expense_item
     when '投資'

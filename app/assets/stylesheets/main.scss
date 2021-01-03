@@ -86,3 +86,8 @@ header {
   font-size: 30px;
   color: #ff9800;
 }
+
+// エラー時のインプットフィールド
+.field_with_errors >input{
+  border: 2px solid #ff9b9b;
+}
