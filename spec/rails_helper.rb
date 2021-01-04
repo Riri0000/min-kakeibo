@@ -67,4 +67,7 @@ RSpec.configure do |config|
 
   # ログインモジュール
   config.include LoginModule
+
+  # ApplicationHelperのメソッド使う
+  config.include ApplicationHelper
 end

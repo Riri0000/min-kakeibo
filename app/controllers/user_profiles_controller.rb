@@ -19,8 +19,7 @@ class UserProfilesController < ApplicationController
   end
 
   def update
-    @user_profile.update(user_profile_params)
-    if @user_profile.save
+    if @user_profile.update(user_profile_params)
       redirect_to account_book_path(@user_profile.user_id), success: t('.success')
     else
       flash.now[:error] = t('.fail')

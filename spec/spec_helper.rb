@@ -97,8 +97,13 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
-# ドライバ（ブラウザ相当機能)の設定
+  # ドライバ（ブラウザ相当機能)の設定
   config.before(:each, type: :system) do
     driven_by :selenium_chrome_headless
+  end
+
+  # RSpec実行前にseed
+  config.before :suite do
+    SeedFu.seed
   end
 end

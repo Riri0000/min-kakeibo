@@ -35,12 +35,11 @@ class AccountBooksController < ApplicationController
   end
 
   def update
-    @account_book.update(account_book_params)
-    if @account_book.save
+    if @account_book.update(account_book_params)
       redirect_to account_book_path(@account_book), success: t('.success')
     else
       flash.now[:error] = t('.fail')
-      render :new
+      render :edit
     end
   end
 

@@ -4,4 +4,4 @@
           method: :post,
           remote: true do
   i.far.fa-thumbs-up.like-btn
-  = account_book.likes.count
+  = account_book.likes.count unless account_book.likes.count == 0

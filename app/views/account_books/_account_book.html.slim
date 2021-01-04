@@ -1,9 +1,11 @@
-.container.overflow-hidden.bg-beaver-50.rounded-3xl.text-gray-600.body-font
+.container.overflow-hidden.bg-beaver-50.rounded-3xl.text-gray-600.body-font.shadow-md
   .flex.flex-wrap.items-center.justify-center.p-4.w-full
     span class="inline-block py-1 px-2 mb-5 rounded text-carrot-600 text-xl font-medium tracking-widest"
       p #{account_book.user.nickname}さん
       p #{l account_book.date, format: :short}の家計簿
     = pie_chart account_book.expenses.order_by_expense_item_group,library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
+    .items-right.w-full.text-right
+      = render 'like_button', account_book: account_book
     table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
       thead
         tr
