@@ -16,7 +16,7 @@ class AccountBook < ApplicationRecord
 
   # 家計簿は未来日付はNG
   def date_cannot_be_in_the_future
-    return unless date.futre?
+    return unless date.future?
 
     errors.add(:date, 'can not select future date')
   end
