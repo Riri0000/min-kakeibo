@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-raise('Consider removing this patch') if RUBY_VERSION != '2.6.5'
+raise('Consider removing this patch') if RUBY_VERSION != '2.7.2'
 
 module Patches
   # Rubyが稀にSegmentation faultでエラーになる問題を修正するパッチ。
