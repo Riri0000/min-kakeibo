@@ -98,7 +98,7 @@ gem 'sorcery', '~> 0.15.0'
 # フラッシュメッセージ
 gem 'toastr-rails'
 
-#### View関連 ####
+#### その他 ####
 
 # ネストしたフォーム＆複数レコードを一度に登録できる
 gem 'cocoon'
@@ -106,6 +106,10 @@ gem 'cocoon'
 # 国際化対応
 gem 'rails-i18n', '~> 6.0.0'
 gem 'enum_help'
+
+# 管理機能
+gem 'cancancan'
+gem 'rails_admin'
 
 # 検索機能
 gem 'ransack'
