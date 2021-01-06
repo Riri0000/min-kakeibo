@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
   before_action :set_user, only: %i[edit update destroy]
-  before_action :check_guest, only:%i[update destroy]
+  before_action :check_guest, only: %i[update destroy]
 
   def new
     @user = User.new
@@ -46,8 +46,8 @@ class UsersController < ApplicationController
   end
 
   def check_guest
-    if current_user.guest?
-      redirect_to account_books_path, info: t('.info')
-    end
+    return unless current_user.guest?
+
+    redirect_to account_books_path, info: t('.info')
   end
 end
