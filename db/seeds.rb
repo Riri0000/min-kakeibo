@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# rails db:seed実行時にSeed Fuが実行される。
+SeedFu.seed
+
+# ユーザー作成はパスワードがあるのでSeedFuが使えない
 30.times do
   User.create!(
     nickname: Faker::Name.name,
@@ -14,6 +18,14 @@
     password_confirmation: 'password'
   )
 end
+
+User.create!(
+  nickname: 'guest-user',
+  email: 'guest-user@example.com',
+  role: :guest,
+  password: 'password',
+  password_confirmation: 'password'
+)
 
 30.times do |i|
   UserProfile.create!(
