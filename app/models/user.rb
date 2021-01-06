@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :role, presence: true
 
-  enum role: { general: 0, admin: 1 }
+  enum role: { general: 0, admin: 1, guest: 2 }
 
   def own?(object)
     id == object.user_id

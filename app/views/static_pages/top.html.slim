@@ -3,3 +3,4 @@
   .btn-copy みんなの家計簿公開
   .p-4.flex.flex-row.items-center.justify-between
     = image_pack_tag 'kakeibo_cat.png', size: '500x500'
+= link_to t('defaults.guest-login'), guest_login_path, method: :post, class: 'primary-button'

@@ -7,6 +7,7 @@ ja:
     login: 'ログイン'
     twitter-login: 'Twitterでログイン'
     twitter-register: 'Twitterで登録'
+    guest-login: 'お試しログイン'
     logout: 'ログアウト'
     register: 'ユーザー登録'
     update: '更新する'
@@ -42,8 +43,10 @@ ja:
     update:
       success: 'ユーザー情報を更新しました'
       fail: 'ユーザー情報更新に失敗しました'
+      info: 'ゲストユーザーの変更はできません'
     destroy:
       success: '退会しました。ご利用ありがとうございました！'
+      info: 'ゲストユーザーの退会はできません'
   user_sessions:
     new:
       title: 'ログイン'
@@ -52,6 +55,8 @@ ja:
       fail: 'ログインに失敗しました'
     destroy:
       logout: 'ログアウトしました'
+    guest_login:
+      success: 'ゲストとしてログインしました'
   user_profiles:
     new:
       title: 'プロフィール登録'
