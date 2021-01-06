@@ -77,7 +77,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-#### View関連 ####
+####### View関連 #######
 
 # グラフ生成用
 gem 'chartkick'
@@ -98,7 +98,7 @@ gem 'sorcery', '~> 0.15.0'
 # フラッシュメッセージ
 gem 'toastr-rails'
 
-#### その他 ####
+####### その他 #######
 
 # ネストしたフォーム＆複数レコードを一度に登録できる
 gem 'cocoon'

@@ -33,5 +33,10 @@ section.text-gray-600.body-font
               i.fab.fa-twitter
             span #{t('defaults.twitter-register')}
         end
-        p.text-xs.text-gray-500.mt-3 プライバシーポリシー
+        p.text-xs.text-gray-500.mt-3
+          | ユーザー登録にあたり、
+          = link_to '利用規約', terms_of_service_path
+          | および
+          = link_to 'プライバシーポリシー', privacy_policy_path
+          | に同意したものとします。
 
