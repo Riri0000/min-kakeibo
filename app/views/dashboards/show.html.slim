@@ -22,7 +22,7 @@ section.text-gray-600.body-font.overflow-hidden
               tr
                 th.table-border = Expense.model_name.human
                 td.table-border.text-right = number_to_currency(@sum_of_expenditure)
-           thead.bg-gray-100
+           thead.bg-carrot-200
               tr
                 th.table-border = ExpenseItem.human_attribute_name(:name)
                 th.table-border.text-center = Expense.human_attribute_name(:expenditure)

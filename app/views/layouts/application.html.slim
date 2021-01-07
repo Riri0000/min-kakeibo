@@ -17,7 +17,7 @@ html
       = render 'shared/flash_message'
     main
       .breadcrumbs
-        = breadcrumbs pretext: "",separator: " &rsaquo; ", class: "breadcrumbs-list text-carrot-800"
+        = breadcrumbs style: :bootstrap4
       = yield
     footer
       = render 'shared/footer'

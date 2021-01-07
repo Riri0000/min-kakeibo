@@ -2,19 +2,68 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-// ボタン
-.primary-button {
-  @apply bg-carrot-400;
+// Button
+// Top
+.top-primary-button {
+  @apply bg-carrot-500;
   @apply border-b-4;
-  @apply border-carrot-500;
+  @apply border-carrot-600;
+  @apply inline-block;
+  @apply py-3;
+  @apply px-16;
+  @apply m-2;
+  @apply rounded-full;
+  @apply text-white;
+  @apply font-bold;
+  @apply text-lg;
+
+  &:active {
+    @apply border-b-0;
+    @apply mt-1;
+  }
+
+  &:hover {
+    @apply text-carrot-50;
+    @apply bg-carrot-600;
+  }
+}
+.top-primary-light-button {
+  @apply bg-carrot-200;
+  @apply border-b-4;
+  @apply border-carrot-400;
+  @apply inline-block;
+  @apply justify-center;
+  @apply py-3;
+  @apply px-16;
+  @apply m-2;
+  @apply rounded-full;
+  @apply text-carrot-800;
+  @apply font-bold;
+  @apply text-lg;
+
+  &:active {
+    @apply border-b-0;
+    @apply mt-1;
+  }
+
+  &:hover {
+    @apply text-carrot-800;
+    @apply bg-carrot-300;
+  }
+}
+// Header
+.primary-button {
+  @apply bg-carrot-500;
+  @apply border-b-4;
+  @apply border-carrot-600;
   @apply inline-block;
   @apply py-2;
   @apply px-6;
   @apply m-2;
   @apply rounded-full;
-  @apply text-carrot-50;
+  @apply text-white;
   @apply font-bold;
-  @apply text-sm;
+  @apply text-base;
 
   &:active {
     @apply border-b-0;
@@ -26,6 +75,31 @@
     @apply bg-carrot-500;
   }
 }
+.primary-light-button {
+  @apply bg-carrot-200;
+  @apply border-b-4;
+  @apply border-carrot-400;
+  @apply inline-block;
+  @apply justify-center;
+  @apply py-2;
+  @apply px-6;
+  @apply m-2;
+  @apply rounded-full;
+  @apply text-carrot-800;
+  @apply font-bold;
+  @apply text-base;
+
+  &:active {
+    @apply border-b-0;
+    @apply mt-1;
+  }
+
+  &:hover {
+    @apply text-carrot-800;
+    @apply bg-carrot-300;
+  }
+}
+// login
 .primary-big-button {
   @apply bg-carrot-300;
   @apply border-b-4;
@@ -55,30 +129,6 @@
   }
 }
 
-.primary-light-button {
-  @apply bg-carrot-200;
-  @apply border-b-4;
-  @apply border-carrot-400;
-  @apply inline-block;
-  @apply justify-center;
-  @apply py-2;
-  @apply px-6;
-  @apply m-2;
-  @apply rounded-full;
-  @apply text-carrot-800;
-  @apply font-bold;
-  @apply text-sm;
-
-  &:active {
-    @apply border-b-0;
-    @apply mt-1;
-  }
-
-  &:hover {
-    @apply text-carrot-800;
-    @apply bg-carrot-300;
-  }
-}
 .light-square-button {
   @apply bg-carrot-200;
   @apply border-b-4;
@@ -208,5 +258,5 @@
   @apply py-3;
   @apply px-2;
   @apply border-b;
-  @apply border-gray-100;
+  @apply border-gray-200;
 }
