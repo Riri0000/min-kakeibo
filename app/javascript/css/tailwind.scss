@@ -152,11 +152,11 @@
     @apply bg-carrot-300;
   }
 }
-
+// Twitter用ボタン
 .blue-square-button {
-  @apply bg-blue-300;
+  @apply bg-blue-200;
   @apply border-b-4;
-  @apply border-blue-400;
+  @apply border-blue-300;
   @apply inline-block;
   @apply py-2;
   @apply px-6;
@@ -176,7 +176,7 @@
     @apply bg-blue-400;
   }
 }
-
+// 支出追加ボタン
 .blue-small-button {
   @apply bg-blue-300;
   @apply border-b-4;
