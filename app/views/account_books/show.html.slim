@@ -15,17 +15,17 @@ section.text-gray-600.body-font.overflow-hidden
           .items-right.w-full.text-right
             = render 'like_button', account_book: @account_book
           / 家計簿部分
-          table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
+          table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed.tracking-wide
            thead
               tr
                 th.table-border = UserProfile.human_attribute_name(:total_assets)
-                td.table-border.text-right = number_to_currency(@user_profile.total_assets)
+                td.table-border.text-right = show_money(@user_profile.total_assets)
               tr
                 th.table-border = UserProfile.human_attribute_name(:monthly_income)
-                td.table-border.text-right = number_to_currency(@user_profile.monthly_income)
+                td.table-border.text-right = show_money(@user_profile.monthly_income)
               tr
                 th.table-border = Expense.model_name.human
-                td.table-border.text-right = number_to_currency(@sum_of_expenditure)
+                td.table-border.text-right = show_money(@sum_of_expenditure)
            thead.bg-carrot-200
               tr
                 th.table-border = ExpenseItem.human_attribute_name(:name)
@@ -43,7 +43,7 @@ section.text-gray-600.body-font.overflow-hidden
             = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
       / プロフィール部分
       .p-12.md:w-1/2.flex.flex-col.items-start
-        .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center
+        .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center.tracking-wide
           p.w-full.m-10 Twitterでシェア
           span class="fa-stack fa-lg text-blue-500 items-center justify-center mr-3"
             i class="fas fa-circle fa-stack-2x"
@@ -54,7 +54,7 @@ section.text-gray-600.body-font.overflow-hidden
             span class="title-font font-medium text-gray-900" #{@account_book.user.nickname}
             span class="text-gray-400 text-xs tracking-widest mt-0.5" twitter-url
           / プロフィールテーブル
-          table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
+          table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed.tracking-wide
            tbody
               tr
                 th.table-border.w-25 = UserProfile.human_attribute_name(:age)
@@ -64,7 +64,7 @@ section.text-gray-600.body-font.overflow-hidden
                 td.table-border.text-center = show_value(@user_profile.job)
               tr
                 th.table-border.w-25 = UserProfile.human_attribute_name(:annual_income)
-                td.table-border.text-center = number_to_currency(@user_profile.annual_income)
+                td.table-border.text-center = show_money(@user_profile.annual_income)
               tr
                 th.table-border.w-25 = UserProfile.human_attribute_name(:residence)
                 td.table-border.text-center = show_value(@user_profile.residence)

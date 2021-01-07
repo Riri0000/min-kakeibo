@@ -3,6 +3,10 @@ section.text-gray-600.body-font.relative
     .bg-beaver-50.rounded-lg.p-4.flex.flex-col.lg:w-3/4.md:w-full
       = form_with model: @user_profile, local: true do |f|
         h2.text-gray-600.text-lg.font-medium.title-font.mb-3 #{t('user_profiles.new.title')}
+        h1.text-carrot-600.text-lg.mb-4.leading-loose
+          | 全ての項目は任意です。<br>
+            入力したくない項目は、空欄のまま登録してください。<br>
+            ※数字は半角数字で登録してください。
         .relative.mb-4
           = f.label :age, class: 'form-label'
           = f.select :age,
