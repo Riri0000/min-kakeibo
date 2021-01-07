@@ -1,7 +1,8 @@
 = content_for(:title, t('.title'))
 - breadcrumb :account_books
-.px-3
+.px-1
   .text-4xl.sm:text-3xl.text-center.my-10 みんなの家計簿
+  = image_pack_tag 'kakeibo_cat.png', size: '100x100'
   = render 'search_form', url: account_books_path, q: @q
   .grid.grid-cols-1.m-5.sm:grid-cols-1.md:grid-cols-2.xl:grid-cols-3.gap-4
     = render @account_books

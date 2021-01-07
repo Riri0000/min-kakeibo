@@ -3,7 +3,7 @@ ja:
     formats:
       short: '%Y年%m月'
   defaults:
-    top: 'サービス名'
+    top: 'みんなの家計簿'
     login: 'ログイン'
     twitter-login: 'Twitterでログイン'
     twitter-register: 'Twitterで登録'
