@@ -84,9 +84,9 @@ RSpec.describe "UserProfiles", type: :system do
       expect(page).to have_content user.nickname
       expect(page).to have_content user_profile.age
       expect(page).to have_content user_profile.job
-      expect(page).to have_content user_profile.total_assets.to_s(:delimited)
-      expect(page).to have_content user_profile.annual_income.to_s(:delimited)
-      expect(page).to have_content user_profile.monthly_income.to_s(:delimited)
+      expect(page).to have_content show_money(user_profile.total_assets)
+      expect(page).to have_content show_money(user_profile.annual_income)
+      expect(page).to have_content show_money(user_profile.monthly_income)
       expect(page).to have_content user_profile.residence
       expect(page).to have_content user_profile.household_member_i18n
       expect(page).to have_content user_profile.message
@@ -96,8 +96,8 @@ RSpec.describe "UserProfiles", type: :system do
     it '登録した内容が家計簿一覧画面で表示されること' do
       visit account_books_path
       expect(page).to have_content user.nickname
-      expect(page).to have_content user_profile.total_assets.to_s(:delimited)
-      expect(page).to have_content user_profile.monthly_income.to_s(:delimited)
+      expect(page).to have_content show_money(user_profile.total_assets)
+      expect(page).to have_content show_money(user_profile.monthly_income)
     end
   end
 end
