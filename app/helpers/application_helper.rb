@@ -19,6 +19,12 @@ module ApplicationHelper
     object.presence || 'ー'
   end
 
+  # 金額の漢数字表示
+  def show_money(num)
+    money = YaKansuji.to_kan(num, :lawyer)
+    money == '0' ? 'ー' : "#{money}円"
+  end
+
   # 支出項目用アイコン
   def show_icon(expense_item)
     case expense_item
