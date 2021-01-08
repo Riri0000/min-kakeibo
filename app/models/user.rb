@@ -28,7 +28,7 @@ class User < ApplicationRecord
     like_account_books.destroy(account_book)
   end
 
-   # N+1対策で、user起点にする。
+  # N+1対策で、user起点にする。
   def like?(account_book)
     account_book.likes.pluck(:user_id).include?(id)
   end

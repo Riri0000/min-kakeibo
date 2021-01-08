@@ -6,12 +6,12 @@ class AccountBooksController < ApplicationController
   def index
     @q = AccountBook.ransack(params[:q])
     @account_books = @q.result
-                       .includes([:likes, user: [:user_profile]])
+                       .includes([:likes, { user: [:user_profile] }])
                        .order(created_at: :desc)
                        .page(params[:page])
   end
 
-# 保留 likesとexpensesが余計なEager Loadingと怒られる。 ???
+  # 保留 likesとexpensesが余計なEager Loadingと怒られる。 ???
   # def index
   #   @q = AccountBook.ransack(params[:q])
   #   @account_books = @q.result.includes([{ user: :user_profile }, :expenses, :likes])
