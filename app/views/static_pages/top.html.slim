@@ -7,8 +7,8 @@ section.text-gray-600.body-font
       .text-center.text-lg.leading-loose
         | みんなの家計簿は家計簿公開サービスです！<br>
           匿名だからこそ、お金の話をオープンに。<br>
-      .p-1.items-center.justify-center.text-center
-        = image_pack_tag 'logo.png', size: '400x400'
+      .p-1.items-center.justify-center.text-center.mt-5
+        = image_pack_tag 'top-cat.png', size: '600x600'
       .p-2.items-center.text-center
         = link_to t('はじめる'), new_user_path, class: 'top-primary-button'
         = link_to t('defaults.login'), login_path, class: 'top-primary-light-button'
@@ -16,7 +16,7 @@ section.text-gray-600.body-font
     / 右
     .p-2.flex.flex-col.md:ml-auto.w-full.mt-10.md:mt-0 class=("lg:w-3/5 md:w-1/2")
         p.text-xs.text-gray-300.mt-3
-          = image_pack_tag 'top-image.png', size: '700x700'
+          = image_pack_tag 'top-mobile.png', size: '600x600'
   / カード群
   .container.px-5.py-2.mx-auto.text-gray-600.body-font
     .flex.flex-col.text-center.w-full.mb-10
