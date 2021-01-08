@@ -3,16 +3,12 @@ class AccountBook < ApplicationRecord
   has_many :expenses, dependent: :destroy
   has_many :likes, dependent: :destroy
   accepts_nested_attributes_for :expenses, reject_if: :all_blank, allow_destroy: true
-
   validates :date, presence: true
   validate :date_cannot_be_in_the_future
 
-  # 検索用
-  scope :sort_by_likes, -> { find(Like.group(:account_book_id).order('count(account_book_id) DESC').pluck(:account_book_id)) }
-
-  def self.ransackable_scopes(_auth_object = nil)
-    %i[sort_by_likes]
-  end
+  # N+1対策 今後考える
+  scope :order_by_expenses, -> { joins({ expenses: :expense_item }).group(:name).order('sum_expenditure DESC').sum(:expenditure) }
+  # scope :order_by_expense_item_group, -> { includes(:expense_item).group(:name).order('sum_expenditure DESC').sum(:expenditure) }
 
   # 家計簿は未来日付はNG
   def date_cannot_be_in_the_future
