@@ -1,8 +1,11 @@
 .container.overflow-hidden.bg-beaver-50.rounded-3xl.text-gray-600.body-font.shadow-md.border-t-8.border-carrot-300.mb-5
   .flex.flex-wrap.items-center.justify-center.p-4.w-full
     div class="w-full py-1 px-2 mb-5 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
-      <img src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center mr-3">
-      p #{account_book.user.nickname}さん
+      - if account_book.user.avator.attached?
+        = image_tag account_book.user.avator.variant(resize_to_limit:[70, 70])
+      - else
+        = image_pack_tag 'kakeibo_cat.png', size: '70x70'
+      p.ml-3 #{account_book.user.nickname}さん
       p.mt-3 #{l account_book.date, format: :short}の家計簿
     / = pie_chart account_book.order_by_expenses, library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
     = pie_chart account_book.expenses.order_by_expense_item_group,library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}

@@ -6,11 +6,13 @@ section.text-gray-600.body-font.overflow-hidden
       / 家計簿部分
       .p-12.md:w-1/2.flex.flex-col.items-start
         div class="w-full py-1 px-2 mb-5 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
-          <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center mr-3">
+          - if @account_book.user.avator.attached?
+            = image_tag @account_book.user.avator.variant(resize_to_limit:[70, 70])
+          - else
+            = image_pack_tag 'kakeibo_cat.png', size: '70x70'
           p #{@account_book.user.nickname}さん
-          p.mt-3 #{l @account_book.date, format: :short}の家計簿
         .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center
-          span class="inline-block py-1 px-2 mb-5 rounded text-carrot-600 text-xl font-medium tracking-widest" #{@account_book.user.nickname}さん #{l @account_book.date, format: :short}の家計簿
+          p.mt-3.inline-block.py-1.px-2.mb-5.rounded.text-carrot-600.text-xl.font-medium.tracking-widest #{l @account_book.date, format: :short}の家計簿
           = pie_chart @expenses,library: {title: {text: "支出<br> #{number_to_currency(@sum_of_expenditure)}"}}
           .items-right.w-full.text-right
             = render 'like_button', account_book: @account_book

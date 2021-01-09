@@ -8,18 +8,19 @@ class OauthsController < ApplicationController
   def callback
     provider = params[:provider]
     # 認証をキャンセルしたときの処理
-    if params[:dinied].present?
+    if params[:denied].present?
       redirect_to root_path, info: 'ログインをキャンセルしました'
       return
     end
     if (@user = login_from(provider))
-      redirect_to root_path, success: "#{provider.titleize}でログインしました"
+      redirect_to account_books_path, success: "#{provider.titleize}でログインしました"
     else
       begin
         @user = create_from(provider)
+        @user.download_and_attach_profile_image(@user.profile_image)
         reset_session
         auto_login(@user)
-        redirect_to root_path, success: "#{provider.titleize}でログインしました"
+        redirect_to account_books_path, success: "#{provider.titleize}でログインしました"
       rescue StandardError
         redirect_to root_path, error: "#{provider.titleize}のログインに失敗しました"
       end

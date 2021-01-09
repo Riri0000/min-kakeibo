@@ -1,10 +1,13 @@
 class User < ApplicationRecord
+  # httpでネットワーク上のリソースを取得
+  require 'open-uri'
   authenticates_with_sorcery!
   has_many :authentications, dependent: :destroy
   has_one :user_profile, dependent: :destroy
   has_one :account_book, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_account_books, through: :likes, source: :account_book
+  has_one_attached :avator
   accepts_nested_attributes_for :authentications
 
   validates :nickname, presence: true, length: { in: 1..16 }
@@ -31,5 +34,16 @@ class User < ApplicationRecord
   # N+1対策で、user起点にする。
   def like?(account_book)
     account_book.likes.pluck(:user_id).include?(id)
+  end
+
+  # twitter画像をActiveStrageへ保存
+  def download_and_attach_profile_image(profile_image)
+    return unless profile_image
+
+    profile_image = profile_image&.gsub(/_normal/, '')
+    file = URI.open(profile_image)
+    avator.attach(io: file,
+                  filename: "profile_image.#{file.content_type_parse.first.split("/").last}",
+                  content_type: file.content_type_parse.first)
   end
 end
