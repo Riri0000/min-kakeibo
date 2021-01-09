@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_045126) do
+ActiveRecord::Schema.define(version: 2021_01_09_051517) do
 
   create_table "account_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.date "date"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_045126) do
     t.integer "role", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "twitter_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
