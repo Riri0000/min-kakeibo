@@ -92,3 +92,7 @@ Metrics/MethodLength:
 
 Style/HashLikeCase:
   Enabled: false
+
+# Twitterプロフィール画像を取得するのに必要なため
+Security/Open:
+  Enabled: false
