@@ -50,7 +50,7 @@ section.text-gray-600.body-font.overflow-hidden
           / span class="fa-stack fa-lg text-blue-500 items-center justify-center mr-3"
           /   i class="fas fa-circle fa-stack-2x"
           /   i class="fab fa-twitter fa-stack-1x text-white"
-        .flex.flex-col.pl-4.justify-left.w-full.text-lg.font-bold
+        .flex.flex-col.pl-4.justify-left.w-full
           - if @account_book.user.twitter_screen_name?
             = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do
               span class="fa-stack fa-lg text-blue-500 items-center"
