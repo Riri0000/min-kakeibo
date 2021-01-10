@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # httpでネットワーク上のリソースを取得
   require 'open-uri'
+
+  # twiiter画像をオリジナルサイズに加工
+  before_save { self.profile_image = profile_image&.gsub('_normal', '') }
+
   authenticates_with_sorcery!
   has_many :authentications, dependent: :destroy
   has_one :user_profile, dependent: :destroy
@@ -40,10 +44,10 @@ class User < ApplicationRecord
   def download_and_attach_profile_image(profile_image)
     return unless profile_image
 
-    profile_image = profile_image&.gsub(/_normal/, '')
     file = URI.open(profile_image)
-    avator.attach(io: file,
-                  filename: "profile_image.#{file.content_type_parse.first.split("/").last}",
-                  content_type: file.content_type_parse.first)
+    binding.pry
+    self.avator.attach(io: file,
+                       filename: "profile_image.#{file.content_type_parse.first.split("/").last}",
+                       content_type: file.content_type_parse.first)
   end
 end
