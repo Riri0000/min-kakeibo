@@ -6,7 +6,7 @@ class AccountBooksController < ApplicationController
   def index
     @q = AccountBook.ransack(params[:q])
     @account_books = @q.result
-                       .includes([:likes, { user: [:user_profile, :avator_attachment] }])
+                       .includes([:likes, { user: %i[user_profile avator_attachment] }])
                        .order(created_at: :desc)
                        .page(params[:page])
   end
