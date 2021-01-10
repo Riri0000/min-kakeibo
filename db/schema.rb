@@ -103,7 +103,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_051517) do
     t.integer "role", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "twitter_id"
+    t.string "twitter_screen_name"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

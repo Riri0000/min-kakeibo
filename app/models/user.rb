@@ -45,7 +45,6 @@ class User < ApplicationRecord
     return unless profile_image
 
     file = URI.open(profile_image)
-    binding.pry
     self.avator.attach(io: file,
                        filename: "profile_image.#{file.content_type_parse.first.split("/").last}",
                        content_type: file.content_type_parse.first)

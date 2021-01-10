@@ -92,7 +92,7 @@ Rails.application.config.sorcery.configure do |config|
   # emailを登録していないユーザーのエラーを防ぐために,screen_nameを取得
   config.twitter.user_info_mapping = {
     nickname: 'name',
-    twitter_id: 'id',
+    twitter_screen_name: 'screen_name',
     email: 'screen_name',
     profile_image: 'profile_image_url_https'
   }

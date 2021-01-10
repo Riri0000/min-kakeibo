@@ -41,12 +41,14 @@ section.text-gray-600.body-font.overflow-hidden
                   td.table-border.text-right = number_to_currency(expenditure)
       / プロフィール部分
       .p-12.md:w-1/2.flex.flex-col.items-start
-        .flex.items-center.flex-wrap.pb-4.mb-2.mt-auto.w-full.justify-center.tracking-wide
-          a class="inline-flex items-center"
-          <img alt="blog" src="https://dummyimage.com/104x104" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
-          span class="flex-grow flex flex-col pl-4"
-            span class="title-font font-medium text-gray-900" #{@account_book.user.nickname}
-            span class="text-gray-400 text-xs tracking-widest mt-0.5" twitter-url
+        .flex.flex-col.pl-4.justify-left.w-full.text-lg.font-bold
+          - if @account_book.user.twitter_screen_name?
+            = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do
+              span class="fa-stack fa-lg text-blue-500 items-center"
+                i class="fas fa-circle fa-stack-2x"
+                i class="fab fa-twitter fa-stack-1x text-white"
+              | #{@account_book.user.nickname}さんのTwitter
+
           / プロフィールテーブル
           table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
            tbody

@@ -4,7 +4,7 @@
       - if account_book.user.avator.attached?
         = image_tag account_book.user.avator , size: '70x70', class:'rounded-full'
       - else
-        = image_pack_tag 'kakeibo_cat.png', size: '60x60'
+        = image_pack_tag 'kakeibo_cat.png', size: '70x70'
       p.ml-3 #{account_book.user.nickname}さん
       p.mt-3 #{l account_book.date, format: :short}の家計簿
     / = pie_chart account_book.order_by_expenses, library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
