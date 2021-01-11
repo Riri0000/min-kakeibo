@@ -29,9 +29,8 @@ section.text-gray-600.overflow-hidden.font-light
                 th.table-border = Expense.model_name.human
                 td.table-border.text-right = show_money(@sum_of_expenditure)
            thead.bg-carrot-200
-              tr
-                th.table-border = ExpenseItem.human_attribute_name(:name)
-                th.table-border.text-center = Expense.human_attribute_name(:expenditure)
+              th.table-border 支出内訳
+              th.table-border
            tbody
               - @expenses.each do |expense_item, expenditure|
                 tr
