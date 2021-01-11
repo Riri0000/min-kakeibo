@@ -1,6 +1,16 @@
-.section
+.container.font-light.text-sm
   = search_form_for q, url: url do |f|
     = f.search_field :user_nickname_cont,
-                      placeholder: '名前検索'
-    = sort_link(q, :user_user_profile_total_assets, "総資産額順", default_order: :desc)
-    = sort_link(q, :likes_count, "いいね順", default_order: :desc)
+                      placeholder: "名前検索",
+                      class: 'h-10 pr-4 pl-3 focus:outline-none font-light tracking-widest shadow-sm'
+    = f.submit "\uf002", class: 'fa h-10 pr-3 pl-3 bg-carrot-300 hover:bg-carrot-400 shadow-sm text-white'
+    .dropdown.my-2
+      button class="btn btn-warning dropdown-toggle bg-carrot-300 border-none font-light text-sm text-gray-600" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        Dropdown 並び替え
+      div class="dropdown-menu text-gray-600 text-sm pl-3" aria-labelledby="dropdownMenuButton"
+        a class="dropdown-item"
+          = sort_link(q, :user_user_profile_total_assets, "総資産額順", default_order: :desc)
+        a class="dropdown-item"
+          = sort_link(q, :likes_count, "いいね順", default_order: :desc)
+        a class="dropdown-item"
+          = sort_link(q, :created_at, "新規投稿順", default_order: :desc)
