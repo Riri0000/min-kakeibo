@@ -58,8 +58,9 @@ class AccountBooksController < ApplicationController
 
   def likes
     @q = current_user.like_account_books.ransack(params[:q])
-    @account_books = @q.result.includes([{ user: :user_profile }, :expenses, :likes])
-                       .joins([{ user: :user_profile }, :expenses])
+    @account_books = @q.result
+                       .includes([:likes, { user: %i[user_profile avator_attachment] }])
+                       .order(created_at: :desc)
                        .page(params[:page])
   end
 

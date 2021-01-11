@@ -20,9 +20,5 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/regular';
 @import '@fortawesome/fontawesome-free/scss/solid';
 @import '@fortawesome/fontawesome-free/scss/brands';
-
 @import 'bootstrap/scss/bootstrap';
-
-.breadcrumb {
-  background-color: #F9F8F4;
-}
+@import 'over-bootstrap';

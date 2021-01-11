@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_051517) do
+ActiveRecord::Schema.define(version: 2021_01_10_104342) do
 
   create_table "account_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.date "date"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_051517) do
   end
 
   create_table "expenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
-    t.integer "expenditure", null: false
+    t.bigint "expenditure", null: false
     t.bigint "account_book_id", null: false
     t.bigint "expense_item_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 2021_01_09_051517) do
     t.integer "age"
     t.string "job", limit: 20
     t.string "residence"
-    t.integer "total_assets"
-    t.integer "annual_income"
-    t.integer "monthly_income"
+    t.bigint "total_assets"
+    t.bigint "annual_income"
+    t.bigint "monthly_income"
     t.integer "household_member"
     t.text "message", size: :tiny
     t.datetime "created_at", precision: 6, null: false

@@ -2,7 +2,7 @@
 - breadcrumb :edit_user
 / ユーザー登録 もっと色味を全体的に薄くしたい grey × carrotは色がくすむ
 section.text-gray-600.body-font.relative
-  .container.px-5.py-10.mx-auto.flex.flex-wrap.items-center.justify-center
+  .container.px-5.py-10.mx-auto.font-light.flex.flex-wrap.items-center.justify-center
     .bg-beaver-50.shadow-md.rounded-lg.p-8.flex.flex-col.lg:w-2/3.md:w-2/3
       = form_with model: @user, local: true do |f|
         h2.text-gray-600.text-lg.font-medium.title-font.mb-3 #{t('.title')}

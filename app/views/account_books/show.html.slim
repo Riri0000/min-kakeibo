@@ -1,6 +1,6 @@
 - breadcrumb :account_book
 = content_for(:title, t('.title'))
-section.text-gray-600.body-font.overflow-hidden
+section.text-gray-600.overflow-hidden.font-light
   .container.px-10.py-20.mx-auto
     .flex.flex-wrap.-m-10.bg-beaver-50.rounded-3xl.justify-center.shadow-md
       / 家計簿部分
@@ -10,9 +10,9 @@ section.text-gray-600.body-font.overflow-hidden
             = image_tag @account_book.user.avator, size: '70x70', class:'rounded-full'
           - else
             = image_pack_tag 'kakeibo_cat.png', size: '70x70'
-          p #{@account_book.user.nickname}さん
+          p.ml-3 #{@account_book.user.nickname}さん
         .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center
-          p.mt-3.inline-block.py-1.px-2.mb-5.rounded.text-carrot-600.text-xl.font-medium.tracking-widest #{l @account_book.date, format: :short}の家計簿
+          p.inline-block.py-1.mb-2.rounded.text-carrot-600.text-lg.font-medium.tracking-widest #{l @account_book.date, format: :short}の家計簿
           = pie_chart @expenses,library: {title: {text: "支出<br> #{number_to_currency(@sum_of_expenditure)}"}}
           .items-right.w-full.text-right
             = render 'like_button', account_book: @account_book
@@ -50,7 +50,7 @@ section.text-gray-600.body-font.overflow-hidden
           / span class="fa-stack fa-lg text-blue-500 items-center justify-center mr-3"
           /   i class="fas fa-circle fa-stack-2x"
           /   i class="fab fa-twitter fa-stack-1x text-white"
-        .flex.flex-col.pl-4.justify-left.w-full.text-lg.font-bold
+        .flex.flex-col.pl-4.justify-left.w-full
           - if @account_book.user.twitter_screen_name?
             = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do
               span class="fa-stack fa-lg text-blue-500 items-center"
