@@ -43,6 +43,7 @@ Chartkick.options = {
           allowOverlap: false,
           style: {
             color: '#555',
+            fontWeight: 300,
             textAlign: 'center',
             textOutline: 0,
           }

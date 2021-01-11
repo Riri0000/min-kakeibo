@@ -95,9 +95,6 @@ gem 'kaminari'
 gem 'slim-rails'
 gem 'html2slim'
 
-# ログイン認証
-gem 'sorcery', '~> 0.15.0'
-
 # フラッシュメッセージ
 gem 'toastr-rails'
 
@@ -108,6 +105,9 @@ gem 'ya_kansuji', '~> 0.2.0'
 
 # ネストしたフォーム＆複数レコードを一度に登録できる
 gem 'cocoon'
+
+# meta-tag整理用
+gem 'meta-tags'
 
 # 国際化対応
 gem 'rails-i18n', '~> 6.0.0'
@@ -122,3 +122,6 @@ gem 'ransack'
 
 # Seed管理
 gem 'seed-fu', '~> 2.3'
+
+# ログイン認証
+gem 'sorcery', '~> 0.15.0'

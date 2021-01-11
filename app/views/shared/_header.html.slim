@@ -29,35 +29,3 @@
               = link_to t('defaults.user'), edit_user_path(current_user.id), class: 'inline-block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
             button class="dropdown-item"
               = link_to t('defaults.logout'), logout_path, method: :delete, class: 'inline-block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
-
-
-/ <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-/   .antialiased.bg-gray-100.dark-mode:bg-gray-900
-/   .w-full.text-gray-700.dark-mode:text-gray-200.dark-mode:bg-gray-800
-/     div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
-/       .flex.flex-row.items-center.justify-between.p-1
-/         = link_to root_path do
-/           = image_pack_tag 'logo.png', size: '40x40'
-/         button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open"
-/           svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6"
-/             path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"
-/             path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"
-/       nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row"
-/         = link_to t('defaults.account_books'), account_books_path, class: 'primary-button'
-/         / 家計簿をすでに登録していたら、My家計簿へ。
-/         - if current_user.account_book.present?
-/           = link_to t('defaults.my_account_books'), account_book_path(current_user), class: 'primary-light-button'
-/         - elsif current_user.user_profile.present?
-/           = link_to t('defaults.new_account_book'), new_account_book_path, class: 'primary-light-button'
-/         - else
-/           = link_to t('defaults.new_user_profile'), new_user_profile_path, class: 'primary-light-button'
-/         / Menu
-/         div @click.away="open = false" class="relative" x-data="{ open: false }"
-/           button @click="open = !open" class="flex flex-row text-gray-900 bg-gray-200 items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-/             span Menu
-/           div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right z-10"
-/               .px-2.pt-2.pb-4.bg-white.rounded-md.shadow-sm.dark-mode:bg-gray-700
-/                 .grid.grid-cols-1.md:grid-cols-2.gap-4
-/                   = link_to t('defaults.likes'), likes_account_books_path, class: 'inline-block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
-/                   = link_to t('defaults.user'), edit_user_path(current_user.id), class: 'inline-block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
-/                   = link_to t('defaults.logout'), logout_path, method: :delete, class: 'inline-block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
