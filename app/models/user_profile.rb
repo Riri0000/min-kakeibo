@@ -3,7 +3,7 @@ class UserProfile < ApplicationRecord
 
   validates :job, length: { maximum: 20 }
   validates :message, length: { maximum: 144 }
-  validates :total_assets, numericality: { only_integer: true, less_than: 9_999_999_999, allow_blank: true }
+  validates :total_assets, numericality: { only_integer: true, less_than: 99_999_999_999, allow_blank: true }
   validates :annual_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
   validates :monthly_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
 

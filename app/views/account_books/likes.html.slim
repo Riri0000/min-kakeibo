@@ -1,8 +1,10 @@
 = content_for(:title, t('.title'))
 - breadcrumb :likes_account_books
-.px-3
-  .text-4xl.sm:text-3xl.text-center.my-10 お気に入り家計簿
-  = render 'search_form', url: likes_account_books_path, q: @q
+.px-1.text-gray-500
+  .flex.flex-row.mx-auto.justify-center.mb-5
+    = image_pack_tag 'logo-no-border.png', size: '200x200'
+  .text-right
+    = render 'search_form', url: account_books_path, q: @q
   .grid.grid-cols-1.m-5.sm:grid-cols-1.md:grid-cols-2.xl:grid-cols-3.gap-4
     = render @account_books
   .flex.justify-center
