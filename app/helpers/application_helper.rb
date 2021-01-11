@@ -1,8 +1,16 @@
 module ApplicationHelper
-  # 動的タイトル
-  def page_title(page_title = '')
-    base_title = 'みんなの家計簿'
-    page_title.empty? ? base_title : "#{page_title} | #{base_title}".to_s
+
+  def default_meta_tags
+    {
+      site: 'みんなの家計簿',
+      title: '',
+      description: 'みんなの家計簿は、家計簿公開サービスです。あなたの家計簿を公開、みんなの家計簿を見れちゃいます。お金と向き合うきっかけに。',
+      charset: 'utf-8',
+      keywords: '家計簿 家計簿公開 みんなの家計簿 家計簿のぞき見 資産公開',
+      separator: '|',
+      reverse: true,
+      icon: asset_pack_url('media/images/logo-no-border.png')
+    }
   end
 
   # 表示する数字は3桁で(',')区切り、末尾に円をつける。

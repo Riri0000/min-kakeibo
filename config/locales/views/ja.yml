@@ -32,6 +32,10 @@ ja:
   static_pages:
     top:
       title: 'Home'
+    terms_of_service:
+      title: '利用規約'
+    privacy_policy:
+      title: 'プライバシーポリシー'
   users:
     new:
       title: 'ユーザー登録'

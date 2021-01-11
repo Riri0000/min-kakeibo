@@ -28,6 +28,5 @@ import toastr from 'toastr'
 window.toastr = toastr
 
 toastr.options = {
-  "closeButton": true,
-  "timeOut": 600
+  "closeButton": true
 }
