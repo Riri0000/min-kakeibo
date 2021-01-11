@@ -7,10 +7,10 @@
     .dropdown.my-2
       button class="btn btn-warning dropdown-toggle bg-carrot-300 border-none font-light text-sm text-gray-600" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
         Dropdown 並び替え
-      div class="dropdown-menu text-gray-600 text-sm pl-3" aria-labelledby="dropdownMenuButton"
-        a class="dropdown-item"
+      div class="dropdown-menu text-gray-600 text-sm" aria-labelledby="dropdownMenuButton"
+        button class="dropdown-item"
           = sort_link(q, :user_user_profile_total_assets, "総資産額順", default_order: :desc)
-        a class="dropdown-item"
+        button class="dropdown-item"
           = sort_link(q, :likes_count, "いいね順", default_order: :desc)
-        a class="dropdown-item"
+        button class="dropdown-item"
           = sort_link(q, :created_at, "新規投稿順", default_order: :desc)
