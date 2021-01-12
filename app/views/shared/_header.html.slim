@@ -19,13 +19,13 @@
         - else
           = link_to t('defaults.new_user_profile'), new_user_profile_path, class: 'primary-light-button'
         / Menu
-        .dropdown.flex.flex-row.items-center.justify-between.p-1
-          button class="btn btn-warning dropdown-toggle rounded-full bg-carrot-300 border-none font-light text-sm text-gray-600" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        .dropdown.flex.flex-row.items-center.justify-between
+          button class="btn btn-warning dropdown-toggle inline-block rounded-full bg-carrot-300 border-none font-light text-base text-gray-600 py-2 px-6 m-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             Dropdown Menu
           div class="dropdown-menu dropdown-menu-right text-gray-600 text-sm" aria-labelledby="dropdownMenuButton"
             button class="dropdown-item"
-              = link_to t('defaults.likes'), likes_account_books_path, class: 'inline-block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
+              = link_to t('defaults.likes'), likes_account_books_path, class: 'inline-block px-2 py-2 m-2 text-sm'
             button class="dropdown-item"
-              = link_to t('defaults.user'), edit_user_path(current_user.id), class: 'inline-block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
+              = link_to t('defaults.user'), edit_user_path(current_user.id), class: 'inline-block px-2 py-2 m-2 text-sm'
             button class="dropdown-item"
-              = link_to t('defaults.logout'), logout_path, method: :delete, class: 'inline-block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
+              = link_to t('defaults.logout'), logout_path, method: :delete, class: 'inline-block px-2 py-2 m-2 text-sm'

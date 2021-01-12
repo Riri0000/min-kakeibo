@@ -43,7 +43,7 @@ section.text-gray-600.overflow-hidden.font-light
           .flex.justify-center
             = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
       / プロフィール部分
-      .p-12.md:w-1/2.flex.flex-col.items-start
+      .p-10.md:w-1/2.flex.flex-col.items-start.mb-10
         .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center.tracking-wide
           / p.w-full.m-10 Twitterでシェア
           / span class="fa-stack fa-lg text-blue-500 items-center justify-center mr-3"
@@ -67,7 +67,7 @@ section.text-gray-600.overflow-hidden.font-light
                 th.table-border.w-25 = UserProfile.human_attribute_name(:job)
                 td.table-border.text-center = show_value(@user_profile.job)
               tr
-                th.table-border.w-25 = UserProfile.human_attribute_name(:annual_income)
+                th.table-border.w-25.text-sm = UserProfile.human_attribute_name(:annual_income)
                 td.table-border.text-center = show_money(@user_profile.annual_income)
               tr
                 th.table-border.w-25 = UserProfile.human_attribute_name(:residence)

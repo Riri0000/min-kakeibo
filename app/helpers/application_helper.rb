@@ -9,7 +9,26 @@ module ApplicationHelper
       keywords: '家計簿 家計簿公開 みんなの家計簿 家計簿のぞき見 資産公開',
       separator: '|',
       reverse: true,
-      icon: asset_pack_url('media/images/logo-no-border.png')
+      icon: [
+        { href: asset_pack_url('media/images/kakeibo_cat.png'), sizes: '32x32 96x96', type: 'image/png' },
+        { href: asset_pack_url('media/images/logo-no-border.png'), rel: 'apple-touch-icon-precomposed', sizes: '32x32', type: 'image/png' },
+      ],
+      og: {
+        site_name: :site,
+        title: :title,
+        description: :description,
+        type: 'website',
+        url: :canonical,
+        image: asset_pack_url('media/images/kakeibo_cat.png'),
+        locale: 'ja_JP',
+      },
+      twitter: {
+        card: 'summary',
+        site: '@min_kakeibo',
+        image: asset_pack_url('media/images/kakeibo_cat.png'),
+        width: 100,
+        height: 100
+      }
     }
   end
 

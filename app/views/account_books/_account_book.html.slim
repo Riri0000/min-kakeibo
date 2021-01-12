@@ -6,7 +6,7 @@
       - else
         = image_pack_tag 'kakeibo_cat.png', size: '70x70'
       p.ml-3 #{account_book.user.nickname}さん
-    p.mb-2.text-lg.text-carrot-600 #{l account_book.date, format: :short}の家計簿
+    p.mb-2.text-lg #{l account_book.date, format: :short}の家計簿
     / = pie_chart account_book.order_by_expenses, library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
     = pie_chart account_book.expenses.order_by_expense_item_group,library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
     .items-right.w-full.text-right

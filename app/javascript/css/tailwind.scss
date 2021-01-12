@@ -54,8 +54,6 @@
 // Header
 .primary-button {
   @apply bg-carrot-500;
-  @apply border-b-4;
-  @apply border-carrot-600;
   @apply inline-block;
   @apply py-2;
   @apply px-6;
@@ -77,15 +75,12 @@
 }
 .primary-light-button {
   @apply bg-carrot-200;
-  @apply border-b-4;
-  @apply border-carrot-400;
   @apply inline-block;
-  @apply justify-center;
   @apply py-2;
   @apply px-6;
   @apply m-2;
   @apply rounded-full;
-  @apply text-carrot-800;
+  @apply text-carrot-900;
   @apply font-light;
   @apply text-base;
 

@@ -41,7 +41,7 @@ section.text-gray-600.overflow-hidden.font-light
                   span.justify-right = expense_item
                 td.table-border.text-right = number_to_currency(expenditure)
       / プロフィール部分
-      .p-12.md:w-1/2.flex.flex-col.items-start
+      .p-6.md:w-1/2.flex.flex-col.items-start.mt-5
         .flex.flex-col.pl-4.justify-left.w-full
           - if @account_book.user.twitter_screen_name?
             = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do
