@@ -14,6 +14,6 @@ class AccountBook < ApplicationRecord
   def date_cannot_be_in_the_future
     return unless date.future?
 
-    errors.add(:date, 'can not select future date')
+    errors.add(:date, :invalid_date)
   end
 end

@@ -81,12 +81,12 @@ ja:
       title: '家計簿編集'
     create:
       success: '家計簿を登録しました'
-      fail: '家計簿登録に失敗しました'
+      fail: '家計簿の登録に失敗しました'
     show:
       title: 'My家計簿'
     update:
       success: '家計簿を更新しました'
-      fail: '家計簿更新に失敗しました'
+      fail: '家計簿の更新に失敗しました'
     likes:
       title: 'お気に入り一覧'
   dashboards:

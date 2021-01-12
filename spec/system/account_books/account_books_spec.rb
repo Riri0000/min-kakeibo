@@ -21,15 +21,16 @@ RSpec.describe "AccountBooks", type: :system do
     end
 
     context '入力値が誤っているとき' do
-      # 家計簿登録に失敗したとき、エラーにならない
-      xit '家計簿登録に失敗する' do
+      it '家計簿登録に失敗する' do
         visit account_books_path
         click_on 'My家計簿登録へ'
         select '教育費', from: 'account_book[expenses_attributes][0][expense_item_id]'
-        fill_in 'account_book[expenses_attributes][0][expenditure]', with: '30000'
+        fill_in 'account_book[expenses_attributes][0][expenditure]', with: ''
         click_on '登録する'
-        expect(page).to have_content '家計簿を登録しました'
-        expect(current_path).to eq account_book_path(id: user.account_book.id)
+        expect(page).to have_content '家計簿の登録に失敗しました'
+        expect(page).to have_content '支出額を入力してください'
+        expect(page).to have_content '支出額は数値で入力してください'
+        expect(current_path).to eq account_books_path
       end
     end
   end
@@ -52,16 +53,15 @@ RSpec.describe "AccountBooks", type: :system do
     end
 
     context '入力値が誤っているとき' do
-      # 家計簿登録に失敗したとき、エラーにならない
-      xit '家計簿更新に失敗する' do
+      it '家計簿更新に失敗する' do
         visit account_book_path(user)
         click_on '家計簿を編集する'
         select '教育費', from: 'account_book[expenses_attributes][0][expense_item_id]'
         fill_in 'account_book[expenses_attributes][0][expenditure]', with: '10000000000'
         click_on '登録する'
         expect(page).to have_content '家計簿の更新に失敗しました'
-        expect(page).to have_content "支出額は99999999999より小さい値にしてください"
-        expect(current_path).to eq account_book_path(user)
+        expect(page).to have_content "支出額は99999999より小さい値にしてください"
+        expect(current_path).to eq account_book_path(account_book)
       end
     end
   end
