@@ -11,10 +11,10 @@ RSpec.describe AccountBook, type: :model do
     expect(account_book.errors).to be_empty
   end
 
-  xit '日付が未来の場合、登録に失敗すること' do
+  it '日付が未来の場合、登録に失敗すること' do
     account_book = create(:account_book)
-    account_book.date = Date.future
+    account_book.date = 1.month.since
     account_book.valid?
-    expect(account_book.errors[:date]).to include("")
+    expect(account_book.errors[:date]).to include("は、現在〜過去を選択してください。")
   end
 end
