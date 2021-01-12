@@ -15,8 +15,9 @@ class AccountBooksController < ApplicationController
   def index
     @q = AccountBook.ransack(params[:q])
     @account_books = @q.result.includes([{ user: %i[user_profile avator_attachment] }, :expenses, :likes])
-                              .order(created_at: :desc)
-                              .page(params[:page])
+                       .joins(:expenses)
+                       .order(created_at: :desc)
+                       .page(params[:page])
   end
 
   # my家計簿の表示
