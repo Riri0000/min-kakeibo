@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def default_meta_tags
     {
       site: 'みんなの家計簿',
@@ -11,7 +10,7 @@ module ApplicationHelper
       reverse: true,
       icon: [
         { href: asset_pack_url('media/images/kakeibo_cat.png'), sizes: '32x32 96x96', type: 'image/png' },
-        { href: asset_pack_url('media/images/logo-no-border.png'), rel: 'apple-touch-icon-precomposed', sizes: '32x32', type: 'image/png' },
+        { href: asset_pack_url('media/images/logo-no-border.png'), rel: 'apple-touch-icon-precomposed', sizes: '32x32', type: 'image/png' }
       ],
       og: {
         site_name: :site,
@@ -20,7 +19,7 @@ module ApplicationHelper
         type: 'website',
         url: :canonical,
         image: asset_pack_url('media/images/kakeibo_cat.png'),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
         card: 'summary',
