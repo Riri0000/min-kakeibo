@@ -1,6 +1,12 @@
 # User.model_name.human / User.human_attribute_name({attr_name})で使用
 ja:
   activerecord:
+    errors:
+      models:
+        account_book:
+          attributes:
+            date:
+              invalid_date: 'は、現在〜過去を選択してください。'
     models:
       user: 'ユーザー'
       user_profile: 'ユーザープロフィール'
@@ -45,5 +51,6 @@ ja:
         with4kids: '子ども4人'
         withparent: '親と同居'
         other: 'その他'
+
 
 

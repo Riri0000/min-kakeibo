@@ -1,5 +1,5 @@
 crumb :root do
-  link 'トップページ', root_path
+  link 'Home', root_path
 end
 
 crumb :new_user do
