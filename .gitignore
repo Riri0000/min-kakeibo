@@ -42,3 +42,8 @@ yarn-debug.log*
 # システムスペックでアップロードされるファイル
 /public/system
 /spec/test_uploads
+
+# pumaで必要
+!/tmp/pids/.keep
+!/tmp/sockets/.keep
+
