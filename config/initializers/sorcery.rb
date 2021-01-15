@@ -87,8 +87,13 @@ Rails.application.config.sorcery.configure do |config|
 
   config.twitter.key = Rails.application.credentials.twitter[:key]
   config.twitter.secret = Rails.application.credentials.twitter[:secret_key]
-  # いづれ、本番用と分けるので環境変数をセットする
-  config.twitter.callback_url = "http://127.0.0.1:3000/oauth/callback?provider=twitter"
+
+  if Rails.env.development?
+    config.twitter.callback_url = Rails.application.credentials.twitter[:callback_dev]
+  elsif Rails.env.production?
+    config.twitter.callback_url = Rails.application.credentials.twitter[:callback_pro]
+  end
+
   # emailを登録していないユーザーのエラーを防ぐために,screen_nameを取得
   config.twitter.user_info_mapping = {
     nickname: 'name',
