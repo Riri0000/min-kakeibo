@@ -2,7 +2,7 @@ class AccountBook < ApplicationRecord
   belongs_to :user
   has_many :expenses, dependent: :destroy
   has_many :likes, dependent: :destroy
-  accepts_nested_attributes_for :expenses, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :expenses, allow_destroy: true, reject_if: proc { |attributes| attributes['expenditure'].nil? }
   validates :date, presence: true
   validate :date_cannot_be_in_the_future
 

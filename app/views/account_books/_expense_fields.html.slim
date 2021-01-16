@@ -5,8 +5,9 @@
                             ExpenseItem.all,
                             :id,
                             :name,
-                            {prompt: "費目を選択"},
+                            {prompt: "費目"},
                             class: 'input-form'
+      = render 'shared/error_message', { object: f.object, attribute: :expense_item }
     .col-span-6
       = f.number_field :expenditure, class: 'input-form no-spin placeholder-gray-500', placeholder: '支出金額を入力'
       = render 'shared/error_message', { object: f.object, attribute: :expenditure }
