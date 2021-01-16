@@ -1,6 +1,6 @@
 .nested-fields
   .form.grid.grid-cols-11.mb-3.pt-2.items-center.border-b.pb-2
-    .mr-2.col-span-4
+    .mr-0.md:mr-1.col-span-5
       = f.collection_select :expense_item_id,
                             ExpenseItem.all,
                             :id,
@@ -8,8 +8,8 @@
                             {prompt: "費目"},
                             class: 'input-form'
       = render 'shared/error_message', { object: f.object, attribute: :expense_item }
-    .col-span-6
-      = f.number_field :expenditure, class: 'input-form no-spin placeholder-gray-500', placeholder: '支出金額を入力'
+    .col-span-5.ml-1
+      = f.number_field :expenditure, class: 'input-form no-spin placeholder-gray-500', placeholder: '支出金額'
       = render 'shared/error_message', { object: f.object, attribute: :expenditure }
     .col-span-1
       = link_to_remove_association f, class: 'ml-2 text-2xl text-carrot-400' do
