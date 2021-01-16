@@ -9,7 +9,7 @@
           = image_tag @account_book.user.avator, size: '70x70', class:'rounded-full'
         - else
           = image_pack_tag 'kakeibo_cat.png', size: '70x70'
-        p.ml-5 #{@account_book.user.nickname}さん
+        p.ml-1 #{@account_book.user.nickname}さん
       .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center
         p.inline-block.py-1.mb-2.rounded.text-carrot-600.text-lg.font-medium.tracking-widest #{l @account_book.date, format: :short}の家計簿
         = pie_chart @expenses,library: {title: {text: "支出<br> #{number_to_currency(@sum_of_expenditure)}"}}
