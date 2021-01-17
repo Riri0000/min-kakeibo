@@ -16,7 +16,7 @@
         .items-right.w-full.text-right
           = render 'like_button', account_book: @account_book
         / 家計簿部分
-        table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed.tracking-wide.text-base.md:text-xl
+        table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed.tracking-wide.text-base
           thead
             tr
               th.table-border = UserProfile.human_attribute_name(:total_assets)
@@ -42,7 +42,7 @@
         .flex.justify-center
           = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
     / プロフィール部分
-    .p-0.md:p-6.w-full.md:w-1/2.flex.flex-col.items-start.mt-5.text-base.md:text-xl
+    .p-0.md:p-6.w-full.md:w-1/2.flex.flex-col.items-start.mt-5.text-base
       .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center.tracking-wide
         / p.w-full.m-10 Twitterでシェア
         / span class="fa-stack fa-lg text-blue-500 items-center justify-center mr-3"
@@ -78,6 +78,5 @@
               th.p-2.w-30 = UserProfile.human_attribute_name(:message)
             tr
               td.text-left = show_value(@user_profile.message)
-        .flex.justify-center
+        .flex.justify-center.mb-20
           = link_to t('defaults.edit_user_profile'), edit_user_profile_path(@user_profile), class: 'light-square-button mt-5'
-

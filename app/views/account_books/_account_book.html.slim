@@ -19,8 +19,5 @@
         tr
           th.table-border = UserProfile.human_attribute_name(:monthly_income)
           td.table-border.text-right = show_money(account_book.user.user_profile.monthly_income)
-        / tr
-        /   th.table-border = Expense.model_name.human
-        /   td.table-border.text-right = show_money(account_book.expenses.sum(:expenditure))
     .mb-0.mt-3
       = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-big-button'
