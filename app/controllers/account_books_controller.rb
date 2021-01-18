@@ -14,8 +14,8 @@ class AccountBooksController < ApplicationController
   # 保留 likesとexpensesが余計なEager Loadingと怒られる。 ???
   def index
     @q = AccountBook.ransack(params[:q])
-    @account_books = @q.result.includes([:likes, { user: [:user_profile, avator_attachment: :blob] }])
-                      #  .sum_per_id
+    @account_books = @q.result.includes([:likes, { user: [:user_profile, { avator_attachment: :blob }] }])
+                       #  .sum_per_id
                        .order(created_at: :desc)
                        .page(params[:page])
   end
