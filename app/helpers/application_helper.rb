@@ -25,9 +25,7 @@ module ApplicationHelper
       twitter: {
         card: 'summary_large_image',
         site: '@min_kakeibo',
-        image: asset_pack_url('media/images/ogp-logo.png'),
-        width: 100,
-        height: 100
+        image: asset_pack_url('media/images/ogp-logo.png')
       }
     }
   end

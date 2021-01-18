@@ -3,10 +3,11 @@ section.text-gray-600.body-font
   .container.px-3.py-12.mx-auto.flex.flex-wrap.items-center
     / 左
     .md:pr-16.lg:pr-0.pr-0 class=("lg:w-2/5 md:w-1/2")
-      h1 class="btn-copy text-2xl title-fon font-semibold mb-5" みんなの家計簿公開アプリ
-      .text-center.text-lg.leading-loose
-        | みんなの家計簿は家計簿公開サービスです！<br>
-          匿名だからこそ、お金の話をオープンに。<br>
+      h1 class="btn-copy text-xl font-semibold mb-5 md:text-2xl" みんなの家計簿公開アプリ
+      .text-center.text-sm.leading-loose.md:text-xl.mb-3
+        | 『みんなの家計簿』は家計簿公開サービスです！<br>
+      .text-center.text-sm.leading-loose.md:text-xl.mb-3
+        | 匿名で、お金の話をオープンに。<br>
       .p-1.items-center.justify-center.text-center.mt-5
         = image_pack_tag 'top-cat.png', size: '600x600'
       .p-2.items-center.text-center
@@ -18,7 +19,7 @@ section.text-gray-600.body-font
         p.text-xs.text-gray-300.mt-3
           = image_pack_tag 'top-mobile.png', size: '600x600', class: 'mx-auto'
   / カード群
-  .container.px-5.py-2.mx-auto.text-gray-600
+  .container.px-1.md:p-4.py-2.mx-auto.text-gray-600
     .flex.flex-col.text-center.w-full.mb-10
       h1 class="sm:text-3xl text-2xl font-medium title-font btn-copy" How To Use
     .flex.flex-wrap.-m-4.mb-3.justify-center
@@ -30,9 +31,9 @@ section.text-gray-600.body-font
               span class="fa-stack fa-lg text-blue-400"
                 i class="fas fa-circle fa-stack-2x"
                 i class="fab fa-twitter fa-stack-1x text-white"
-            h2 class="text-gray-900 text-2xl title-font font-medium" まずはユーザー登録！
+            h2 class="text-gray-900 text-xl md:text-2xl font-medium m-0" まずはユーザー登録！
           .flex-grow.text-lg.p-2.font-light
-            p.mx-3.leading-loose
+            p.mx-3.leading-loose.mt-2
               | Twitterアカウントでも簡単に登録できます。<br>
             p.mt-2.mx-3.leading-loose
               | ログイン後は、Myプロフィールを登録しましょう。<br>
@@ -44,9 +45,9 @@ section.text-gray-600.body-font
               span class="fa-stack fa-lg text-blue-400"
                 i class="fas fa-circle fa-stack-2x"
                 i class="far fa-edit fa-stack-1x text-white"
-            h2 class="text-gray-900 text-2xl title-font font-medium" 家計簿を登録
+            h2 class="text-gray-900 text-xl md:text-2xl font-medium m-0" 家計簿を登録
           .flex-grow.mx-4.text-lg.p-2.font-light
-            p.leading-relaxed
+            p.leading-relaxed.mt-2
               | 公開する家計簿を登録してみましょう。<br>
             p.mt-2.leading-loose
               | お金と向き合うきっかけになるかもしれません。<br>
@@ -59,9 +60,9 @@ section.text-gray-600.body-font
               span class="fa-stack fa-lg text-blue-400 items-center justify-center"
                 i class="fas fa-circle fa-stack-2x"
                 i class="fas fa-glasses fa-stack-1x text-white"
-            h2 class="text-gray-800 text-2xl title-font font-medium" みんなの家計簿をみる
+            h2 class="text-gray-900 text-xl md:text-2xl font-medium m-0" みんなの家計簿をみる
           .flex-grow.text-lg.p-2.px-4.font-light
-            p.leading-loose
+            p.leading-loose.mt-2
               | やりくり上手な人を参考にしたり、いいねしてみましょう！<br>
             p.mt-2.leading-loose
               | 気になった人のTwitterをフォロー！

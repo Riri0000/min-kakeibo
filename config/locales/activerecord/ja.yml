@@ -32,10 +32,11 @@ ja:
       account_book:
         date: '登録する家計簿'
       expense_item:
-        name: '支出項目'
+        name: '費目'
       expense:
         expenditure: '支出額'
         note: '備考'
+        expense_item: '費目'
   enums:
     user:
       role:

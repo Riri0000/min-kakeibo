@@ -1,83 +1,86 @@
-- set_meta_tags title: t('.title')
+- set_meta_tags title: t('.title'),
+                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{number_to_currency(@sum_of_expenditure)},y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_30_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:545454/v1610963859/twitter-ogp_pmvwe8.png"},
+                twitter: {card: 'summary_large_image'}
 - breadcrumb :account_book
-section.text-gray-600.overflow-hidden.font-light
-  .container.px-10.py-20.mx-auto
-    .flex.flex-wrap.-m-10.bg-beaver-50.rounded-3xl.justify-center.shadow-md
-      / 家計簿部分
-      .p-12.md:w-1/2.flex.flex-col.items-start
-        div class="w-full py-1 px-2 mb-5 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
-          - if @account_book.user.avator.attached?
-            = image_tag @account_book.user.avator, size: '70x70', class:'rounded-full'
-          - else
-            = image_pack_tag 'kakeibo_cat.png', size: '70x70'
-          p.ml-3 #{@account_book.user.nickname}さん
-        .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center
-          p.inline-block.py-1.mb-2.rounded.text-carrot-600.text-lg.font-medium.tracking-widest #{l @account_book.date, format: :short}の家計簿
-          = pie_chart @expenses,library: {title: {text: "支出<br> #{number_to_currency(@sum_of_expenditure)}"}}
-          .items-right.w-full.text-right
-            = render 'like_button', account_book: @account_book
-          / 家計簿部分
-          table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed.tracking-wide
-           thead
+.text-gray-600.font-light.m-0
+  .flex.flex-wrap.bg-beaver-50.rounded-3xl.justify-center.shadow-md.border-t-8.border-carrot-300
+    / 家計簿部分
+    .p-6.md:p-12.w-full.md:w-1/2.flex.flex-col.items-start
+      div class="w-full py-1 px-2 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
+        - if @account_book.user.avator.attached?
+          = image_tag @account_book.user.avator, size: '70x70', class:'rounded-full'
+        - else
+          = image_pack_tag 'kakeibo_cat.png', size: '70x70'
+        p.ml-1 #{@account_book.user.nickname}さん
+      .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center
+        p.inline-block.py-1.mb-2.rounded.text-carrot-600.text-lg.font-medium.tracking-widest #{l @account_book.date, format: :short}の家計簿
+        = pie_chart @expenses,library: {title: {text: "支出<br> #{number_to_currency(@sum_of_expenditure)}"}}
+        .items-right.w-full.text-right
+          = render 'like_button', account_book: @account_book
+        / 家計簿部分
+        table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed.tracking-wide.text-base
+          thead
+            tr
+              th.table-border = UserProfile.human_attribute_name(:total_assets)
+              td.table-border.text-right = show_money(@user_profile.total_assets)
+            tr
+              th.table-border = UserProfile.human_attribute_name(:monthly_income)
+              td.table-border.text-right = show_money(@user_profile.monthly_income)
+            tr
+              th.table-border = Expense.model_name.human
+              td.table-border.text-right = show_money(@sum_of_expenditure)
+          thead.bg-carrot-200
+            th.table-border 支出内訳
+            th.table-border
+          tbody.expense
+            - @expenses.each do |expense_item, expenditure|
               tr
-                th.table-border = UserProfile.human_attribute_name(:total_assets)
-                td.table-border.text-right = show_money(@user_profile.total_assets)
-              tr
-                th.table-border = UserProfile.human_attribute_name(:monthly_income)
-                td.table-border.text-right = show_money(@user_profile.monthly_income)
-              tr
-                th.table-border = Expense.model_name.human
-                td.table-border.text-right = show_money(@sum_of_expenditure)
-           thead.bg-carrot-200
-              th.table-border 支出内訳
-              th.table-border
-           tbody
-              - @expenses.each do |expense_item, expenditure|
-                tr
-                  td.table-border
-                    span class="fa-stack fa-lg text-carrot-300 items-center justify-center w-15 mr-3"
-                      i class="fas fa-circle fa-stack-2x"
-                      i class="fas fa-#{show_icon(expense_item)} fa-stack-1x text-white"
-                    span.justify-right = expense_item
-                  td.table-border.text-right = number_to_currency(expenditure)
-          .flex.justify-center
-            = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
-      / プロフィール部分
-      .p-10.md:w-1/2.flex.flex-col.items-start.mb-10
-        .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center.tracking-wide
-          / p.w-full.m-10 Twitterでシェア
-          / span class="fa-stack fa-lg text-blue-500 items-center justify-center mr-3"
-          /   i class="fas fa-circle fa-stack-2x"
-          /   i class="fab fa-twitter fa-stack-1x text-white"
-        .flex.flex-col.pl-4.justify-left.w-full
-          - if @account_book.user.twitter_screen_name?
-            = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do
-              span class="fa-stack fa-lg text-blue-500 items-center"
-                i class="fas fa-circle fa-stack-2x"
-                i class="fab fa-twitter fa-stack-1x text-white"
-              | #{@account_book.user.nickname}さんのTwitter
+                td.table-border
+                  span class="fa-stack fa-lg text-carrot-300 items-center justify-center w-10 mr-3"
+                    i class="fas fa-circle fa-stack-2x"
+                    i class="fas fa-#{show_icon(expense_item)} fa-stack-1x text-white"
+                  span.justify-right = expense_item
+                td.table-border.text-right = number_to_currency(expenditure)
+        .flex.justify-center
+          = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
+    / プロフィール部分
+    .p-0.md:p-6.w-full.md:w-1/2.flex.flex-col.items-start.mt-5.text-base.justify-center
+      .flex.flex-col.px-4
+        = link_to "https://twitter.com/intent/tweet?url=https://min-kakeibo.work/dashboards/#{@account_book.id}/&hashtags=みんなの家計簿,家計簿公開&lang=ja", title: 'Twitter' do
+          button.relative.mt-6.w-full.blue-square-button
+            span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
+              i.fab.fa-twitter
+            span.ml-2 TwitterでSHARE
 
-          / プロフィールテーブル
-          table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed.tracking-wide
-           tbody
-              tr
-                th.table-border.w-25 = UserProfile.human_attribute_name(:age)
-                td.table-border.text-center = "#{show_value(@user_profile.age)} 歳"
-              tr
-                th.table-border.w-25 = UserProfile.human_attribute_name(:job)
-                td.table-border.text-center = show_value(@user_profile.job)
-              tr
-                th.table-border.w-25.text-sm = UserProfile.human_attribute_name(:annual_income)
-                td.table-border.text-center = show_money(@user_profile.annual_income)
-              tr
-                th.table-border.w-25 = UserProfile.human_attribute_name(:residence)
-                td.table-border.text-center = show_value(@user_profile.residence)
-              tr
-                th.table-border.w-25 = UserProfile.human_attribute_name(:household_member)
-                td.table-border.text-center = show_value(@user_profile.household_member_i18n)
-              tr
-                th.table-border.w-25 = UserProfile.human_attribute_name(:message)
-                td.table-border.text-left = show_value(@user_profile.message)
-          .flex.justify-center
-            = link_to t('defaults.edit_user_profile'), edit_user_profile_path(@user_profile), class: 'light-square-button mt-5'
+      .flex.flex-col.px-4.mt-3
+        - if @account_book.user.twitter_screen_name?
+          = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do
+            button.relative.mt-6.blue-square-button
+              span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
+                i.fab.fa-twitter
+              span.ml-3 #{@account_book.user.nickname}さんのTwitter
 
+        / プロフィールテーブル
+        table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
+          tbody
+            tr
+              th.table-border.w-30 = UserProfile.human_attribute_name(:age)
+              td.table-border.text-center = "#{show_value(@user_profile.age)} 歳"
+            tr
+              th.table-border.w-30 = UserProfile.human_attribute_name(:job)
+              td.table-border.text-center = show_value(@user_profile.job)
+            tr
+              th.table-border.w-30 = UserProfile.human_attribute_name(:annual_income)
+              td.table-border.text-center = show_money(@user_profile.annual_income)
+            tr
+              th.table-border.w-30 = UserProfile.human_attribute_name(:residence)
+              td.table-border.text-center = show_value(@user_profile.residence)
+            tr
+              th.table-border.w-30 = UserProfile.human_attribute_name(:household_member)
+              td.table-border.text-center = show_value(@user_profile.household_member_i18n)
+            tr
+              th.p-2.w-30 = UserProfile.human_attribute_name(:message)
+            tr
+              td.text-left = show_value(@user_profile.message)
+        .flex.justify-center.mb-20
+          = link_to t('defaults.edit_user_profile'), edit_user_profile_path(@user_profile), class: 'light-square-button mt-5'

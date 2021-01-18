@@ -52,5 +52,6 @@ test:
 production:
   <<: *default
   database: Sharing_Kakeibo_production
-  username: Sharing_Kakeibo
-  password: <%= ENV['SHARING_KAKEIBO_DATABASE_PASSWORD'] %>
+  username: <%= Rails.application.credentials.production[:username] %>
+  password: <%= Rails.application.credentials.production[:password] %>
+  host: <%= Rails.application.credentials.production[:host] %>

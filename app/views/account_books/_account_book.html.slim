@@ -1,5 +1,5 @@
-.container.overflow-hidden.bg-beaver-50.rounded-3xl.text-gray-600.font-light.shadow-md.border-t-8.border-carrot-300.mb-5
-  .flex.flex-wrap.items-center.justify-center.p-4.w-full
+div class="account_book overflow-hidden bg-beaver-50 rounded-3xl text-gray-600 font-light shadow-md border-t-8 border-carrot-300 mb-5 p-2"
+  .flex.flex-wrap.items-center.justify-center.p-2.w-full.m-0.lg:p-3
     div class="w-full py-1 px-2 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
       - if account_book.user.avator.attached?
         = image_tag account_book.user.avator , size: '70x70', class:'rounded-full'
@@ -19,8 +19,5 @@
         tr
           th.table-border = UserProfile.human_attribute_name(:monthly_income)
           td.table-border.text-right = show_money(account_book.user.user_profile.monthly_income)
-        / tr
-        /   th.table-border = Expense.model_name.human
-        /   td.table-border.text-right = show_money(account_book.expenses.sum(:expenditure))
     .mb-0.mt-3
       = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-big-button'
