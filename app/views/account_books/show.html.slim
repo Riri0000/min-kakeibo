@@ -1,10 +1,12 @@
-- set_meta_tags title: t('.title')
+- set_meta_tags title: t('.title'),
+                og: {image: "https://res.cloudinary.com/dls1nwkcn/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{number_to_currency(@sum_of_expenditure)},y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_30_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:545454/v1610963859/twitter-ogp_pmvwe8.png"},
+                twitter: {card: 'summary_large_image'}
 - breadcrumb :account_book
 .text-gray-600.font-light.m-0
   .flex.flex-wrap.bg-beaver-50.rounded-3xl.justify-center.shadow-md.border-t-8.border-carrot-300
     / 家計簿部分
     .p-6.md:p-12.w-full.md:w-1/2.flex.flex-col.items-start
-      div class="w-full py-1 px-2 mb-5 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
+      div class="w-full py-1 px-2 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
         - if @account_book.user.avator.attached?
           = image_tag @account_book.user.avator, size: '70x70', class:'rounded-full'
         - else
@@ -42,19 +44,21 @@
         .flex.justify-center
           = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
     / プロフィール部分
-    .p-0.md:p-6.w-full.md:w-1/2.flex.flex-col.items-start.mt-5.text-base
-      .flex.items-center.flex-wrap.pb-4.mb-2.border-gray-100.mt-auto.w-full.justify-center.tracking-wide
-        / p.w-full.m-10 Twitterでシェア
-        / span class="fa-stack fa-lg text-blue-500 items-center justify-center mr-3"
-        /   i class="fas fa-circle fa-stack-2x"
-        /   i class="fab fa-twitter fa-stack-1x text-white"
-      .flex.flex-col.px-4.justify-left.w-full
+    .p-0.md:p-6.w-full.md:w-1/2.flex.flex-col.items-start.mt-5.text-base.justify-center
+      .flex.flex-col.px-4
+        = link_to "https://twitter.com/intent/tweet?url=https://min-kakeibo.work/dashboards/#{@account_book.id}/&hashtags=みんなの家計簿,家計簿公開&lang=ja", title: 'Twitter' do
+          button.relative.mt-6.w-full.blue-square-button
+            span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
+              i.fab.fa-twitter
+            span.ml-2 TwitterでSHARE
+
+      .flex.flex-col.px-4.mt-3
         - if @account_book.user.twitter_screen_name?
           = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do
-            span class="fa-stack fa-lg text-blue-500 items-center"
-              i class="fas fa-circle fa-stack-2x"
-              i class="fab fa-twitter fa-stack-1x text-white"
-            | #{@account_book.user.nickname}さんのTwitter
+            button.relative.mt-6.blue-square-button
+              span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
+                i.fab.fa-twitter
+              span.ml-3 #{@account_book.user.nickname}さんのTwitter
 
         / プロフィールテーブル
         table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed

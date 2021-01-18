@@ -88,10 +88,11 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.key = Rails.application.credentials.twitter[:key]
   config.twitter.secret = Rails.application.credentials.twitter[:secret_key]
 
-  if Rails.env.development?
-    config.twitter.callback_url = Rails.application.credentials.twitter[:callback_dev]
-  elsif Rails.env.production?
-    config.twitter.callback_url = Rails.application.credentials.twitter[:callback_pro]
+  case Rails.env
+    when "production"
+      config.twitter.callback_url = Rails.application.credentials.twitter[:callback_pro]
+    when "development"
+      config.twitter.callback_url = Rails.application.credentials.twitter[:callback_dev]
   end
 
   # emailを登録していないユーザーのエラーを防ぐために,screen_nameを取得
