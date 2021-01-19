@@ -68,7 +68,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano3-puma'
+  gem 'capistrano3-puma', '< 5'
   gem 'capistrano-nginx'
   gem 'capistrano-yarn'
 
