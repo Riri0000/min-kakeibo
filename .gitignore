@@ -45,5 +45,5 @@ yarn-debug.log*
 
 # pumaで必要
 !/tmp/pids/.keep
-!/tmp/sockets/.keep
+!/tmp/sockets
 
