@@ -1,28 +1,28 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.15.0"
+lock '~> 3.15.0'
 
-set :application, "Sharing_Kakeibo"
-set :repo_url, "git@github.com:Riri0000/Sharing_Kakeibo.git"
+set :application, 'Sharing_Kakeibo'
+set :repo_url, 'git@github.com:Riri0000/Sharing_Kakeibo.git'
 set :user, 'sari'
-set :deploy_to, "/var/www/Sharing_Kakibo"
+set :deploy_to, '/var/www/Sharing_Kakibo'
 set :linked_files, %w[config/master.key config/database.yml]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle]
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :puma_threds, [4, 16]
 set :puma_workers, 0
-set :puma_bind, "unix:///var/www/Sharing_Kakeibo/shared/tmp/sockets/puma.sock"
-set :puma_state, "/var/www/Sharing_Kakeibo/shared/tmp/pids/puma.state"
-set :puma_pid, "/var/www/Sharing_Kakeibo/shared/tmp/pids/puma.pid"
-set :puma_access_log, "/var/www/Sharing_Kakeibo/shared/log/puma.error.log"
-set :puma_error_log, "/var/www/Sharing_Kakeibo/shared/log/puma.access.log"
+set :puma_bind, 'unix:///var/www/Sharing_Kakeibo/shared/tmp/sockets/puma.sock'
+set :puma_state, '/var/www/Sharing_Kakeibo/shared/tmp/pids/puma.state'
+set :puma_pid, '/var/www/Sharing_Kakeibo/shared/tmp/pids/puma.pid'
+set :puma_access_log, '/var/www/Sharing_Kakeibo/shared/log/puma.error.log'
+set :puma_error_log, '/var/www/Sharing_Kakeibo/shared/log/puma.access.log'
 set :puma_preload_app, true
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
     on roles(:app) do
-      execute "mkdir /var/www/Sharing_Kakeibo/shared/tmp/sockets -p"
-      execute "mkdir /var/www/Sharing_Kakeibo/shared/tmp/pids -p"
+      execute 'mkdir /var/www/Sharing_Kakeibo/shared/tmp/sockets -p'
+      execute 'mkdir /var/www/Sharing_Kakeibo/shared/tmp/pids -p'
     end
   end
 
@@ -33,13 +33,13 @@ namespace :deploy do
   desc 'upload important files'
   task :upload do
     on roles(:app) do
-      sudo :mkdir, '-p', "/var/www/Sharing_Kakeibo/shared/config"
-      sudo %[chown -R #{fetch(:user)}.#{fetch(:user)} /var/www/#{fetch(:application)}]
+      sudo :mkdir, '-p', '/var/www/Sharing_Kakeibo/shared/config'
+      sudo %(chown -R #{fetch(:user)}.#{fetch(:user)} /var/www/#{fetch(:application)})
       sudo :mkdir, '-p', '/etc/nginx/sites-enabled'
       sudo :mkdir, '-p', '/etc/nginx/sites-available'
 
-      upload!('config/database.yml', "/var/www/Sharing_Kakeibo/shared/config/database.yml")
-      upload!('config/master.key', "/var/www/Sharing_Kakeibo/shared/config/master.key")
+      upload!('config/database.yml', '/var/www/Sharing_Kakeibo/shared/config/database.yml')
+      upload!('config/master.key', '/var/www/Sharing_Kakeibo/shared/config/master.key')
     end
   end
 
