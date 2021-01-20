@@ -18,6 +18,8 @@ set :puma_error_log, '/var/www/min-kakeibo/shared/log/puma.access.log'
 set :puma_preload_app, true
 # mainブランチを指定
 set :branch, 'main'
+# HTTPS化
+set :nginx_downstream_uses_ssl, true
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
