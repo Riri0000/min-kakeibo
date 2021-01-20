@@ -4,11 +4,13 @@ html
     = display_meta_tags(default_meta_tags)
     = csrf_meta_tags
     = csp_meta_tag
-    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
     meta http-equiv="content-type" charset="utf-8"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    - if Rails.env.production?
+      = render './google_analytics'
   body
     header
       -if logged_in?

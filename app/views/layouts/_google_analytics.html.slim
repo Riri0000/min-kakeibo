@@ -1,0 +1,10 @@
+script async="" src="https://www.googletagmanager.com/gtag/js?id=#G-0CZZZEJWY0"
+javascript:
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0CZZZEJWY0');
+  if (#{raw current_user.to_json}) {
+    gtag('set', {'user_id': #{raw current_user.to_json}.id});
+  }
