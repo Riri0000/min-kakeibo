@@ -21,7 +21,7 @@
 # role :app, 'sari@18.182.145.135'
 # role :web, 'sari@18.182.145.135'
 # role :db, 'sari@18.182.145.135'
-server "18.182.145.135", user: "sari", roles: %w{app db web}
+# server "18.182.145.135", user: "sari", roles: %w{app db web}
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -38,21 +38,21 @@ server "18.182.145.135", user: "sari", roles: %w{app db web}
 #
 # Global options
 # --------------
- set :ssh_options, {
-   keys: %w(~/.ssh/aws-min-kakeibo-key.pem),
-   forward_agent: true,
-   auth_methods: %w(publickey)
- }
+#  set :ssh_options, {
+#    keys: %w(~/.ssh/aws-min-kakeibo-key.pem),
+#    forward_agent: true,
+#    auth_methods: %w(publickey)
+#  }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
-# server "example.com",
-#   user: "user_name",
-#   roles: %w{web app},
-#   ssh_options: {
-#     user: "user_name", # overrides user setting above
-#     keys: %w(/home/user_name/.ssh/id_rsa),
-#     forward_agent: false,
-#     auth_methods: %w(publickey password)
-#     # password: "please use keys"
-#   }
+server '18.182.145.135',
+       user: 'sari',
+       roles: %w[web db app],
+       ssh_options: {
+         user: 'sari', # overrides user setting above
+         keys: %w[/home/sari/.ssh/aws-min-kakeibo-key.pem],
+         forward_agent: true
+         # auth_methods: %w(publickey password)
+         # password: "please use keys"
+       }
