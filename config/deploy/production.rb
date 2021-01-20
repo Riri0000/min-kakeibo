@@ -39,7 +39,7 @@ role :db, 'sari@18.182.145.135'
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(~/.ssh/aws-study-key.pem),
+   keys: %w(~/.ssh/aws-min-kakeibo-key.pem),
    forward_agent: true,
    auth_methods: %w(publickey)
  }
