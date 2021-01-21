@@ -14,7 +14,8 @@
  *= require_self
  */
 
-@import 'main';
 @import 'bootstrap/scss/bootstrap';
-@import 'toastr/build/toastr.min';
+@import 'main';
+@import '~toastr/toastr';
+// @import 'toastr/build/toastr.min';
 @import 'over-bootstrap';

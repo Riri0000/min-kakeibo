@@ -6,7 +6,7 @@
 
 // JS----------------------
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
@@ -33,6 +33,7 @@ import '../css/tailwind.scss';
 import toastr from 'toastr';
 
 window.toastr = toastr
+window.jQuery = window.$ = require('jquery')
 
 toastr.options = {
   "closeButton": true

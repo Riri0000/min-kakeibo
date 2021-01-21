@@ -17,8 +17,7 @@
     "popper.js": "^1.16.1",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1",
-    "toastr": "^2.1.4",
-    "turbolinks": "^5.2.0"
+    "toastr": "^2.1.4"
   },
   "version": "0.1.0",
   "devDependencies": {
