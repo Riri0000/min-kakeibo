@@ -5,7 +5,7 @@
     = image_pack_tag 'logo-no-border.png', size: '200x200'
   .text-right.mb-5
     = render 'search_form', url: account_books_path, q: @q
-  .grid.grid-cols-1.mb-5.sm:grid-cols-1.md:grid-cols-2.lg:mx-5.xl:grid-cols-3.gap-4
+  .grid.grid-cols-1.mb-5.md:grid-cols-2.lg:mx-5.xl:grid-cols-3.gap-4
     = render @account_books
   .flex.justify-center
     = paginate(@account_books)
