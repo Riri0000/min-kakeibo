@@ -18,6 +18,7 @@ default: &default
   password: <%= Rails.application.credentials.development[:password] %>
   host: localhost
   collation: utf8mb4_bin
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
