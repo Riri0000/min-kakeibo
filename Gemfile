@@ -8,7 +8,7 @@ gem 'mysql2', '>= 0.4.4'
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'mini_racer', platforms: :ruby
 # aws S3
@@ -83,6 +83,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # グラフ生成用
 gem 'chartkick'
+# 画像生成(ogp)
+gem 'cloudinary'
 # パンくずリスト
 gem 'gretel'
 # ページネーション

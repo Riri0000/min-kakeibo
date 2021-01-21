@@ -6,7 +6,7 @@ module ApplicationHelper
       description: 'みんなの家計簿は、家計簿公開アプリです！あなたの家計簿を公開、みんなの家計簿を見ることができるサービスです。やりくり上手な人の家計簿を参考にしたり、自分のお金の遣い方を見直すきっかけに。',
       charset: 'utf-8',
       keywords: '家計簿 家計簿公開 みんなの家計簿 家計簿のぞき見 資産公開',
-      canonical: 'https://min-kakeibo.work/',
+      canonical: 'https://min-kakeibo.work',
       separator: '|',
       reverse: true,
       icon: [
