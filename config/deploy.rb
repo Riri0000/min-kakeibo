@@ -59,7 +59,6 @@ namespace :deploy do
   end
 
   before :starting, :upload
-  after  :finishing, :compile_assets
   before 'check:linked_files', 'puma:nginx_config'
 end
 
