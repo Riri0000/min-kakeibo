@@ -15,7 +15,7 @@ default: &default
   charset: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: <%= Rails.application.credentials.development[:password] %>
+  password: <%= ENV.fetch("DATABASE_DEV_PASSWORD") %>
   host: localhost
   collation: utf8mb4_bin
   socket: /var/lib/mysql/mysql.sock
@@ -31,7 +31,6 @@ test:
   <<: *default
   database: ci_test
   host: <%=ENV['DB_HOST'] || '127.0.0.1' %>
-  password: ''
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

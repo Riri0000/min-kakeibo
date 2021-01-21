@@ -23,7 +23,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # 開発環境とテスト環境のみ対象
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-
+  gem 'dotenv-rails'
   # RSpec
   gem 'factory_bot_rails'
   gem 'rspec-rails'
