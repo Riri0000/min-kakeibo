@@ -12,15 +12,13 @@ RSpec.describe "Likes", type: :system do
   end
 
   it 'いいねができること', js: true do
-    find('.far').click
-    expect(page).to have_css '.fas'
+    find("#js-like-btn-for-#{account_book.id}").click
     expect(page).to have_css("#js-like-btn-for-#{account_book.id}[data-method='delete']")
   end
 
   it 'いいねを外せること', js: true do
-    find('.far').click
-    find('.fas').click
-    expect(page).to have_css '.far'
+    find("#js-like-btn-for-#{account_book.id}").click
+    find("#js-like-btn-for-#{account_book.id}").click
     expect(page).to have_css("#js-like-btn-for-#{account_book.id}[data-method='post']")
   end
 end

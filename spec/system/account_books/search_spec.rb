@@ -26,7 +26,7 @@ RSpec.describe "AccountBooks::Search", type: :system do
   describe '検索機能' do
     it '名前検索が機能すること' do
       fill_in 'q_user_nickname_cont', with: 'なまえ'
-      find('.fa').click
+      click_on '検索'
       expect(current_path).to eq account_books_path
       expect(page).to have_content(user_1.nickname)
       expect(page).not_to have_content(login_user.nickname)
@@ -34,6 +34,7 @@ RSpec.describe "AccountBooks::Search", type: :system do
       expect(page).not_to have_content(user_3.nickname)
     end
 
+    # ソート機能のスペックエラーになる・・
     # it '資産額順ソートが機能すること' do
     #   click_on '並び替え'
     #   click_on '総資産額順', match: :first
