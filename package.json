@@ -2,7 +2,7 @@
   "name": "Sharing_Kakeibo",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1",
+    "@fortawesome/fontawesome-free": "^5.15.2",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0",

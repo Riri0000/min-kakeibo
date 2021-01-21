@@ -12,7 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'mini_racer', platforms: :ruby
 # aws S3
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # gem 'mini_magick'
