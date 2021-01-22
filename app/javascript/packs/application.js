@@ -27,8 +27,7 @@ const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
 
 // CSS----------------------
-import 'bootstrap/scss/bootstrap';
-import '../stylesheets/application';
+import '../stylesheets/application.scss';
 import '../css/tailwind.scss';
 import 'toastr';
 
