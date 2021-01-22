@@ -14,8 +14,6 @@ require("channels")
 require("jquery")
 require("@nathanvda/cocoon")
 require("bootstrap")
-// require('bootstrap/dist/js/bootstrap.min.js')
-// import 'bootstrap'
 require("chartkick").use(require("highcharts"))
 require("toastr")
 // fontawesomeはJS版を使用
@@ -29,8 +27,10 @@ const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
 
 // CSS----------------------
+import 'bootstrap/scss/bootstrap';
 import '../stylesheets/application';
 import '../css/tailwind.scss';
+import 'toastr';
 
 window.toastr = require('toastr')
 window.jQuery = window.$ = require('jquery')
