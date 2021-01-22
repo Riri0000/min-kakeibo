@@ -27,8 +27,8 @@ const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
 
 // CSS----------------------
-import '../stylesheets/application.scss';
 import '../css/tailwind.scss';
+import '../css/toastr.scss';
 
 window.toastr = require('toastr')
 window.jQuery = window.$ = require('jquery')
