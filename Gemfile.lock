@@ -422,6 +422,9 @@ GEM
     tilt (2.0.10)
     toastr-rails (1.0.3)
       railties (>= 3.1.0)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.8)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -506,6 +509,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   toastr-rails
+  turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers

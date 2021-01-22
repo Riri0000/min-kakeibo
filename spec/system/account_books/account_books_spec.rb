@@ -106,24 +106,24 @@ RSpec.describe "AccountBooks", type: :system do
     let!(:account_book) { create(:account_book, user_id: user.id) }
     let!(:expense_1) { create(:expense, expense_item_id: 1, expenditure: 10000, account_book_id: account_book.id) }
     let!(:expense_2) { create(:expense, expense_item_id: 1, expenditure: 5000, account_book_id: account_book.id) }
-    let!(:expense_3) { create(:expense, expense_item_id: 2, expenditure: 2000, account_book_id: account_book.id) }
+    let!(:expense_3) { create(:expense, expense_item_id: 2, expenditure: 3000, account_book_id: account_book.id) }
     let!(:expense_4) { create(:expense, expense_item_id: 2, expenditure: 3000, account_book_id: account_book.id) }
     let!(:expense_5) { create(:expense, expense_item_id: 3, expenditure: 4000, account_book_id: account_book.id) }
     let!(:expense_6) { create(:expense, expense_item_id: 4, expenditure: 5000, account_book_id: account_book.id) }
 
     it '家計簿一覧画面に計算内容が正しく表示される' do
       visit account_books_path
-      expect(page).to have_selector 'tspan', text: '29,000円'
+      expect(page).to have_selector 'tspan', text: '30,000円'
     end
 
     it '家計簿詳細画面に計算内容が支出額順に正しく表示される' do
       visit dashboard_path(account_book)
-      expect(page).to have_selector 'tspan', text: '29,000円'
+      expect(page).to have_selector 'tspan', text: '30,000円'
       trs = all('tbody tr')
       expect(trs[0]).to have_content '投資'
       expect(trs[0]).to have_content '15,000円'
       expect(trs[1]).to have_content '貯金'
-      expect(trs[1]).to have_content '5,000円'
+      expect(trs[1]).to have_content '6,000円'
       expect(trs[2]).to have_content '食費'
       expect(trs[2]).to have_content '5,000円'
       expect(trs[3]).to have_content '住居費'
@@ -132,12 +132,12 @@ RSpec.describe "AccountBooks", type: :system do
 
     it 'My家計簿画面に計算内容が支出額順に正しく表示される' do
       visit account_book_path(account_book)
-      expect(page).to have_selector 'tspan', text: '29,000円'
+      expect(page).to have_selector 'tspan', text: '30,000円'
       trs = all('tbody tr')
       expect(trs[0]).to have_content '投資'
       expect(trs[0]).to have_content '15,000円'
       expect(trs[1]).to have_content '貯金'
-      expect(trs[1]).to have_content '5,000円'
+      expect(trs[1]).to have_content '6,000円'
       expect(trs[2]).to have_content '食費'
       expect(trs[2]).to have_content '5,000円'
       expect(trs[3]).to have_content '住居費'

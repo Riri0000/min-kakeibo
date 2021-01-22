@@ -6,22 +6,23 @@
 
 // JS----------------------
 require("@rails/ujs").start()
-// require("turbolinks").start()
+require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
 // yarn経由でインストールしたもの
 require("jquery")
 require("@nathanvda/cocoon")
+require("bootstrap")
 // require('bootstrap/dist/js/bootstrap.min.js')
-import 'bootstrap'
+// import 'bootstrap'
 require("chartkick").use(require("highcharts"))
 require("toastr")
 // fontawesomeはJS版を使用
 import '@fortawesome/fontawesome-free/js/all';
 
 // 自前のJS
-require ('../message_counter.js')
+require ('message_counter.js')
 
 //画像読み込み用
 const images = require.context('../images', true)
