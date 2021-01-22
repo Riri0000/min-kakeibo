@@ -29,7 +29,6 @@ const imagePath = (name) => images(name, true)
 // CSS----------------------
 import '../stylesheets/application.scss';
 import '../css/tailwind.scss';
-import 'toastr';
 
 window.toastr = require('toastr')
 window.jQuery = window.$ = require('jquery')
