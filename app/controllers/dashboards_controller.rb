@@ -1,4 +1,6 @@
 class DashboardsController < ApplicationController
+  skip_before_action :require_login
+
   def show
     @account_book = AccountBook.find(params[:id])
     @expenses = @account_book.expenses.order_by_expense_item_group

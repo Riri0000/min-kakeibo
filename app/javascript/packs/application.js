@@ -30,7 +30,8 @@ const imagePath = (name) => images(name, true)
 import '../css/tailwind.scss';
 import '../css/toastr.scss';
 
-window.toastr = require('toastr')
+import toastr from 'toastr';
+window.toastr = toastr;
 window.jQuery = window.$ = require('jquery')
 
 toastr.options = {
