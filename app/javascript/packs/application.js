@@ -14,8 +14,6 @@ require("channels")
 require("jquery")
 require("@nathanvda/cocoon")
 require("bootstrap")
-// require('bootstrap/dist/js/bootstrap.min.js')
-// import 'bootstrap'
 require("chartkick").use(require("highcharts"))
 require("toastr")
 // fontawesomeはJS版を使用
