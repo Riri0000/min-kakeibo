@@ -24,7 +24,7 @@ module ApplicationHelper
       },
       twitter: {
         card: 'summary_large_image',
-        site: '@min_kakeibo',
+        site: '@min_kakeibo'
       }
     }
   end
