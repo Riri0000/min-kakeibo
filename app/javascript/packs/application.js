@@ -28,7 +28,7 @@ const imagePath = (name) => images(name, true)
 
 // CSS----------------------
 import '../css/tailwind.scss';
-import '../css/toastr.scss';
+import '../stylesheets/application.scss';
 
 import toastr from 'toastr';
 window.toastr = toastr;
