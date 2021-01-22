@@ -9,7 +9,7 @@ class UserSessionsController < ApplicationController
     if @user
       redirect_back_or_to account_books_path, success: t('.success')
     else
-      flash.now[:error] = t('.fail')
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end

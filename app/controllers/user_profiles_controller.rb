@@ -13,7 +13,7 @@ class UserProfilesController < ApplicationController
       # 続けて家計簿の登録を行う動線にする
       redirect_to new_account_book_path(@user_profile.user_id), success: t('.success')
     else
-      flash.now[:error] = t('.fail')
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
@@ -22,7 +22,7 @@ class UserProfilesController < ApplicationController
     if @user_profile.update(user_profile_params)
       redirect_to account_book_path(@user_profile.user_id), success: t('.success')
     else
-      flash.now[:error] = t('.fail')
+      flash.now[:danger] = t('.fail')
       render :edit
     end
   end

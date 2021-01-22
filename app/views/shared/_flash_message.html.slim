@@ -1,3 +1,15 @@
-- flash.each do |key, value|
-  javascript:
-    toastr['#{key}']('#{value}');
+/ - flash.each do |key, value|
+/   javascript:
+/     toastr['#{key}']('#{value}');
+
+- if flash.present?
+  - flash.each do |key, value|
+    = content_tag 'div', class: "flash alert alert-#{key}" do
+      button.close[data-dismiss="alert"]
+        | ×
+      = value
+
+javascript:
+   $(function() {
+     setTimeout("$('.flash').fadeOut('slow')", 2000);
+   });

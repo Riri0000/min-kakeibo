@@ -22,7 +22,7 @@ class OauthsController < ApplicationController
         auto_login(@user)
         redirect_to account_books_path, success: "#{provider.titleize}でログインしました"
       rescue StandardError
-        redirect_to root_path, error: "#{provider.titleize}のログインに失敗しました"
+        redirect_to root_path, danger: "#{provider.titleize}のログインに失敗しました"
       end
     end
   end

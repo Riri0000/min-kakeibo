@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       auto_login(@user)
       redirect_to account_books_path, success: t('.success')
     else
-      flash[:error] = t('.fail')
+      flash[:danger] = t('.fail')
       render :new
     end
   end
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to account_books_path, success: t('.success')
     else
-      flash.now[:error] = t('.fail')
+      flash.now[:danger] = t('.fail')
       render :edit
     end
   end
