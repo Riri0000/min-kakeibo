@@ -1,5 +1,5 @@
 crumb :root do
-  link 'Home', root_path
+  link 'Home', account_books_path
 end
 
 crumb :new_user do
