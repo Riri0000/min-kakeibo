@@ -24,7 +24,7 @@ html
       .breadcrumbs
         = breadcrumbs style: :bootstrap4
       -if logged_in?
-        .text-carrot-500.justify-right.text-sm.ml-3.mt-2
+        .text-carrot-500.justify-right.text-sm.ml-3.mt-2.mb-4
           = "~#{current_user.nickname}さんログイン中~"
       = yield
     footer
