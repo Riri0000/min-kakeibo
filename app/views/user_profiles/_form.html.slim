@@ -9,10 +9,8 @@ section.text-gray-600.body-font.relative
             ※数字は半角数字で登録してください。
         .relative.mb-4
           = f.label :age, class: 'form-label'
-          = f.select :age,
-                      options_for_select(13..100),
-                      { include_blank: '選択してください', selected: @user_profile.age ||= ''},
-                      { class: 'input-form' }
+          = f.number_field :age, class: 'input-form no-spin', placeholder: '例) 50'
+          = render 'shared/error_message', { object: f.object, attribute: :age }
         .relative.mb-4
           = f.label :job, class: 'form-label'
           = f.text_field :job, class: 'input-form no-spin', placeholder: ''
@@ -25,16 +23,22 @@ section.text-gray-600.body-font.relative
                       class: 'input-form'
         .relative.mb-4
           = f.label :total_assets, class: 'form-label'
-          = f.number_field :total_assets, class: 'input-form no-spin', placeholder: '例) 4000000'
-          = render 'shared/error_message', { object: f.object, attribute: :total_assets }
+          = f.select :total_assets,
+                      UserProfile.total_assets_i18n.invert,
+                      { include_blank: '選択してください' },
+                      class: 'input-form'
         .relative.mb-4
           = f.label :annual_income, class: 'form-label'
-          = f.number_field :annual_income, class: 'input-form no-spin', placeholder: '例) 3000000'
-          = render 'shared/error_message', { object: f.object, attribute: :annual_income }
-        .relative.mb-4
-          = f.label :monthly_income, class: 'form-label'
-          = f.number_field :monthly_income, class: 'input-form no-spin', placeholder: '例) 200000'
-          = render 'shared/error_message', { object: f.object, attribute: :monthly_income }
+          = f.select :annual_income,
+                      UserProfile.annual_incomes_i18n.invert,
+                      { include_blank: '選択してください' },
+                      class: 'input-form'
+        / .relative.mb-4
+        /   = f.label :monthly_income, class: 'form-label'
+        /   = f.select :monthly_income,
+        /               UserProfile.monthly_incomes_i18n.invert,
+        /               { include_blank: '選択してください' },
+        /               class: 'input-form'
         .relative.mb-4
           = f.label :household_member, class: 'form-label'
           = f.select :household_member,

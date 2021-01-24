@@ -3,7 +3,7 @@
   .w-full.text-gray-700.dark-mode:text-gray-200.dark-mode:bg-gray-800
     div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8"
       .flex.flex-row.items-center.justify-between.p-1
-        = link_to root_path do
+        = link_to account_books_path do
           = image_pack_tag 'logo.png', size: '40x40'
         button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open"
           svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6"

@@ -3,9 +3,10 @@ class UserProfile < ApplicationRecord
 
   validates :job, length: { maximum: 20 }
   validates :message, length: { maximum: 144 }
-  validates :total_assets, numericality: { only_integer: true, less_than: 99_999_999_999, allow_blank: true }
-  validates :annual_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
-  validates :monthly_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
+  validates :age, numericality: { only_integer: true, less_than: 150, allow_blank: true }
+  # validates :total_assets, numericality: { only_integer: true, less_than: 99_999_999_999, allow_blank: true }
+  # validates :annual_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
+  # validates :monthly_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
 
   enum household_member: {
     single: 1,
@@ -16,6 +17,75 @@ class UserProfile < ApplicationRecord
     with4kids: 6,
     withparent: 7,
     other: 8
+  }
+
+  enum total_assets: {
+    t_1: 1,
+    t_2: 2,
+    t_3: 3,
+    t_4: 4,
+    t_5: 5,
+    t_6: 6,
+    t_7: 7,
+    t_8: 8,
+    t_9: 9,
+    t_10: 10,
+    t_11: 11,
+    t_12: 12,
+    t_13: 13,
+    t_14: 14,
+    t_15: 15,
+    t_16: 16,
+    t_17: 17,
+    t_18: 18,
+    t_19: 19,
+    t_20: 20,
+    t_21: 21,
+    t_22: 22,
+    t_23: 23,
+    t_24: 24,
+    t_25: 25,
+    t_26: 26,
+    t_27: 27,
+    t_28: 28,
+    t_29: 29,
+    t_30: 30,
+    t_31: 31
+  }
+
+  enum annual_income: {
+    a_1: 1,
+    a_2: 2,
+    a_3: 3,
+    a_4: 4,
+    a_5: 5,
+    a_6: 6,
+    a_7: 7,
+    a_8: 8,
+    a_9: 9,
+    a_10: 10
+  }
+  enum monthly_income: {
+    m_1: 1,
+    m_2: 2,
+    m_3: 3,
+    m_4: 4,
+    m_5: 5,
+    m_6: 6,
+    m_7: 7,
+    m_8: 8,
+    m_9: 9,
+    m_10: 10,
+    m_11: 11,
+    m_12: 12,
+    m_13: 13,
+    m_14: 14,
+    m_15: 15,
+    m_16: 16,
+    m_17: 17,
+    m_18: 18,
+    m_19: 19,
+    m_20: 20
   }
 
   PREFECTURE_NAMES = %w[

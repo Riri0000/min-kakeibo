@@ -76,7 +76,7 @@ RSpec.describe "AccountBooks", type: :system do
       expect(page).to have_content user.nickname
       expect(page).to have_content account_book.date.year
       expect(page).to have_content account_book.date.month
-      expect(page).to have_content '投資'
+      expect(page).to have_content '住居費'
       expect(page).to have_content '100,000円'
       expect(page).to have_content account_book.expenses.sum(:expenditure).to_s(:delimited)
       expect(page).to have_content '家計簿を編集する'
@@ -87,7 +87,7 @@ RSpec.describe "AccountBooks", type: :system do
       expect(page).to have_content user.nickname
       expect(page).to have_content account_book.date.year
       expect(page).to have_content account_book.date.month
-      expect(page).to have_content '投資'
+      expect(page).to have_content '住居費'
       expect(page).to have_content '100,000円'
       expect(page).to have_content account_book.expenses.sum(:expenditure).to_s(:delimited)
     end
@@ -120,13 +120,13 @@ RSpec.describe "AccountBooks", type: :system do
       visit dashboard_path(account_book)
       expect(page).to have_selector 'tspan', text: '30,000円'
       trs = all('tbody tr')
-      expect(trs[0]).to have_content '投資'
+      expect(trs[0]).to have_content '住居費'
       expect(trs[0]).to have_content '15,000円'
-      expect(trs[1]).to have_content '貯金'
+      expect(trs[1]).to have_content '食費'
       expect(trs[1]).to have_content '6,000円'
-      expect(trs[2]).to have_content '食費'
+      expect(trs[2]).to have_content '水道光熱費'
       expect(trs[2]).to have_content '5,000円'
-      expect(trs[3]).to have_content '住居費'
+      expect(trs[3]).to have_content '日用品費'
       expect(trs[3]).to have_content '4,000円'
     end
 
@@ -134,13 +134,13 @@ RSpec.describe "AccountBooks", type: :system do
       visit account_book_path(account_book)
       expect(page).to have_selector 'tspan', text: '30,000円'
       trs = all('tbody tr')
-      expect(trs[0]).to have_content '投資'
+      expect(trs[0]).to have_content '住居費'
       expect(trs[0]).to have_content '15,000円'
-      expect(trs[1]).to have_content '貯金'
+      expect(trs[1]).to have_content '食費'
       expect(trs[1]).to have_content '6,000円'
-      expect(trs[2]).to have_content '食費'
+      expect(trs[2]).to have_content '水道光熱費'
       expect(trs[2]).to have_content '5,000円'
-      expect(trs[3]).to have_content '住居費'
+      expect(trs[3]).to have_content '日用品費'
       expect(trs[3]).to have_content '4,000円'
     end
   end

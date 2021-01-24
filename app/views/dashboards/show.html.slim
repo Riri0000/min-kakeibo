@@ -1,5 +1,5 @@
 - set_meta_tags title: t('.title'),
-                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{@sum_of_expenditure},y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_30_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:545454/v1610963859/twitter-ogp_pmvwe8.png",
+                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{@sum_of_expenditure}円,y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_30_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:545454/v1610963859/twitter-ogp_pmvwe8.png",
                 url: "https://min-kakeibo.work/dashboards/#{@account_book.id}"},
                 twitter: {card: 'summary_large_image'}
 - breadcrumb :dashboard
@@ -19,25 +19,26 @@
         .items-right.w-full.text-right
           = render 'account_books/like_button', account_book: @account_book
       / 家計簿部分
-      table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed.tracking-wide.text-base
+      table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.tracking-wide.text-base.table-auto
         thead
           tr
             th.table-border = UserProfile.human_attribute_name(:total_assets)
-            td.table-border.text-right = show_money(@user_profile.total_assets)
+            td.table-border.text-right.w-40 = show_value(@user_profile.total_assets_i18n)
           tr
             th.table-border = UserProfile.human_attribute_name(:monthly_income)
-            td.table-border.text-right = show_money(@user_profile.monthly_income)
+            td.table-border.text-right.w-40 = show_value(@user_profile.monthly_income_i18n)
           tr
             th.table-border = Expense.model_name.human
-            td.table-border.text-right = show_money(@sum_of_expenditure)
+            td.table-border.text-right.w-40 = show_money(@sum_of_expenditure)
         thead.bg-carrot-200
           th.table-border 支出内訳
           th.table-border
+      table.text-left.w-full.border-collapse.break-all.whitespace-pre-wrap.tracking-wide.text-base.table-auto
         tbody.expense
           - @expenses.each do |expense_item, expenditure|
             tr
-              td.table-border.flex.items-center
-                span class="fa-stack fa-lg text-carrot-300 mr-3"
+              td.table-border.pl-0.flex.items-center
+                span class="fa-stack fa-lg text-carrot-300 mr-2"
                   i class="fas fa-circle fa-stack-2x"
                   i class="fas fa-#{show_icon(expense_item)} fa-stack-1x text-white"
                 span.justify-right = expense_item

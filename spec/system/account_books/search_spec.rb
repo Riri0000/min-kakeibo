@@ -29,7 +29,6 @@ RSpec.describe "AccountBooks::Search", type: :system do
       click_on '検索'
       expect(current_path).to eq account_books_path
       expect(page).to have_content(user_1.nickname)
-      expect(page).not_to have_content(login_user.nickname)
       expect(page).not_to have_content(user_2.nickname)
       expect(page).not_to have_content(user_3.nickname)
     end

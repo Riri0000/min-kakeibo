@@ -8,7 +8,7 @@ RSpec.describe "UserProfiles", type: :system do
     context '全ての入力が正常なとき' do
       it 'ユーザープロフィール登録に成功する' do
         visit new_user_profile_path
-        select '50', from: 'user_profile_age'
+        fill_in '年齢', with: '50'
         fill_in '職業', with: '会社員'
         select '北海道', from: 'user_profile_residence'
         fill_in '総資産', with: '5000000'
@@ -59,7 +59,7 @@ RSpec.describe "UserProfiles", type: :system do
       it 'ユーザープロフィール更新に成功する' do
         visit account_book_path(user)
         click_on 'プロフィールを編集する'
-        select '50', from: 'user_profile_age'
+        fill_in '年齢', with: '50'
         fill_in '職業', with: '会社員'
         select '北海道', from: 'user_profile_residence'
         fill_in '総資産', with: '5000000'
