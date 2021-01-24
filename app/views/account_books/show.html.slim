@@ -24,8 +24,8 @@
               th.table-border = UserProfile.human_attribute_name(:total_assets)
               td.table-border.text-right.w-40 = show_value(@user_profile.total_assets_i18n)
             tr
-              th.table-border = UserProfile.human_attribute_name(:monthly_income)
-              td.table-border.text-right.w-40 = show_value(@user_profile.monthly_income_i18n)
+              th.table-border.text-sm 当月収入<br>(手取り)
+              td.table-border.text-right.w-40 = show_money(@account_book.monthly_income)
             tr
               th.table-border = Expense.model_name.human
               td.table-border.text-right.w-40 = show_money(@sum_of_expenditure)

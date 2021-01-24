@@ -17,7 +17,7 @@ div class="account_book overflow-hidden bg-beaver-50 rounded-3xl text-gray-600 f
           th.table-border.w-20 = UserProfile.human_attribute_name(:total_assets)
           td.table-border.text-right = show_value(account_book.user.user_profile.total_assets_i18n)
         tr
-          th.table-border = UserProfile.human_attribute_name(:monthly_income)
-          td.table-border.text-right = show_value(account_book.user.user_profile.monthly_income_i18n)
+          th.table-border.text-sm 当月収入<br>(手取り)
+          td.table-border.text-right = show_money(account_book.monthly_income)
     .mb-0.mt-3
       = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-big-button'

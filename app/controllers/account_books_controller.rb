@@ -74,6 +74,7 @@ class AccountBooksController < ApplicationController
 
   def account_book_params
     params.require(:account_book).permit(:date,
+                                         :monthly_income,
                                          expenses_attributes: %i[
                                            id
                                            expenditure

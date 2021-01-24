@@ -31,6 +31,7 @@ ja:
         message: 'ひとこと'
       account_book:
         date: '登録する家計簿'
+        monthly_income: '当月の収入(手取り)'
       expense_item:
         name: '費目'
       expense:

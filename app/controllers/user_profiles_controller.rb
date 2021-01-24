@@ -41,7 +41,6 @@ class UserProfilesController < ApplicationController
                                          :residence,
                                          :total_assets,
                                          :annual_income,
-                                         :monthly_income,
                                          :household_member,
                                          :message)
   end

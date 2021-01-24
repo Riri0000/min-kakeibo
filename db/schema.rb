@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_104342) do
+ActiveRecord::Schema.define(version: 2021_01_24_052859) do
 
   create_table "account_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.date "date"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_104342) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "likes_count"
+    t.bigint "monthly_income"
     t.index ["user_id"], name: "index_account_books_on_user_id"
   end
 
