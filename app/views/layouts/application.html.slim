@@ -23,6 +23,8 @@ html
     main
       .breadcrumbs
         = breadcrumbs style: :bootstrap4
+        .text-carrot-500.justify-right.text-sm.ml-3.mt-2
+          = "~#{current_user.nickname}さんログイン中~"
       = yield
     footer
       = render 'shared/footer'
