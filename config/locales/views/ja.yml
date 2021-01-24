@@ -1,7 +1,7 @@
 ja:
   date:
     formats:
-      short: '%Y年%m月'
+      short: '%Y年%-m月'
   defaults:
     top: 'みんなの家計簿'
     login: 'ログイン'

@@ -52,10 +52,6 @@ module ApplicationHelper
   # 支出項目用アイコン
   def show_icon(expense_item)
     case expense_item
-    when '投資'
-      'coins'
-    when '貯金'
-      'piggy-bank'
     when '住居費'
       'home'
     when '食費'
@@ -84,6 +80,10 @@ module ApplicationHelper
       'tshirt'
     when '娯楽費'
       'umbrella-beach'
+    when '投資'
+      'coins'
+    when '貯金'
+      'piggy-bank'
     when '特別費'
       'crown'
     when '雑費'

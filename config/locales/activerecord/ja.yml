@@ -36,7 +36,7 @@ ja:
         name: '費目'
       expense:
         expenditure: '支出額'
-        note: '備考'
+        note: 'メモ'
         expense_item: '費目'
   enums:
     user:
