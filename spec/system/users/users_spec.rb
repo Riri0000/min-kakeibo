@@ -15,7 +15,7 @@ RSpec.describe "Users", type: :system do
           fill_in 'パスワード確認', with: 'password'
           find('#register-button').click
           expect(page).to have_content 'ユーザー登録しました'
-          expect(current_path).to eq account_books_path
+          expect(current_path).to eq new_user_profile_path
         end
       end
 

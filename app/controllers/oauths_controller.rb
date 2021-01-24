@@ -20,7 +20,7 @@ class OauthsController < ApplicationController
         @user.download_and_attach_profile_image(@user.profile_image)
         reset_session
         auto_login(@user)
-        redirect_to account_books_path, success: "#{provider.titleize}でログインしました"
+        redirect_to new_user_profile_path, success: "#{provider.titleize}でログインしました"
       rescue StandardError
         redirect_to root_path, danger: "#{provider.titleize}のログインに失敗しました"
       end

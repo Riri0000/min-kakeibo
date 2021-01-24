@@ -3,9 +3,10 @@ class UserProfile < ApplicationRecord
 
   validates :job, length: { maximum: 20 }
   validates :message, length: { maximum: 144 }
-  validates :total_assets, numericality: { only_integer: true, less_than: 99_999_999_999, allow_blank: true }
-  validates :annual_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
-  validates :monthly_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
+  validates :age, numericality: { only_integer: true, less_than: 150, allow_blank: true }
+  # validates :total_assets, numericality: { only_integer: true, less_than: 99_999_999_999, allow_blank: true }
+  # validates :annual_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
+  # validates :monthly_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
 
   enum household_member: {
     single: 1,
@@ -16,6 +17,75 @@ class UserProfile < ApplicationRecord
     with4kids: 6,
     withparent: 7,
     other: 8
+  }
+
+  enum total_assets: {
+    t1: 1,
+    t2: 2,
+    t3: 3,
+    t4: 4,
+    t5: 5,
+    t6: 6,
+    t7: 7,
+    t8: 8,
+    t9: 9,
+    t10: 10,
+    t11: 11,
+    t12: 12,
+    t13: 13,
+    t14: 14,
+    t15: 15,
+    t16: 16,
+    t17: 17,
+    t18: 18,
+    t19: 19,
+    t20: 20,
+    t21: 21,
+    t22: 22,
+    t23: 23,
+    t24: 24,
+    t25: 25,
+    t26: 26,
+    t27: 27,
+    t28: 28,
+    t29: 29,
+    t30: 30,
+    t31: 31
+  }
+
+  enum annual_income: {
+    a1: 1,
+    a2: 2,
+    a3: 3,
+    a4: 4,
+    a5: 5,
+    a6: 6,
+    a7: 7,
+    a8: 8,
+    a9: 9,
+    a10: 10
+  }
+  enum monthly_income: {
+    m1: 1,
+    m2: 2,
+    m3: 3,
+    m4: 4,
+    m5: 5,
+    m6: 6,
+    m7: 7,
+    m8: 8,
+    m9: 9,
+    m10: 10,
+    m11: 11,
+    m12: 12,
+    m13: 13,
+    m14: 14,
+    m15: 15,
+    m16: 16,
+    m17: 17,
+    m18: 18,
+    m19: 19,
+    m20: 20
   }
 
   PREFECTURE_NAMES = %w[

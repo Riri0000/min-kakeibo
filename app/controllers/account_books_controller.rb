@@ -23,7 +23,8 @@ class AccountBooksController < ApplicationController
   # my家計簿の表示
   def show
     @account_book = AccountBook.find_by(user_id: current_user.id)
-    @expenses = @account_book.expenses.order_by_expense_item_group
+    @expenses_for_graph = @account_book.expenses.order_by_expense_item_group
+    @expenses = @account_book.expenses.includes(:expense_item).order(expenditure: :desc)
     @user_profile = UserProfile.find_by(user_id: current_user.id)
     @sum_of_expenditure = @account_book.expenses.sum(:expenditure)
     render :show
@@ -74,9 +75,11 @@ class AccountBooksController < ApplicationController
 
   def account_book_params
     params.require(:account_book).permit(:date,
+                                         :monthly_income,
                                          expenses_attributes: %i[
                                            id
                                            expenditure
+                                           note
                                            account_book_id
                                            expense_item_id
                                            _destroy

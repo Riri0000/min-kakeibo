@@ -1,23 +1,23 @@
 div class="account_book overflow-hidden bg-beaver-50 rounded-3xl text-gray-600 font-light shadow-md border-t-8 border-carrot-300 mb-5 p-2"
   .flex.flex-wrap.items-center.justify-center.p-2.w-full.m-0.lg:p-3
-    div class="w-full py-1 px-2 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
+    div class="w-full py-1 px-2 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left mb-3"
       - if account_book.user.avator.attached?
         = image_tag account_book.user.avator , size: '70x70', class:'rounded-full'
       - else
         = image_pack_tag 'kakeibo_cat.png', size: '70x70'
-      p.ml-3 #{account_book.user.nickname}さん
-    p.mb-2.text-lg #{l account_book.date, format: :short}の家計簿
-    / = pie_chart account_book.order_by_expenses, library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
-    = pie_chart account_book.expenses.order_by_expense_item_group,library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
-    .items-right.w-full.text-right
-      = render 'like_button', account_book: account_book
+      p.ml-3.mr-2 #{account_book.user.nickname}さん
+    .mr-2.text-lg.items-center.font-bold.text-carrot-400 ＼#{l account_book.date, format: :short}の家計簿公開中／
+    = render 'like_button', account_book: account_book
     table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
       thead
         tr
-          th.table-border = UserProfile.human_attribute_name(:total_assets)
-          td.table-border.text-right = show_money(account_book.user.user_profile.total_assets)
+          th.table-border.w-20 = UserProfile.human_attribute_name(:total_assets)
+          td.table-border.text-right = show_value(account_book.user.user_profile.total_assets_i18n)
+        / tr
+        /   th.table-border.text-sm 当月収入<br>(手取り)
+        /   td.table-border.text-right = show_money(account_book.monthly_income)
         tr
-          th.table-border = UserProfile.human_attribute_name(:monthly_income)
-          td.table-border.text-right = show_money(account_book.user.user_profile.monthly_income)
+          th.table-border.text-sm 当月支出<br>
+          td.table-border.text-right = show_money(account_book.expenses.sum(:expenditure))
     .mb-0.mt-3
       = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-big-button'

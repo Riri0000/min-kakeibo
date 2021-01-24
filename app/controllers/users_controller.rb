@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       auto_login(@user)
-      redirect_to account_books_path, success: t('.success')
+      redirect_to new_user_profile_path, success: t('.success')
     else
       flash[:danger] = t('.fail')
       render :new

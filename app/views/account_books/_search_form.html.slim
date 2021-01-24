@@ -2,7 +2,7 @@
   = search_form_for q, url: url do |f|
     = f.search_field :user_nickname_cont,
                       placeholder: "ユーザー名で検索",
-                      class: 'h-10 pr-4 pl-3 shadow-sm rounded-lg'
+                      class: 'h-10 pr-1 pl-1 shadow-sm rounded-lg'
     = f.submit '検索', class: 'h-10 pr-3 pl-3 bg-carrot-300 hover:bg-carrot-400 shadow-sm text-gray-600'
     .dropdown.my-2
       button class="btn btn-warning dropdown-toggle bg-carrot-300 border-none font-light text-sm text-gray-600" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"

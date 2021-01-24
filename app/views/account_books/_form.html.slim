@@ -2,7 +2,7 @@ section.text-gray-600.body-font.relative
   .px-0.md:px-2.py-4.mx-auto.flex.flex-wrap.items-center.justify-center
     .bg-beaver-50.rounded-3xl.p-8.flex.flex-col.lg:w-2/3.md:w-full
       = form_with model: account_book, local: true do |f|
-        .relative.mb-4.pb-4.border-b-4
+        .relative.mb-4
           = f.label :date, class: 'form-label flex'
           = f.date_select :date,
                         { discard_day: true,
@@ -10,6 +10,10 @@ section.text-gray-600.body-font.relative
                           end_year: Date.today.year },
                           class: 'select-form w-2/5'
           = render 'shared/error_message', { object: f.object, attribute: :date }
+        .relative.mb-4.pb-4.border-b-4
+          = f.label :monthly_income, class: 'form-label'
+          = f.number_field :monthly_income, class: 'input-form no-spin', placeholder: '例) 200000'
+          = render 'shared/error_message', { object: f.object, attribute: :monthly_income }
         p.text-center.text-sm.text-carrot-600 支出額は半角数字で入力してください
         .relative.mb-4
           = f.fields_for :expenses do |expense|
