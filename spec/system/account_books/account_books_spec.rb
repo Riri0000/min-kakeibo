@@ -68,7 +68,7 @@ RSpec.describe "AccountBooks", type: :system do
 
   describe '家計簿表示部分' do
     let!(:user_profile) { create(:user_profile, user_id: user.id) }
-    let!(:account_book) { create(:account_book, user_id: user.id) }
+    let!(:account_book) { create(:account_book, user_id: user.id, monthly_income: 200000) }
     let!(:expense) { create(:expense, expense_item_id: 1, expenditure: 100000, account_book_id: account_book.id) }
 
     it '登録した内容がMy家計簿ページで表示されること' do
@@ -76,6 +76,7 @@ RSpec.describe "AccountBooks", type: :system do
       expect(page).to have_content user.nickname
       expect(page).to have_content account_book.date.year
       expect(page).to have_content account_book.date.month
+      expect(page).to have_content show_money(account_book.monthly_income)
       expect(page).to have_content '住居費'
       expect(page).to have_content '100,000円'
       expect(page).to have_content account_book.expenses.sum(:expenditure).to_s(:delimited)
@@ -87,6 +88,7 @@ RSpec.describe "AccountBooks", type: :system do
       expect(page).to have_content user.nickname
       expect(page).to have_content account_book.date.year
       expect(page).to have_content account_book.date.month
+      expect(page).to have_content show_money(account_book.monthly_income)
       expect(page).to have_content '住居費'
       expect(page).to have_content '100,000円'
       expect(page).to have_content account_book.expenses.sum(:expenditure).to_s(:delimited)
@@ -97,6 +99,7 @@ RSpec.describe "AccountBooks", type: :system do
       expect(page).to have_content user.nickname
       expect(page).to have_content account_book.date.year
       expect(page).to have_content account_book.date.month
+      expect(page).to have_content show_money(account_book.monthly_income)
       expect(page).to have_content account_book.expenses.sum(:expenditure).to_s(:delimited)
     end
   end

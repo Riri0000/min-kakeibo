@@ -7,7 +7,7 @@ class AccountBook < ApplicationRecord
 
   validates :date, presence: true
   validate :date_cannot_be_in_the_future
-  validates :monthly_income, numericality: { only_integer: true, greater_than: 0, less_than: 999_999_999, allow_blank: true }
+  validates :monthly_income, numericality: { only_integer: true, less_than: 999_999_999, allow_blank: true }
 
 
   # N+1対策 家計簿毎の支出合計(動くけど、ransackとMySQLエラーで怒られる)
