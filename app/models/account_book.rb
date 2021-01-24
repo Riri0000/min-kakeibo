@@ -9,7 +9,6 @@ class AccountBook < ApplicationRecord
   validate :date_cannot_be_in_the_future
   validates :monthly_income, numericality: { only_integer: true, less_than: 999_999_999, allow_blank: true }
 
-
   # N+1対策 家計簿毎の支出合計(動くけど、ransackとMySQLエラーで怒られる)
   # scope :sum_per_id, -> { joins(:expenses).select("account_books.*, SUM(expenses.expenditure) as sum_ab").group(:id) }
   # N+1対策 費目毎の支出合計（ドーナツグラフ描写部分）
