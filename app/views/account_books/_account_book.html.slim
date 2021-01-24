@@ -6,7 +6,7 @@ div class="account_book overflow-hidden bg-beaver-50 rounded-3xl text-gray-600 f
       - else
         = image_pack_tag 'kakeibo_cat.png', size: '70x70'
       p.ml-3.mr-2 #{account_book.user.nickname}さん
-    .mr-2.text-lg.items-center.font-bold.text-carrot-400 ＼#{l account_book.date, format: :short}の家計簿公開中／
+    .text-lg.items-center.font-bold.text-carrot-400 ＼#{l account_book.date, format: :short}の家計簿公開中／
     = render 'like_button', account_book: account_book
     table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
       thead
