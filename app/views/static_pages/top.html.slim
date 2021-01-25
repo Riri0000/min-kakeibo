@@ -4,7 +4,7 @@ section.text-gray-600.body-font
     / 左
     .w-full.pr-0.sm:pr-16.lg:pr-0.sm:w-2/5
       .p-1.items-center.justify-center.text-center
-        = image_pack_tag 'title-logo.png', class: 'mx-auto'
+        = image_pack_tag 'title-logo.png', class: 'mx-auto', size: '300x500'
       .text-center.text-sm.leading-loose.mt-3.p-0.sm:text-xl.mb-3
         | みんなの家計簿は、家計簿公開サービスです！<br>
       .text-center.text-base.leading-loose.sm:text-xl.mb-3
@@ -15,7 +15,7 @@ section.text-gray-600.body-font
         = link_to t('ゲストログイン'), guest_login_path, method: :post, class: 'top-primary-button py-2 px-5'
     / 右
     .w-full.p-2.flex.flex-col.mx-auto.sm:mx-5.w-full.mt-10.sm:mt-0.sm:w-2/5
-      = image_pack_tag 'top-mobile.png', class: 'mx-auto'
+      = image_pack_tag 'top-mobile.png', class: 'mx-auto', size: '300x300'
   / カード群
   .container.px-1.sm:p-4.py-2.mx-auto.text-gray-600
     .flex.flex-col.text-center.w-full.mb-10
