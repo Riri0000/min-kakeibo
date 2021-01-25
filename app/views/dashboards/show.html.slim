@@ -50,7 +50,7 @@
     / プロフィール部分
     .p-0.sm:p-12.w-full.sm:w-1/2.flex.flex-col.items-start.mt-5.text-base
       .flex.flex-col.px-4
-        = link_to "https://twitter.com/share?url=#{request.url}/&hashtags=みんなの家計簿,家計簿公開&lang=ja", title: 'Twitter' do
+        = link_to "https://twitter.com/share?url=#{request.url}&text=#{@account_book.user.nickname}さんの家計簿公開中！&hashtags=みんなの家計簿,家計簿公開&lang=ja", title: 'Twitter' do
           button.relative.mt-6.w-full.blue-square-button
             span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
               i.fab.fa-twitter
