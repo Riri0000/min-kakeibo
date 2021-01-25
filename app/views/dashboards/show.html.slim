@@ -22,7 +22,7 @@
       table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.tracking-wide.text-base.table-auto
         thead
           tr
-            th.table-border = UserProfile.human_attribute_name(:total_assets)
+            th.table-border.w-20 = UserProfile.human_attribute_name(:total_assets)
             td.table-border.text-right.w-40 = show_value(@user_profile.total_assets_i18n)
           tr
             th.table-border.text-sm 当月収入<br>(手取り)
@@ -67,7 +67,7 @@
               th.table-border = UserProfile.human_attribute_name(:job)
               td.table-border.text-center = show_value(@user_profile.job)
             tr
-              th.table-border 年収<br>(額面)
+              th.table-border.w-20 年収<br>(額面)
               td.table-border.text-cente.w-40 = show_value(@user_profile.annual_income_i18n)
             tr
               th.table-border = UserProfile.human_attribute_name(:residence)
