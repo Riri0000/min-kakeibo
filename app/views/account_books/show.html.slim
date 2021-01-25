@@ -1,11 +1,13 @@
-- set_meta_tags title: t('.title'),
-                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{@sum_of_expenditure}円,y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_30_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:545454/v1610963859/twitter-ogp_pmvwe8.png",
-                     url: "https://min-kakeibo.work/dashboards/#{@account_book.id}"}
+- set_meta_tags title: "{@account_book.user.nickname}さんの家計簿公開中！",
+                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{@sum_of_expenditure}円,y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_30_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:545454/v1610963859/twitter-ogp_pmvwe8.png"}
+
+                / og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{@sum_of_expenditure}円,y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_30_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:545454/v1610963859/twitter-ogp_pmvwe8.png",
+                /      url: "https://min-kakeibo.work/dashboards/#{@account_book.id}"}
 - breadcrumb :account_book
 .text-gray-600.font-light.m-0
-  .flex.flex-wrap.bg-beaver-50.rounded-3xl.justify-center.shadow-md.border-t-8.border-carrot-300
+  .flex.flex-wrap.bg-beaver-50.rounded-3xl.justify-center.shadow-md.border-t-8.border-carrot-300.sm:m-16.sm:p-10
     / 家計簿部分
-    .p-6.md:p-12.w-full.md:w-1/2.flex.flex-col.items-start
+    .p-6.sm:p-12.w-full.sm:w-1/2.flex.flex-col.items-start
       div class="w-full py-1 px-2 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
         - if @account_book.user.avator.attached?
           = image_tag @account_book.user.avator, size: '70x70', class:'rounded-full'
@@ -49,9 +51,9 @@
         .flex.justify-center
           = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
     / プロフィール部分
-    .p-0.md:p-6.w-full.md:w-1/2.flex.flex-col.items-start.mt-5.text-base.justify-center
+    .p-0.sm:p-12.w-full.sm:w-1/2.flex.flex-col.items-start.mt-5.text-base.justify-center
       .flex.flex-col.px-4
-        = link_to "https://twitter.com/intent/tweet?url=https://min-kakeibo.work/dashboards/#{@account_book.id}/&hashtags=みんなの家計簿,家計簿公開&lang=ja", title: 'Twitter' do
+        = link_to "https://twitter.com/share?url=https://min-kakeibo.work/dashboards/#{@account_book.id}&hashtags=みんなの家計簿,家計簿公開&lang=ja", title: 'Twitter' do
           button.relative.mt-6.w-full.blue-square-button
             span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
               i.fab.fa-twitter
@@ -64,7 +66,7 @@
               span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
                 i.fab.fa-twitter
               span.ml-3 #{@account_book.user.nickname}さんのTwitter
-
+      .flex.flex-col.px-4.justify-left.w-full.py-2.sm:my-12
         / プロフィールテーブル
         table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-auto
           tbody

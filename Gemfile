@@ -92,8 +92,6 @@ gem 'kaminari'
 # slim
 gem 'slim-rails'
 gem 'html2slim'
-# フラッシュメッセージ
-gem 'toastr-rails'
 # 日本円表記
 gem 'ya_kansuji', '~> 0.2.0'
 

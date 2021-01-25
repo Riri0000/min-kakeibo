@@ -15,7 +15,6 @@ require("jquery")
 require("@nathanvda/cocoon")
 require("bootstrap")
 require("chartkick").use(require("highcharts"))
-require("toastr")
 // fontawesomeはJS版を使用
 import '@fortawesome/fontawesome-free/js/all';
 
@@ -28,12 +27,5 @@ const imagePath = (name) => images(name, true)
 
 // CSS----------------------
 import '../css/tailwind.scss';
-import '../stylesheets/application.scss';
 
-import toastr from 'toastr';
-window.toastr = toastr;
 window.jQuery = window.$ = require('jquery')
-
-toastr.options = {
-  "closeButton": true
-}
