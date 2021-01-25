@@ -83,9 +83,9 @@
             tr
               th.table-border = UserProfile.human_attribute_name(:household_member)
               td.table-border.text-center = show_value(@user_profile.household_member_i18n)
-            tr
+            tr.w-full
               th.p-2 = UserProfile.human_attribute_name(:message)
             tr
-              td.text-left = show_value(@user_profile.message)
+              td.pl-3.text-left colspan=2 = show_value(@user_profile.message)
         .flex.justify-center.mb-20
           = link_to t('defaults.edit_user_profile'), edit_user_profile_path(@user_profile), class: 'light-square-button mt-5'
