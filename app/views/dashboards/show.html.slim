@@ -1,5 +1,5 @@
-- set_meta_tags title: "{@account_book.user.nickname}さんの家計簿公開中！",
-                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{@sum_of_expenditure}円,y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_30_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:545454/v1610963859/twitter-ogp_pmvwe8.png",
+- set_meta_tags title: "#{@account_book.user.nickname}さんの家計簿公開中！",
+                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{@sum_of_expenditure}円,y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_40_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:FF981E/v1610963859/twitter-ogp_pmvwe8.png",
                      url: "#{request.url}"}
 - breadcrumb :dashboard
 .text-gray-600.font-light.m-0
@@ -15,9 +15,9 @@
       .flex.items-center.flex-wrap.pb-4.mb-2.mt-auto.w-full.justify-center.text-xl.font-medium.tracking-widest
         p.inline-block.py-1.mb-2.rounded.text-carrot-600.text-lg.font-medium.tracking-widest #{l @account_book.date, format: :short}の家計簿
         = pie_chart @expenses_for_graph,library: {title: {text: "支出<br> #{number_to_currency(@sum_of_expenditure)}"}}
-        .items-right.w-full.text-right
         - if logged_in?
-          = render 'account_books/like_button', account_book: @account_book
+          .items-right.w-full.text-right
+            = render 'account_books/like_button', account_book: @account_book
       / 家計簿部分
       table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.tracking-wide.text-base.table-auto
         thead
