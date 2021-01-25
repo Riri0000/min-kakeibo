@@ -12,7 +12,7 @@ section.text-gray-600.body-font
       .p-2.items-center.text-center
         = link_to t('はじめる'), new_user_path, class: 'top-primary-button'
         = link_to t('defaults.login'), login_path, class: 'top-primary-light-button'
-        = link_to t('ゲストログイン'), guest_login_path, method: :post, class: 'primary-button'
+        = link_to t('ゲストログイン'), guest_login_path, method: :post, class: 'top-primary-button py-2 px-5'
     / 右
     .w-full.p-2.flex.flex-col.mx-auto.sm:mx-5.w-full.mt-10.sm:mt-0.sm:w-2/5
       = image_pack_tag 'top-mobile.png', class: 'mx-auto'
