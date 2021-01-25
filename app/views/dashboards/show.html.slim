@@ -16,6 +16,7 @@
         p.inline-block.py-1.mb-2.rounded.text-carrot-600.text-lg.font-medium.tracking-widest #{l @account_book.date, format: :short}の家計簿
         = pie_chart @expenses_for_graph,library: {title: {text: "支出<br> #{number_to_currency(@sum_of_expenditure)}"}}
         .items-right.w-full.text-right
+        - if logged_in?
           = render 'account_books/like_button', account_book: @account_book
       / 家計簿部分
       table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.tracking-wide.text-base.table-auto
