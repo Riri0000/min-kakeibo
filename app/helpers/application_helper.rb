@@ -49,6 +49,11 @@ module ApplicationHelper
     money == '0' ? 'ー' : "#{money}円"
   end
 
+  # 金額の漢数字表示(TwitterOGP用。カンマを全角に変えて出力可能にする※半角だとエラーになるため)
+  def show_ogp(num)
+    YaKansuji.to_kan(num, :lawyer).gsub(',', '，')
+  end
+
   # 支出項目用アイコン
   def show_icon(expense_item)
     case expense_item

@@ -1,4 +1,6 @@
-- set_meta_tags title: "#{@account_book.user.nickname}さんの家計簿公開中！"
+- set_meta_tags title: "#{@account_book.user.nickname}さんの家計簿公開中！",
+                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{show_ogp(@sum_of_expenditure)}円,y_10,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_40_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:DF7900/v1610963859/twitter-ogp_pmvwe8.png",
+                     url: "#{request.url}"}
 - breadcrumb :dashboard
 .text-gray-600.font-light.m-0
   .flex.flex-wrap.bg-beaver-50.rounded-3xl.justify-center.shadow-md.border-t-8.border-carrot-300.sm:m-16
@@ -47,12 +49,6 @@
                 text-xs.text-gray-400 = expense.note
     / プロフィール部分
     .p-0.sm:p-12.w-full.sm:w-1/2.flex.flex-col.items-start.mt-5.text-base
-      / .flex.flex-col.px-4
-      /   = link_to "https://twitter.com/share?url=#{request.url}&text=#{@account_book.user.nickname}さんの家計簿公開中！&hashtags=みんなの家計簿,家計簿公開&lang=ja", title: 'Twitter' do
-      /     button.relative.mt-6.w-full.blue-square-button
-      /       span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
-      /         i.fab.fa-twitter
-      /       span.ml-2 TwitterでSHARE
       .flex.flex-col.px-4.justify-left.w-full.py-2.sm:my-12
         - if @account_book.user.twitter_screen_name?
           = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do

@@ -1,0 +1,7 @@
+.container
+  - if current_user.account_book.present?
+    = link_to t('defaults.my_account_books'), account_book_path(current_user), class: 'top-primary-button px-4 py-3'
+  - elsif current_user.user_profile.present?
+    = link_to 'My家計簿登録', new_account_book_path, class: 'top-primary-button px-4 py-2'
+  - else
+    = link_to 'まずはプロフィール登録！', new_user_profile_path, class: 'top-primary-button px-3 py-2'

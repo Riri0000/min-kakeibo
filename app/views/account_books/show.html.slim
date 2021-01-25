@@ -1,5 +1,5 @@
 - set_meta_tags title: "#{@account_book.user.nickname}さんの家計簿公開中！",
-                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{@sum_of_expenditure}円,y_0,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_40_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:FF981E/v1610963859/twitter-ogp_pmvwe8.png",
+                og: {image: "https://res.cloudinary.com/#{Rails.application.credentials.cloudinary[:cloud_name]}/image/upload/l_text:Sawarabi%20Gothic_60_bold:#{show_ogp(@sum_of_expenditure)}円,y_10,x_-130,co_rgb:545454/l_text:Sawarabi%20Gothic_40_bold:#{@account_book.user.nickname}さん,y_-150,x_170,co_rgb:DF7900/v1610963859/twitter-ogp_pmvwe8.png",
                       url: "https://min-kakeibo.work/dashboards/#{@account_book.id}"}
 - breadcrumb :account_book
 .text-gray-600.font-light.m-0
