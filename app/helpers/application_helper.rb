@@ -55,7 +55,7 @@ module ApplicationHelper
   end
 
   def remove_emoji(nickname)
-    nickname.gsub(/\p{Emoji}/, "◆")
+    nickname.gsub(/\p{Emoji}/, '◆')
   end
 
   # 支出項目用アイコン
