@@ -54,6 +54,10 @@ module ApplicationHelper
     YaKansuji.to_kan(num, :lawyer).gsub(',', '，')
   end
 
+  def remove_emoji(nickname)
+    nickname.gsub(/\p{Emoji}/, "◆")
+  end
+
   # 支出項目用アイコン
   def show_icon(expense_item)
     case expense_item
