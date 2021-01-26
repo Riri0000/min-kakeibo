@@ -7,7 +7,9 @@ div class="account_book overflow-hidden bg-beaver-50 rounded-3xl text-gray-600 f
         = image_pack_tag 'kakeibo_cat.png', size: '70x70'
       p.ml-3.mr-2 #{account_book.user.nickname}さん
     .text-lg.items-center.font-bold.text-carrot-400 ＼#{l account_book.date, format: :short}の家計簿公開中／
-    = render 'like_button', account_book: account_book
+    = pie_chart account_book.expenses.order_by_expense_item_group, width: "250px", height: "250px", library: {title: {text: "支出<br> #{number_to_currency(account_book.expenses.sum(:expenditure))}"}}
+    .items-right.w-full.text-right
+      = render 'like_button', account_book: account_book
     table.text-left.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-fixed
       thead
         tr
@@ -16,8 +18,8 @@ div class="account_book overflow-hidden bg-beaver-50 rounded-3xl text-gray-600 f
         / tr
         /   th.table-border.text-sm 当月収入<br>(手取り)
         /   td.table-border.text-right = show_money(account_book.monthly_income)
-        tr
-          th.table-border.text-sm 当月支出<br>
-          td.table-border.text-right = show_money(account_book.expenses.sum(:expenditure))
+        / tr
+        /   th.table-border.text-sm 当月支出<br>
+        /   td.table-border.text-right = show_money(account_book.expenses.sum(:expenditure))
     .mb-0.mt-3
       = link_to t('defaults.dashboard'), dashboard_path(account_book), class: 'primary-big-button'

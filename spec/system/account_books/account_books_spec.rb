@@ -100,7 +100,6 @@ RSpec.describe "AccountBooks", type: :system do
       expect(page).to have_content account_book.date.year
       expect(page).to have_content account_book.date.month
       expect(page).to have_content show_money(account_book.user.user_profile.total_assets)
-      expect(page).to have_content show_money(account_book.expenses.sum(:expenditure))
     end
   end
 
