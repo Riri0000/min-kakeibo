@@ -29,10 +29,10 @@ RSpec.describe "UserSessions", type: :system do
     describe 'ゲストログイン機能' do
       let(:guest) { create(:user, :guest) }
 
-      xit '正常にログインできること' do
+      it '正常にログインできること' do
         guest
         visit root_path
-        click_on 'お試しログイン'
+        click_on 'ゲストログイン'
         expect(page).to have_content('ゲストとしてログインしました')
         expect(current_path).to eq account_books_path
       end
