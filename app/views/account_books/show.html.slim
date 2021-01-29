@@ -3,9 +3,9 @@
                       url: "https://min-kakeibo.work/dashboards/#{@account_book.id}"}
 - breadcrumb :account_book
 .text-gray-600.font-light.m-0
-  .flex.flex-wrap.bg-beaver-50.rounded-3xl.justify-center.shadow-md.border-t-8.border-carrot-300.sm:m-16.sm:p-10
+  div class="flex flex-wrap bg-beaver-50 rounded-3xl justify-center shadow-md border-t-8 border-carrot-300 sm:m-16 sm:p-10"
     / 家計簿部分
-    .p-6.sm:p-12.w-full.sm:w-1/2.flex.flex-col.items-start
+    div class="p-6 sm:p-12 w-full sm:w-1/2 flex flex-col items-start"
       div class="w-full py-1 px-2 rounded text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
         - if @account_book.user.avator.attached?
           = image_tag @account_book.user.avator, size: '70x70', class:'rounded-full'
@@ -49,7 +49,7 @@
         .flex.justify-center
           = link_to t('defaults.edit_account_book'), edit_account_book_path(@account_book), class: 'light-square-button mt-5'
     / プロフィール部分
-    .p-0.sm:p-12.w-full.sm:w-1/2.flex.flex-col.items-start.mt-5.text-base.justify-center
+    div class="p-0 sm:p-12 w-full sm:w-1/2 flex flex-col items-start mt-5 text-base justify-center"
       / Twitterシェア部分
       .flex.flex-col.px-4
         = link_to "https://twitter.com/share?url=https://min-kakeibo.work/dashboards/#{@account_book.id}&text=#{@account_book.user.nickname}さんの家計簿公開中！&hashtags=みんなの家計簿,家計簿公開&lang=ja", title: 'Twitter' do
@@ -64,7 +64,7 @@
               span.absolute.left-0.top-0.flex.items-center.justify-center.h-full.w-10.text-blue-500
                 i.fab.fa-twitter
               span.ml-3 #{@account_book.user.nickname}さんのTwitter
-      .flex.flex-col.px-4.justify-left.w-full.py-2.sm:my-12
+      div class="flex flex-col px-4 justify-left w-full py-2 sm:my-12"
         / プロフィールテーブル
         table.w-full.border-collapse.mt-4.break-all.whitespace-pre-wrap.table-auto
           tbody

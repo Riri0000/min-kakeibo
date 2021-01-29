@@ -3,9 +3,9 @@
                      url: "#{request.url}"}
 - breadcrumb :dashboard
 .text-gray-600.font-light.m-0
-  .flex.flex-wrap.bg-beaver-50.rounded-3xl.justify-center.shadow-md.border-t-8.border-carrot-300.sm:m-16
+  div class="flex flex-wrap bg-beaver-50 rounded-3xl justify-center shadow-md border-t-8 border-carrot-300 sm:m-16"
     / 家計簿部分
-    .p-6.sm:p-12.w-full.sm:w-1/2.flex.flex-col.items-start
+    div class="p-6 sm:p-12 w-full sm:w-1/2 flex flex-col items-start"
       div class="w-full py-1 mb-3 sm:mb-5 text-gray-600 text-xl font-medium tracking-widest flex items-center flex-wrap justify-left"
         - if @account_book.user.avator.attached?
           = image_tag @account_book.user.avator , size: '70x70', class:'rounded-full'
@@ -48,8 +48,8 @@
               td.pl-14 colspan=3
                 text-xs.text-gray-400 = expense.note
     / プロフィール部分
-    .p-0.sm:p-12.w-full.sm:w-1/2.flex.flex-col.items-start.mt-5.text-base
-      .flex.flex-col.px-4.justify-left.w-full.py-2.sm:my-12
+    div class="p-0 sm:p-12 w-full sm:w-1/2 flex flex-col items-start mt-5 text-base"
+      div class="flex flex-col px-4 justify-left w-full py-2 sm:my-12"
         - if @account_book.user.twitter_screen_name?
           = link_to "https://twitter.com/#{@account_book.user.twitter_screen_name}" do
             button.relative.mt-6.blue-square-button
