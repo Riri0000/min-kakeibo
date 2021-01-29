@@ -16,7 +16,7 @@ class AccountBooksController < ApplicationController
     @q = AccountBook.ransack(params[:q])
     @account_books = @q.result.includes([:likes, { user: [:user_profile, { avator_attachment: :blob }] }])
                        #  .sum_per_id
-                       .order(created_at: :desc)
+                       .order(likes_count: :desc)
                        .page(params[:page])
   end
 
