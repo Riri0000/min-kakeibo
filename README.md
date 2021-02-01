@@ -1,4 +1,4 @@
-<h2 align="center">:cat:みんなの家計簿:cat:</h2>
+<h2 align="center">:sparkles::moneybag::cat:みんなの家計簿:cat::moneybag::sparkles:</h2>
 <p align="center">自分と他人の家計簿に興味がある人達に、<br>お金と向き合う場を提供する家計簿公開サービスです。</p>
 <br>
 
@@ -14,11 +14,14 @@
 
 ## :green_book:Qiita記事
 [家計簿＆資産公開あぷり『みんなの家計簿』をリリースしました](https://qiita.com/riri34566/items/9d37f23da04ab618bd52)
+<p>:star:LGTM116</p>
+(2021年2月1日現在）<br>
 <br>
 <br>
 <br>
 
 ## :fire:プログラミングスクール合同コンテスト『editch』に出場
+<p>:star:スポンサー賞・審査員賞受賞</p>
 - [editch概要](https://editch.org/)
 - [editch出場動画](https://youtu.be/sBtM49LsjjM?t=1932)
 <br>
@@ -68,7 +71,7 @@ Twitterの投資・資産運用アカウントの人達
 - bullet (N+1検知)
 - rspec-rails (テスト)
 
-## インフラストラクチャー
+## :earth_africa:インフラストラクチャー
 - CircleCI
 - Capistrano
 - AWS
