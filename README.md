@@ -1,26 +1,27 @@
-<h2 align="center">みんなの家計簿</h2>
+<h2 align="center">:cat:みんなの家計簿:cat:</h2>
 <p align="center">自分と他人の家計簿に興味がある人達に、<br>お金と向き合う場を提供する家計簿公開サービスです。</p>
 <br>
 
 ![ogp-logo-1](https://user-images.githubusercontent.com/67212652/106421436-0cf72300-64a0-11eb-973f-73e83396485c.png)
 
-## App URL
+## :globe_with_meridians:App URL
 ### **https://min-kakeibo.work/**  
-<p>ユニークユーザー数1270人</p>
-<p>登録者数102人</p>
+<p>:star:ユニークユーザー数1,413人</p>
+<p>:star:登録者数116人</p>
+(2021年2月1日現在）<br>
 <br>
 
-## Qiita記事
+## :green_book:Qiita記事
 [家計簿＆資産公開あぷり『みんなの家計簿』をリリースしました](https://qiita.com/riri34566/items/9d37f23da04ab618bd52)
 <br>
 <br>
 
-## プログラミングスクール合同コンテスト『editch』に出場
+## :fire:プログラミングスクール合同コンテスト『editch』に出場
 - [editch概要](https://editch.org/)
 - [editch出場動画](https://youtu.be/sBtM49LsjjM?t=1932)
 <br>
 
-## みんなの家計簿について
+## :cat:みんなの家計簿について
 ### 登場人物
 Twitterの投資・資産運用アカウントの人達
 
