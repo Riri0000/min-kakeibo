@@ -22,8 +22,10 @@
 
 ## :fire:プログラミングスクール合同コンテスト『editch』に出場
 <p>:star:スポンサー賞・審査員賞受賞</p>
-- [editch概要](https://editch.org/)
+
+- [editch概要](https://editch.org/)  
 - [editch出場動画](https://youtu.be/sBtM49LsjjM?t=1932)
+
 <br>
 <br>
 
