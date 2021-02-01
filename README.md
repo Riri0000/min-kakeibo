@@ -10,15 +10,18 @@
 <p>:star:登録者数116人</p>
 (2021年2月1日現在）<br>
 <br>
+<br>
 
 ## :green_book:Qiita記事
 [家計簿＆資産公開あぷり『みんなの家計簿』をリリースしました](https://qiita.com/riri34566/items/9d37f23da04ab618bd52)
+<br>
 <br>
 <br>
 
 ## :fire:プログラミングスクール合同コンテスト『editch』に出場
 - [editch概要](https://editch.org/)
 - [editch出場動画](https://youtu.be/sBtM49LsjjM?t=1932)
+<br>
 <br>
 
 ## :cat:みんなの家計簿について
@@ -47,7 +50,7 @@ Twitterの投資・資産運用アカウントの人達
 <br>
 <br>
 
-## 使用技術
+## :wrench:使用技術
 - Ruby 2.7.2
 - Rails 6.0.3
 - RSpec
