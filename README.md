@@ -1,12 +1,12 @@
-![ogp-logo-1](https://user-images.githubusercontent.com/67212652/106421436-0cf72300-64a0-11eb-973f-73e83396485c.png)
-
 <h2 align="center">みんなの家計簿</h2>
 <p align="center">自分と他人の家計簿に興味がある人達に、<br>お金と向き合う場を提供する家計簿公開サービスです。</p>
 
-## App URL
+![ogp-logo-1](https://user-images.githubusercontent.com/67212652/106421436-0cf72300-64a0-11eb-973f-73e83396485c.png)
+
+<h2>App URL</h2>
 ### **https://min-kakeibo.work/**
 
-## Qiita
+<h2 class="mt-5 mb-5">Qiita</h2>
 [家計簿＆資産公開あぷり『みんなの家計簿』をリリースしました](https://qiita.com/riri34566/items/9d37f23da04ab618bd52)
 
 ## プログラミングスクール合同コンテスト『editch』に出場
