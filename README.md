@@ -13,7 +13,7 @@
 <br>
 
 ## :green_book:Qiita記事
-[家計簿＆資産公開あぷり『みんなの家計簿』をリリースしました](https://qiita.com/riri34566/items/9d37f23da04ab618bd52)
+### [家計簿＆資産公開あぷり『みんなの家計簿』をリリースしました](https://qiita.com/riri34566/items/9d37f23da04ab618bd52)
 <p>:star:LGTM116</p>
 (2021年2月1日現在）<br>
 <br>
@@ -32,17 +32,21 @@
 ## :cat:みんなの家計簿について
 ### 登場人物
 Twitterの投資・資産運用アカウントの人達
+<br>
 
 ### ユーザーが抱える課題
 - 自分はお金の遣い方が下手なのでは？と不安になる。資産運用が上手な人の家計簿を参考にしたい。
 - ブログやTwitterで家計簿を公開する人達がいるが、情報を集約した場がない。
+<br>
 
 ### 解決方法
 自身の代表的な月の家計簿を公開＆他人の家計簿を見られるアプリケーション
+<br>
 
 ### 望む未来
 - 他人の家計簿をみることで、自分のお金の遣い方を見直すことができる。
 - 自分の家計簿を公開することで、家計簿をつけるモチベーション維持につながる。
+<br>
 
 ### サービスをつくった背景
 投資に失敗したことがきっかけで家計簿をつけ始め、家計簿ブログやTwitterを参考に支出を見直して生活するようになった。<br>
@@ -60,6 +64,7 @@ Twitterの投資・資産運用アカウントの人達
 - Rails 6.0.3
 - RSpec
 - TailwindCSS
+<br>
 
 ### 主要なGem
 - sorcery (認証)
@@ -72,6 +77,7 @@ Twitterの投資・資産運用アカウントの人達
 - ya_kansuji (日本円表記)
 - bullet (N+1検知)
 - rspec-rails (テスト)
+<br>
 
 ## :earth_africa:インフラストラクチャー
 - CircleCI
@@ -85,9 +91,11 @@ Twitterの投資・資産運用アカウントの人達
   - ALB
   - Route53
   - ACM
+  <br>
 
 ## ER図
 ![Sharing_Kakeibo](https://user-images.githubusercontent.com/67212652/106415612-df57ad00-6492-11eb-9fb0-b7c23cc7737f.png)
+<br>
 
 ## インフラ構成図
 ![インフラ構成図](https://user-images.githubusercontent.com/67212652/106415913-9c4a0980-6493-11eb-9aa8-e94677f436cc.png)
