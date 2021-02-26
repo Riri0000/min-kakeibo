@@ -1,17 +1,6 @@
 class AccountBooksController < ApplicationController
   before_action :set_account_book, only: %i[edit update destroy]
 
-  # expensesが余計なEager Loadingと怒られるのでとった。
-  # グラフ部分が多分 N + 1
-  # def index
-  #   @q = AccountBook.ransack(params[:q])
-  #   @account_books = @q.result
-  #                      .includes([:likes, { user: %i[user_profile avator_attachment] }])
-  #                      .order(created_at: :desc)
-  #                      .page(params[:page])
-  # end
-
-  # 保留 likesとexpensesが余計なEager Loadingと怒られる。 ???
   def index
     @q = AccountBook.ransack(params[:q])
     @account_books = @q.result.includes([:likes, { user: [:user_profile, { avator_attachment: :blob }] }])
