@@ -16,6 +16,7 @@ jobs:
         environment:
           - MYSQL_USER: root
           - MYSQL_DB: ci_test
+          - MYAQL_PASSWORD: <%= Rails.application.credentials.development[:password] %>
     working_directory: ~/repo
     steps:
       # CI環境上の working_directory の値の場所にGitリポジトリをコピーする。
