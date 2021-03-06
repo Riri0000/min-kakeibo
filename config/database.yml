@@ -16,7 +16,7 @@ test:
   <<: *default
   database: ci_test
   host: <%=ENV['DB_HOST'] || '127.0.0.1' %>
-  password: ""
+  password: <%= Rails.application.credentials.development[:password] %>
 
 production:
   <<: *default

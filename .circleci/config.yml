@@ -14,7 +14,6 @@ jobs:
           - TZ: "Japan"
       - image: circleci/mysql:5.7
         environment:
-          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_USER: root
           - MYSQL_DB: ci_test
     working_directory: ~/repo
