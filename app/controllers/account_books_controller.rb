@@ -11,7 +11,7 @@ class AccountBooksController < ApplicationController
 
   # my家計簿の表示
   def show
-    @account_book = AccountBook.find_by(user_id: current_user.id)
+    @account_book = current_user.account_book
     @expenses_for_graph = @account_book.expenses.order_by_expense_item_group
     @expenses = @account_book.expenses.includes(:expense_item).order(expenditure: :desc)
     @user_profile = UserProfile.find_by(user_id: current_user.id)
